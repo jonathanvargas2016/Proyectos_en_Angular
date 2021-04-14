@@ -1,0 +1,21 @@
+<br><br>
+<div class="row" *ngIf="auth.user$ | async as profile">
+  <div class="col-md-4">
+    <img [src]="profile.picture" alt="" class="img-fluid">
+  </div>
+
+  <div class="col-md-8">
+
+    <ul class="list-group">
+      <li class="list-group-item">{{profile.name}}</li>
+      <li class="list-group-item">{{profile.email}}</li>
+      <li class="list-group-item">{{profile.updated_at | date:'fullDate'}}</li>
+    </ul>
+
+  </div>
+</div>
+
+
+<pre *ngIf="auth.user$ | async as profile">
+  <code>{{ profile | json }}</code>
+</pre>
