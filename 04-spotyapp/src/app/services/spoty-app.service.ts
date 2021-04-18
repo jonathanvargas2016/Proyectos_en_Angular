@@ -16,7 +16,7 @@ export class SpotyAppService {
 
    }
 
-   getQuery(query:string){
+   getQuery (query:string){
      const url = `https://api.spotify.com/v1/${query}`
      const headers = new HttpHeaders({
           'Authorization':'Bearer BQCfNm2GdXkV7YVWbqg0HesAKKJO9ZzBa9XlON7OPu8GyjBz1d-P5RldIyfL4Z3ir03ZCZUMPdeeZ5TPmEM'
