@@ -29,63 +29,59 @@ export class HeroeComponent implements OnInit {
 
   loading = false;
 
-  id = '';
+  id: string;
 
-  constructor(private router:Router,
-              private _heroeService:HeroesService,
-              private activatedRoute:ActivatedRoute) {
+  constructor(private router: Router,
+              private heroeService: HeroesService,
+              private activatedRoute: ActivatedRoute) {
 
-                this.activatedRoute.params.subscribe(parametros =>{
-                  this.id = parametros.id
+    this.activatedRoute.params.subscribe(parametros => {
+      this.id = parametros.id;
 
-                  if(this.id != 'nuevo'){
+      if (this.id !== 'nuevo'){
 
-                    this._heroeService.getHeroe(this.id)
-                        .subscribe((data:any) =>{
-                          this.heroe = data
-                        })
-                  }
-              })
+        this.heroeService.getHeroe(this.id)
+          .subscribe((data: any) => {
+            this.heroe = data;
+          });
+      }
+    });
   }
 
   ngOnInit(): void {
   }
 
-  guardar(forma: NgForm){
-    console.log(forma);
-    // if(this.id == 'nuevo'){
-    //   //insertando
-    //
-    //   this.loading = true
-    //   this._heroeService.nuevoHeroe(this.heroe)
-    //       .subscribe((data:any) =>{
-    //     this.router.navigate(['/heroe',data.name])
-    //
-    //     setTimeout(()=>this.loading = false,2000)
-    //
-    //   }, error =>{
-    //     console.error(error)
-    //   })
-    // }else{
-    //   //actualizando
-    //
-    //   this.loading = true
-    //   this._heroeService.actualizarHeroe(this.heroe,this.id)
-    //       .subscribe(data =>{
-    //         console.log(data)
-    //         setTimeout(()=>this.loading = false,2000)
-    //       },error=>{
-    //         console.error(error)
-    //       })
-    // }
+  guardar(): void{
+
+    if (this.id === 'nuevo'){
+      // insertando
+
+      this.loading = true;
+      this.heroeService.nuevoHeroe(this.heroe)
+        .subscribe((data: any) => {
+          this.router.navigate(['/heroes']);
+        }, error => {
+          console.error(error);
+        });
+    }else{
+      // actualizando
+
+      this.loading = true;
+      this.heroeService.actualizarHeroe(this.heroe, this.id)
+        .subscribe(data => {
+          this.router.navigate(['/heroes']);
+        }, error => {
+          console.error(error);
+        });
+    }
 
   }
 
-  agregarNuevo(forma:NgForm){
-    this.router.navigate(['/heroe','nuevo'])
+  agregarNuevo(forma: NgForm): void{
+    this.router.navigate(['/heroe', 'nuevo']);
     forma.reset({
-      casa:this.casas[0]
-    })
+      casa: this.casas[0]
+    });
   }
 
 }

@@ -10,37 +10,34 @@ import { HeroesService } from 'src/app/services/heroes.service';
 })
 export class HeroesComponent implements OnInit {
 
-  heroes:any[]=[]
-  loading = true
+  heroes: any[] = [];
+  loading = true;
 
-  constructor(private _heroeService:HeroesService) {
-    this._heroeService.getAllHeroes()
-        .subscribe((data:any) =>{
-
-          setTimeout( ()=>{
-            this.heroes = data;
-            this.loading = false;
-          },3000)
-
-
-        })
+  constructor(private _heroeService: HeroesService) {
   }
 
   ngOnInit(): void {
+    this._heroeService.getAllHeroes()
+      .subscribe((data: any) => {
+
+        setTimeout( () => {
+          this.heroes = data;
+          this.loading = false;
+        }, 1000);
+      });
   }
 
-  borrarHeroe(key$:string){
+  borrarHeroe(key$: string): void{
 
     this._heroeService.borrarHeroeFirebase(key$)
-        .subscribe(respuesta=>{
+        .subscribe(respuesta => {
 
-          if(respuesta){
-            console.error(respuesta)
+          if (respuesta){
+            console.error(respuesta);
           }else{
-            //metodos de js
-            delete this.heroes[key$]
+            // metodos de js
+            delete this.heroes[key$];
           }
-
-        })
+        });
   }
 }
