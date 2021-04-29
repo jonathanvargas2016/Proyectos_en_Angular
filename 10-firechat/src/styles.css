@@ -54,3 +54,6 @@
 .fadeIn {
   animation-name: fadeIn;
 }
+.text-right{
+  text-align: right;
+}

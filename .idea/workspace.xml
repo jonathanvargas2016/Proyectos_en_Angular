@@ -4,13 +4,11 @@
     <list default="true" id="1a23ac72-cb32-4f67-8e2f-ea49f5d7cdf8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/06/src/app/app.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/06/src/app/app.component.spec.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/06/src/app/app.component.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/06/src/app/app.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/06/src/assets/.gitkeep" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/06/src/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/06/src/polyfills.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/06/src/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/10-firechat/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/10-firechat/src/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +58,7 @@
       <workItem from="1619497221577" duration="2152000" />
       <workItem from="1619578221541" duration="7379000" />
       <workItem from="1619645128429" duration="9435000" />
+      <workItem from="1619669810351" duration="992000" />
     </task>
     <servers />
   </component>
