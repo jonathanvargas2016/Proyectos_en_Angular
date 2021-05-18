@@ -8,7 +8,6 @@
       <change beforePath="$PROJECT_DIR$/06/src/app/app.module.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/06/src/index.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/06/src/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/10-firechat/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/10-firechat/src/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,8 +37,14 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="ts.external.directory.path" value="C:\Users\jonat\Documents\GitHub\Proyectos_en_Angular\03-pipes\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\jonat\Documents\GitHub\Proyectos_en_Angular\12-mipagina\src\app" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -59,6 +64,9 @@
       <workItem from="1619578221541" duration="7379000" />
       <workItem from="1619645128429" duration="9435000" />
       <workItem from="1619669810351" duration="992000" />
+      <workItem from="1619836695141" duration="253000" />
+      <workItem from="1621224269176" duration="3756000" />
+      <workItem from="1621282092729" duration="24835000" />
     </task>
     <servers />
   </component>
@@ -70,10 +78,18 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="110" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1618289807827" />
+    <state x="184" y="8" key="SettingsEditor" timestamp="1621291811201">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="184" y="8" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1621291811201" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1618290772128">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1366.728@0.0.1366.728" timestamp="1618290772128" />
+    <state x="339" y="162" key="run.anything.popup" timestamp="1621302421185">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1621302421185" />
     <state x="687" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1619650875066">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

@@ -1,0 +1,101 @@
+<div class="container main">
+
+  <div class="row">
+    <div class="col">
+      <img src="https://www.dzoom.org.es/wp-content/uploads/2020/02/portada-foto-perfil-redes-sociales-consejos.jpg" class="img-fluid" alt="foto de perfil">
+    </div>
+    <div class="col">
+      <h5>{{miPersona.nombre}}</h5>
+      <h6>{{miPersona.especialidad}}</h6>
+      <br>
+      <h6>Perfil Profesional</h6>
+      <hr>
+      <p>{{miPersona.perfilProfesional}}
+      </p>
+
+    </div>
+  </div>
+
+  <br>
+  <h3>Informacion de Contacto</h3>
+  <hr>
+
+  <div class="row">
+    <div class="col col-1">
+      <object type="image/svg+xml" data="./assets/svg/email.svg">
+      </object><br>
+    </div>
+    <div class="col">
+      <p>{{informacionContacto.correoPersonal}}</p>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col col-1">
+      <object type="image/svg+xml" data="./assets/svg/email.svg">
+      </object><br>
+    </div>
+    <div class="col">
+      <p>{{informacionContacto.correoInstitucional}}</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col col-1">
+      <object type="image/svg+xml" data="./assets/svg/phone.svg">
+      </object><br>
+    </div>
+    <div class="col">
+      <p>+593 {{informacionContacto.celular}}</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col col-1">
+      <object type="image/svg+xml" data="./assets/svg/address.svg">
+      </object><br>
+    </div>
+    <div class="col">
+      <p>{{informacionContacto.direccion}}</p>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col col-1">
+      <object type="image/svg+xml" data="./assets/svg/linkedin.svg">
+      </object>
+    </div>
+    <div class="col">
+      <a href="https://www.linkedin.com/in/jonathan-vargas28/" target="_blank">jonathan-vargas28</a>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col col-1">
+      <object type="image/svg+xml" data="./assets/svg/github.svg">
+      </object><br>
+    </div>
+    <div class="col">
+      <a href="https://github.com/jonathanvargas2016" target="_blank">jonathanvargas2016</a>
+    </div>
+  </div>
+
+  <br><br>
+  <h3>Habilidades Generales</h3>
+  <hr>
+  <span class="badge bg-primary padding-badge" *ngFor="let habilidad of habilidades">{{habilidad}}</span>
+
+  <br><br><br>
+  <h3>Motivación</h3>
+  <hr>
+  <p>En la búsqueda de nuevas oportunidades laborales que me permitan crecer como profesional y a la vez como persona.
+     Tengo muy poco experiencia laboral por eso estoy dispuesto a trabajar con entusiamo en cualquier empresa ya sea pública o privada para
+  adquirir mas experiencia laboral, mejorar mis conocimientos y aprender acerca del modelo de negocio de esas empresas. Constantemente estoy aprendiendo
+    nuevas tecnologías para el desarrollo web en el Frontend y el Backend en las que utilizo frameworks, lenguajes de programación y base de datos. </p>
+
+
+
+</div>
+

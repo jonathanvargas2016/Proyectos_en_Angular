@@ -1,0 +1,20 @@
+
+p{
+  text-align: justify;
+}
+img{
+  max-width: 75%;
+  height: auto;
+}
+
+a:link, a:visited, a:active {
+  color: black;
+}
+
+.main{
+  padding-bottom: 50px;
+}
+
+.padding-badge{
+  margin-left: 10px;
+}
