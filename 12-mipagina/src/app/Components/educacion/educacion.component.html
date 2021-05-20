@@ -1,1 +1,100 @@
-<p>educacion works!</p>
+<div class="container relleno">
+  <h3>Habilidades</h3>
+  <hr>
+  <br>
+
+  <div class="row">
+    <div class="col">
+      <h6>Programación</h6>
+      <span class="badge rounded-pill bg-secondary" *ngFor="let lenguaje of programacion">{{lenguaje}}</span><br>
+    </div>
+
+    <div class="col">
+      <h6>Frameworks</h6>
+      <span class="badge rounded-pill bg-success" *ngFor="let framework of frameworks">{{framework}}</span>
+
+
+    </div>
+
+    <div class="col">
+      <h6>Base de datos</h6>
+      <span class="badge rounded-pill bg-danger" *ngFor="let bd of baseDatos">{{bd}}</span>
+
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col">
+      <h6>Sistemas Operativos</h6>
+      <span class="badge rounded-pill bg-warning" *ngFor="let sistema of sistemasOperativos">{{sistema}}</span>
+
+    </div>
+
+    <div class="col">
+      <h6>Idiomas</h6>
+      <span class="badge rounded-pill bg-light text-dark" *ngFor="let idioma of idiomas">{{idioma}}</span>
+
+    </div>
+    <div class="col">
+      <h6>Otros</h6>
+      <span class="badge rounded-pill bg-info" *ngFor="let otro of otros">{{otro}}</span>
+
+    </div>
+
+  </div>
+  <br><br>
+
+  <h3>Educación</h3>
+  <hr>
+
+  <div class="card" style="width: 40rem;">
+    <div class="card-body">
+      <h5 class="card-title">
+        <object type="image/svg+xml" data="./assets/svg/person.svg"></object>
+        Egresado
+      </h5>
+      <p class="card-text"><object type="image/svg+xml" data="./assets/svg/entidad.svg"></object>
+        Escuela Politecnica Nacional
+      </p>
+      <p class="card-text"><object type="image/svg+xml" data="./assets/svg/calendario.svg"></object>
+        04-2021-20
+      </p>
+    </div>
+    <img src="https://slideplayer.es/16112873/97/images/slide_1.jpg" class="card-img-bottom" alt="...">
+  </div>
+  <br>
+  <div class="card" style="width: 40rem;">
+    <div class="card-body">
+      <h5 class="card-title">
+        <object type="image/svg+xml" data="./assets/svg/person.svg"></object>
+        Egresado
+      </h5>
+      <p class="card-text"><object type="image/svg+xml" data="./assets/svg/entidad.svg"></object>
+        Escuela Politecnica Nacional
+      </p>
+      <p class="card-text"><object type="image/svg+xml" data="./assets/svg/calendario.svg"></object>
+        04-2021-20
+      </p>
+    </div>
+    <img src="https://slideplayer.es/16112873/97/images/slide_1.jpg" class="card-img-bottom" alt="...">
+  </div>
+
+  <br>
+  <div class="card" style="width: 40rem;">
+    <div class="card-body">
+      <h5 class="card-title">
+        <object type="image/svg+xml" data="./assets/svg/person.svg"></object>
+        Egresado
+      </h5>
+      <p class="card-text"><object type="image/svg+xml" data="./assets/svg/entidad.svg"></object>
+        Escuela Politecnica Nacional
+      </p>
+      <p class="card-text"><object type="image/svg+xml" data="./assets/svg/calendario.svg"></object>
+        04-2021-20
+      </p>
+    </div>
+    <img src="https://slideplayer.es/16112873/97/images/slide_1.jpg" class="card-img-bottom" alt="...">
+  </div>
+
+</div>
+

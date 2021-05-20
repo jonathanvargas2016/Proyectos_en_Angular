@@ -8,11 +8,7 @@ img{
 }
 
 a:link, a:visited, a:active {
-  color: black;
-}
-
-.main{
-  padding-bottom: 50px;
+  color: white;
 }
 
 .padding-badge{

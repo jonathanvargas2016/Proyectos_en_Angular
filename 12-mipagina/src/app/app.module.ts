@@ -12,6 +12,12 @@ import { ReferenciasComponent } from './Components/referencias/referencias.compo
 
 // rutas
 import {AppRoutingModule} from './app.routes'
+
+// firebase
+import {AngularFireModule} from '@angular/fire'
+import {environment} from "../environments/environment";
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +33,8 @@ import {AppRoutingModule} from './app.routes'
   imports: [
     BrowserModule,
     AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
