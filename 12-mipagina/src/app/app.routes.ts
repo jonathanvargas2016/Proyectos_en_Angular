@@ -6,6 +6,7 @@ import {ExperienciaComponent} from "./Components/experiencia/experiencia.compone
 import {CertificacionesComponent} from "./Components/certificaciones/certificaciones.component";
 import {ProyectosComponent} from "./Components/proyectos/proyectos.component";
 import {ReferenciasComponent} from "./Components/referencias/referencias.component";
+import {LoginComponent} from "./Components/login/login.component";
 
 const rutas: Routes = [
   { path: 'yo', component: YoComponent },
@@ -13,7 +14,8 @@ const rutas: Routes = [
   { path: 'experiencia-laboral', component: ExperienciaComponent },
   { path: 'cursos-certificaciones', component: CertificacionesComponent },
   { path: 'proyectos', component: ProyectosComponent },
-  { path: 'referencias-personales', component: ReferenciasComponent },
+  { path: 'login', component: LoginComponent },
+
   { path: '**', pathMatch: 'full', redirectTo: 'yo' },
 ]
 

@@ -12,7 +12,7 @@ export class EducacionComponent implements OnInit {
   idiomas = ['Inglés'];
   sistemasOperativos = ['Windows', 'Linux'];
   baseDatos = ['SQL Server', 'Mysql'];
-  otros = ['Firebase', 'Github']
+  otros = ['Firebase', 'Github', 'Boostrap']
 
   constructor() { }
 

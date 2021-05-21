@@ -17,6 +17,8 @@ import {AppRoutingModule} from './app.routes'
 import {AngularFireModule} from '@angular/fire'
 import {environment} from "../environments/environment";
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AdministracionComponent } from './Components/administracion/administracion.component';
+import { LoginComponent } from './Components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     ExperienciaComponent,
     CertificacionesComponent,
     ProyectosComponent,
-    ReferenciasComponent
+    ReferenciasComponent,
+    AdministracionComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

@@ -1,1 +1,10 @@
 
+h5, p{
+  color: black;
+}
+img{
+  width: 40rem;
+  height: auto;
+  display:block;
+  margin:auto;
+}

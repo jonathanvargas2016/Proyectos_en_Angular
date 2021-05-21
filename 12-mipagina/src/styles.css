@@ -1,11 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
 body{
-  background: #0F2027;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  color: white;
+  background: #EFEFBB;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #D4D3DD, #EFEFBB);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #D4D3DD, #EFEFBB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 
 .relleno{
   padding-bottom: 50px;
 }
+a:link, a:visited, a:active {
+  color: black;
+}
+p{
+  text-align: justify;
+}
+
+.marco1{
+  border: 1px solid white;
+}
+
