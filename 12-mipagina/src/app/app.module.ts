@@ -20,6 +20,9 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AdministracionComponent } from './Components/administracion/administracion.component';
 import { LoginComponent } from './Components/login/login.component';
 
+// forms
+import {FormsModule} from "@angular/forms";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +41,8 @@ import { LoginComponent } from './Components/login/login.component';
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

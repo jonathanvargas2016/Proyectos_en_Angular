@@ -1,28 +1,33 @@
-<div class="container">
-  <form>
+<div class="container relleno">
+  <form (ngSubmit)="guardar(forma)" #forma="ngForm" >
     <div class="mb-3">
 
-      <label for="email" class="form-label">Email address</label>
-      <input type="email"
-             class="form-control"
-             id="email"
-             aria-describedby="emailHelp"
-             placeholder="Ingrese su correo">
+        <label for="email" class="form-label">Correo Electronico</label>
+        <input type="email"
+               class="form-control"
+               id="email"
+               aria-describedby="emailHelp"
+               placeholder="Ingrese su correo"
+               name="email"
+               [(ngModel)]="credenciales.correo"
+               required>
 
-      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
 
     </div>
 
     <div class="mb-3">
-      <label for="password" class="form-label">Password</label>
-      <input type="password"
-             class="form-control"
-             id="password"
-              placeholder="Ingrese su password">
-    </div>
+        <label for="password" class="form-label">Contraseña</label>
+        <input type="password"
+               class="form-control"
+               id="password"
+               placeholder="Ingrese su password"
+               name="password"
+               [(ngModel)]="credenciales.password"
+               required>
+      </div>
 
-
-    <button type="submit" class="btn btn-primary" (click)="login()">Submit</button>
+    <button type="submit" class="btn btn-primary" (click)="guardar(forma)">Submit</button>
 
   </form>
 </div>
