@@ -1,0 +1,16 @@
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col" *ngFor="let pelicula of peliculas">
+    <div class="card h-100">
+      <img [src]="pelicula | noimage " class="card-img-top" alt="pelicula.original_title">
+      <div class="card-body">
+        <h5 class="card-title">{{pelicula.original_title}}</h5>
+        <p class="card-text text-justify">{{pelicula.overview | slice:0:250}}...</p>      </div>
+      <button type="button"
+              name="button"
+              [routerLink]="['/pelicula',pelicula.id,'search',termino]"
+              class="btn btn-outline-primary btn-block">Ver mas</button>
+    </div>
+  </div>
+
+</div>
