@@ -3,11 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="1a23ac72-cb32-4f67-8e2f-ea49f5d7cdf8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/06/src/app/app.component.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/06/src/app/app.component.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/06/src/app/app.module.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/06/src/index.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/06/src/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/login/login.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/login/login.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/login/login.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/login/login.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/app.module.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,16 +35,19 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/12-mipagina/src/assets/svg" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-    <property name="ts.external.directory.path" value="C:\Users\jonat\Documents\GitHub\Proyectos_en_Angular\03-pipes\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="C:\Users\jonat\Documents\GitHub\Proyectos_en_Angular\10-firechat\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\jonat\Documents\GitHub\Proyectos_en_Angular\12-mipagina\src\assets\svg" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\jonat\Documents\GitHub\Proyectos_en_Angular\12-mipagina\src\app" />
     </key>
@@ -67,6 +73,11 @@
       <workItem from="1619836695141" duration="253000" />
       <workItem from="1621224269176" duration="3756000" />
       <workItem from="1621282092729" duration="24835000" />
+      <workItem from="1621395207301" duration="3571000" />
+      <workItem from="1621465981907" duration="6446000" />
+      <workItem from="1621545365510" duration="10994000" />
+      <workItem from="1621644556960" duration="8620000" />
+      <workItem from="1621713822757" duration="1628000" />
     </task>
     <servers />
   </component>
