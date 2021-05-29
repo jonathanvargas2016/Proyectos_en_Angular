@@ -3,26 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="1a23ac72-cb32-4f67-8e2f-ea49f5d7cdf8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/login/login.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/login/login.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/login/login.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/login/login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/navbar/navbar.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/navbar/navbar.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/navbar/navbar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/navbar/navbar.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/navbar/navbar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/navbar/navbar.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/proyectos/proyectos.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/proyectos/proyectos.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/proyectos/proyectos.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/proyectos/proyectos.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/yo/yo.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/yo/yo.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/yo/yo.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/yo/yo.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/yo/yo.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/yo/yo.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Servicios/mipagina.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Servicios/mipagina.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/footer/footer.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/footer/footer.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/footer/footer.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/footer/footer.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/footer/footer.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/footer/footer.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/app.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/12-mipagina/src/assets/svg/email.svg" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/assets/svg/email.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/assets/svg/github.svg" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/assets/svg/github.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/12-mipagina/src/assets/svg/linkedin.svg" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/assets/svg/linkedin.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/12-mipagina/src/assets/svg/phone.svg" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/assets/svg/phone.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/12-mipagina/src/assets/svg/ubicacion.svg" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/assets/svg/ubicacion.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +83,7 @@
       <workItem from="1621995621381" duration="5199000" />
       <workItem from="1622078189059" duration="591000" />
       <workItem from="1622232312752" duration="26559000" />
-      <workItem from="1622307185642" duration="13105000" />
+      <workItem from="1622307185642" duration="16672000" />
     </task>
     <servers />
   </component>

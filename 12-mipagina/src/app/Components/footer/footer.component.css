@@ -1,0 +1,16 @@
+
+.fondo{
+ background-color: #f8f9fa!important;
+ height: 100px;
+}
+.centrado-texto{
+  text-align: center;
+}
+
+.relleno{
+  height: 4px;
+}
+.fondo-icono{
+  color: #c82333;
+}
+
