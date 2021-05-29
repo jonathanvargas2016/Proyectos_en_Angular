@@ -1,9 +1,75 @@
 
 img{
-  max-width: 75%;
+  width: 100%;
   height: auto;
+}
+.tamano-foto-perfil{
+  width: 70%;
+  height: auto;
+  display:block;
+  margin:auto;
+
 }
 
 .padding-badge{
   margin-left: 10px;
+}
+.fondo{
+  background-image: url('src/assets/img/fondo1.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  min-height: 45vw;
+}
+
+.color-texto{
+  color: #fff;
+}
+.centrar-texto-h1{
+  text-align: center;
+  font-size: 5vw;
+}
+.centrar-texto-p{
+  text-align: center;
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+.relleno-fondo-img{
+  clear: both;
+  height: 12vw;
+}
+
+.posicion-centrado{
+  text-align: center;
+}
+
+.btn{
+  border-radius: 0;
+  padding: 1vw 2vw;
+}
+
+.fondo2{
+  min-height: 35vw;
+  background-size: 100% 100%;
+  background-color: #ededed;
+}
+
+.espacio-h1{
+  margin-bottom: 20px;
+}
+
+.fondo3{
+
+  background-size: 100% 100%;
+  min-height: 35vw;
+}
+.relleno-fondos{
+  height: 6vw;
+}
+.fondo4{
+  background-color: black;
+  background-size: 100% 100%;
+  min-height: 35vw;
 }

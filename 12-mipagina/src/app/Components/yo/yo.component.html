@@ -1,98 +1,134 @@
-<div class="container relleno">
+<div class="fondo">
 
-  <div class="row">
-    <div class="col">
-      <img src="https://www.dzoom.org.es/wp-content/uploads/2020/02/portada-foto-perfil-redes-sociales-consejos.jpg" class="img-fluid" alt="foto de perfil">
-    </div>
-    <div class="col">
-      <h5>{{miPersona.nombre}}</h5>
-      <h6>{{miPersona.especialidad}}</h6>
-      <br>
-      <h6>Perfil Profesional</h6>
-      <hr>
-      <p>{{miPersona.perfilProfesional}}
-      </p>
+  <div class="relleno-fondo-img"></div>
 
-    </div>
+  <div class="container color-texto">
+    <h1 class="centrar-texto-h1">{{miPersona.nombre}}</h1>
+    <p class="centrar-texto-p">{{miPersona.especialidad}}</p>
   </div>
 
-  <br>
-  <h3>Informacion de Contacto</h3>
-  <hr>
-
-  <div class="row">
-    <div class="col col-1">
-      <object type="image/svg+xml" data="./assets/svg/email.svg">
-      </object><br>
-    </div>
-    <div class="col">
-      <p>{{informacionContacto.correoPersonal}}</p>
-    </div>
+  <div class="container posicion-centrado">
+    <button class="btn btn-primary">VER CURRICULUM</button>
   </div>
 
+  <div class="relleno-fondo-img"></div>
 
-  <div class="row">
-    <div class="col col-1">
-      <object type="image/svg+xml" data="./assets/svg/email.svg">
-      </object><br>
-    </div>
-    <div class="col">
-      <p>{{informacionContacto.correoInstitucional}}</p>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col col-1">
-      <object type="image/svg+xml" data="./assets/svg/phone.svg">
-      </object><br>
-    </div>
-    <div class="col">
-      <p>+593 {{informacionContacto.celular}}</p>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col col-1">
-      <object type="image/svg+xml" data="../../../assets/svg/ubicacion.svg">
-      </object><br>
-    </div>
-    <div class="col">
-      <p>{{informacionContacto.direccion}}</p>
-    </div>
-  </div>
-
-
-  <div class="row">
-    <div class="col col-1">
-      <object type="image/svg+xml" data="./assets/svg/linkedin.svg">
-      </object>
-    </div>
-    <div class="col">
-      <a href="https://www.linkedin.com/in/jonathan-vargas28/" target="_blank">jonathan-vargas28</a>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col col-1">
-      <object type="image/svg+xml" data="./assets/svg/github.svg">
-      </object><br>
-    </div>
-    <div class="col">
-      <a href="https://github.com/jonathanvargas2016" target="_blank">jonathanvargas2016</a>
-    </div>
-  </div>
-
-  <br><br>
-  <h3>Habilidades Generales</h3>
-  <hr>
-  <span class="badge bg-primary padding-badge" *ngFor="let habilidad of habilidades">{{habilidad}}</span>
-
-  <br><br><br>
-  <h3>Motivación</h3>
-  <hr>
-  <p>En la búsqueda de nuevas oportunidades laborales que me permitan crecer como profesional y a la vez como persona.
-     Tengo muy poco experiencia laboral por eso estoy dispuesto a trabajar con entusiamo en cualquier empresa ya sea pública o privada para
-  adquirir mas experiencia laboral, mejorar mis conocimientos y aprender acerca del modelo de negocio de esas empresas. Constantemente estoy aprendiendo
-    nuevas tecnologías para el desarrollo web en el Frontend y el Backend en las que utilizo frameworks, lenguajes de programación y base de datos. </p>
 </div>
 
+<div class="fondo2">
+  <div class="relleno-fondos"></div>
+
+  <div class="container">
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+
+      <div class="col">
+        <img src="./assets/img/yo.jpg"
+             class="img-fluid tamano-foto-perfil" alt="foto perfil">
+      </div>
+
+      <div class="col">
+        <div class="relleno-fondos"></div>
+        <h1 class="espacio-h1">Perfil Profesional</h1>
+        <p>{{miPersona.perfilProfesional}}</p>
+      </div>
+
+    </div>
+  </div>
+  <div class="relleno-fondos"></div>
+
+</div>
+
+
+<div class="fondo3">
+
+  <div class="relleno-fondos"></div>
+
+  <div class="container">
+
+    <h1>Información de Contacto</h1><br>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4 posicion-centrado">
+
+      <div class="col">
+
+        <object type="image/svg+xml" data="./assets/svg/email.svg">
+        </object>
+        <br>
+        <h3><a type="button" (click)="cambiarBanderaEmailP()">Ver</a></h3>
+        <p class="posicion-centrado" *ngIf="banderaEmailP==true">{{informacionContacto.correoPersonal}}</p>
+
+      </div>
+
+      <div class="col">
+        <object type="image/svg+xml" data="./assets/svg/email.svg">
+        </object>
+        <br>
+        <h3><a type="button" (click)="cambiarBanderaEmailI()">Ver</a></h3>
+        <p class="posicion-centrado" *ngIf="banderaEmailI==true">{{informacionContacto.correoInstitucional}}</p>
+      </div>
+
+      <div class="col">
+        <object type="image/svg+xml" data="./assets/svg/phone.svg">
+        </object>
+        <br>
+        <h3><a type="button" (click)="cambiarBanderaTelf()">Ver</a></h3>
+        <p class="posicion-centrado" *ngIf="banderaTelf==true">+593 {{informacionContacto.celular}}</p>
+      </div>
+
+      <div class="col">
+        <object type="image/svg+xml" data="./assets/svg/ubicacion.svg">
+        </object>
+        <br>
+        <h3><a href="https://goo.gl/maps/gwSTBE1KmqAxUXGF9" target="_blank">Ver</a></h3>
+      </div>
+
+      <div class="col">
+        <object type="image/svg+xml" data="./assets/svg/github.svg">
+        </object>
+        <br>
+        <h3><a href="https://github.com/jonathanvargas2016" target="_blank">Ver</a></h3>
+      </div>
+
+      <div class="col">
+        <object type="image/svg+xml" data="./assets/svg/linkedin.svg">
+        </object>
+        <br>
+        <h3><a href="https://www.linkedin.com/in/jonathan-vargas28/" target="_blank">Ver</a></h3>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="relleno-fondos"></div>
+
+</div>
+
+
+
+<div class="fondo4">
+  <div class="relleno-fondos"></div>
+
+  <div class="container">
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+
+      <div class="col color-texto">
+        <div class="relleno-fondos"></div>
+        <h1 class="espacio-h1">Motivación</h1>
+        <p>
+        <p>En la búsqueda de nuevas oportunidades laborales que me permitan crecer como profesional y a la vez como persona.
+          Tengo poco experiencia laboral por eso estoy dispuesto a trabajar con entusiamo en cualquier empresa ya sea pública o privada para
+          adquirir mas experiencia laboral, mejorar mis conocimientos y aprender acerca del modelo de negocio de esas empresas. Constantemente estoy aprendiendo
+          nuevas tecnologías para el desarrollo web en el Frontend y el Backend en las que utilizo frameworks, lenguajes de programación y base de datos.</p>
+      </div>
+
+      <div class="col">
+        <img src="./assets/img/motiv.png" alt="motivacion">
+
+      </div>
+    </div>
+
+  </div>
+
+  <div class="relleno-fondos"></div>
+
+</div>

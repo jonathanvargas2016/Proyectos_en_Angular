@@ -1,33 +1,42 @@
 <div class="container relleno">
-  <form (ngSubmit)="guardar(forma)" #forma="ngForm" >
+
+  <form (ngSubmit)="guardar()" #forma="ngForm" >
+
     <div class="mb-3">
 
         <label for="email" class="form-label">Correo Electronico</label>
         <input type="email"
-               class="form-control"
+               class="form-control" [ngClass]="{'is-invalid':email.errors?.required && email.touched}"
                id="email"
                aria-describedby="emailHelp"
                placeholder="Ingrese su correo"
                name="email"
                [(ngModel)]="credenciales.correo"
-               required>
+               required
+               #email="ngModel"
+               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
 
-        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        <div id="emailHelp" class="form-text color" *ngIf="email.errors?.required && email.touched">Correo es requerido</div>
+        <div class="form-text color" *ngIf="email.errors?.pattern">Correo invalido</div>
 
     </div>
 
     <div class="mb-3">
         <label for="password" class="form-label">Contraseña</label>
         <input type="password"
-               class="form-control"
+               class="form-control" [ngClass]="{'is-invalid': password.errors?.required && password.touched}"
                id="password"
+               aria-describedby="passwordHelp"
                placeholder="Ingrese su password"
                name="password"
                [(ngModel)]="credenciales.password"
-               required>
+               required
+               #password="ngModel">
       </div>
+    <div id="passwordHelp" class="form-text color" *ngIf="password.errors?.required && password.touched">Contraseña es requerido</div>
 
-    <button type="submit" class="btn btn-primary" (click)="guardar(forma)">Submit</button>
+
+    <button type="submit" class="btn btn-primary" [disabled]="forma.invalid">Submit</button>
 
   </form>
 </div>

@@ -1,0 +1,28 @@
+nav{
+  min-height: 70px;
+}
+.navbar-brand{
+  color: blue;
+  padding-left: 10vw;
+}
+
+button{
+  border-radius: 0px;
+  margin-right: 7vw;
+  width: 120px;
+}
+.navbar-expand-lg .navbar-nav .nav-link{
+  color: black;
+  font-size: 14px;
+}
+.navbar-expand-lg .navbar-nav .nav-link.active{
+  color: blue;
+  border-bottom: 3px solid blue;
+}
+.navbar-expand-lg .navbar-nav .nav-link:hover{
+  border-bottom: 3px solid blue;
+}
+.alert-info{
+  background-color: black;
+  color: white;
+}

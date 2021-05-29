@@ -9,16 +9,17 @@ import { ExperienciaComponent } from './Components/experiencia/experiencia.compo
 import { CertificacionesComponent } from './Components/certificaciones/certificaciones.component';
 import { ProyectosComponent } from './Components/proyectos/proyectos.component';
 import { ReferenciasComponent } from './Components/referencias/referencias.component';
+import { AdministracionComponent } from './Components/administracion/administracion.component';
+import { LoginComponent } from './Components/login/login.component';
 
 // rutas
 import {AppRoutingModule} from './app.routes'
 
 // firebase
 import {AngularFireModule} from '@angular/fire'
-import {environment} from "../environments/environment";
+import {AngularFireAuthModule} from "@angular/fire/auth";
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AdministracionComponent } from './Components/administracion/administracion.component';
-import { LoginComponent } from './Components/login/login.component';
+import {environment} from "../environments/environment";
 
 // forms
 import {FormsModule} from "@angular/forms";
@@ -43,6 +44,7 @@ import {FormsModule} from "@angular/forms";
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     FormsModule,
+    AngularFireAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]

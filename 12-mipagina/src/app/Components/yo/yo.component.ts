@@ -6,6 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./yo.component.css']
 })
 export class YoComponent implements OnInit {
+  banderaEmailP = false;
+  banderaEmailI = false;
+  banderaUbicacion = false;
+  banderaGithub = false;
+  banderaTelf = false;
+  banderaLink = false;
+
   miPersona = {
     nombre: 'Jonathan Santiago Vargas Nilve',
     especialidad: 'Egresado en Ingeniería en Sistemas Informáticos y de Computación de la Escuela Politécnica Nacional',
@@ -18,7 +25,7 @@ export class YoComponent implements OnInit {
     correoPersonal: 'jonathan.1996mds@gmail.com',
     correoInstitucional: 'jonathan.vargas01@epn.edu.ec',
     celular: '0983774891',
-    direccion: 'San Luis de Chillogallo calle S33A',
+    direccion: 'Quito - Ecuador',
   }
 
   habilidades = ['Javascript', 'Typescript', 'Firebase', 'SQL Server', 'Angular', 'NestJS'
@@ -27,6 +34,24 @@ export class YoComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+  cambiarBanderaEmailP(): boolean{
+    return this.banderaEmailP = !this.banderaEmailP;
+  }
+  cambiarBanderaEmailI(): boolean{
+    return this.banderaEmailI = !this.banderaEmailI;
+  }
+  cambiarBanderaUbicacion(): boolean{
+    return this.banderaUbicacion = !this.banderaUbicacion;
+  }
+  cambiarBanderaTelf(): boolean{
+    return this.banderaTelf = !this.banderaTelf;
+  }
+  cambiarBanderaLink(): boolean{
+    return this.banderaLink = !this.banderaLink;
+  }
+  cambiarBanderaGithub(): boolean{
+    return this.banderaGithub = !this.banderaGithub;
   }
 
 }
