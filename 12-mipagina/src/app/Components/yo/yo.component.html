@@ -35,7 +35,6 @@
     </div>
   </div>
   <div class="relleno-fondos"></div>
-
 </div>
 
 
@@ -47,55 +46,34 @@
 
     <h1>Información de Contacto</h1><br>
 
-    <div class="row row-cols-1 row-cols-md-3 g-4 posicion-centrado">
+    <div class="row row-cols-1 row-cols-md-3 g-4 posicion-centrado contactos">
 
       <div class="col">
-
-        <object type="image/svg+xml" data="./assets/svg/email.svg">
-        </object>
-        <br>
-        <h3><a type="button" (click)="cambiarBanderaEmailP()">Ver</a></h3>
+        <a type="button" (click)="cambiarBanderaEmailP()"><img src="./assets/svg/email.svg" alt="email"></a>
         <p class="posicion-centrado" *ngIf="banderaEmailP==true">{{informacionContacto.correoPersonal}}</p>
-
       </div>
 
       <div class="col">
-        <object type="image/svg+xml" data="./assets/svg/email.svg">
-        </object>
-        <br>
-        <h3><a type="button" (click)="cambiarBanderaEmailI()">Ver</a></h3>
+        <a type="button" (click)="cambiarBanderaEmailI()"><img src="./assets/svg/email.svg" alt="email"></a>
         <p class="posicion-centrado" *ngIf="banderaEmailI==true">{{informacionContacto.correoInstitucional}}</p>
       </div>
 
       <div class="col">
-        <object type="image/svg+xml" data="./assets/svg/phone.svg">
-        </object>
-        <br>
-        <h3><a type="button" (click)="cambiarBanderaTelf()">Ver</a></h3>
+        <a type="button" (click)="cambiarBanderaTelf()"><img src="./assets/svg/phone.svg" alt="phone"></a>
         <p class="posicion-centrado" *ngIf="banderaTelf==true">+593 {{informacionContacto.celular}}</p>
       </div>
 
       <div class="col">
-        <object type="image/svg+xml" data="./assets/svg/ubicacion.svg">
-        </object>
-        <br>
-        <h3><a href="https://goo.gl/maps/gwSTBE1KmqAxUXGF9" target="_blank">Ver</a></h3>
+        <a href="https://goo.gl/maps/gwSTBE1KmqAxUXGF9" type="button" target="_blank"><img src="./assets/svg/ubicacion.svg" alt="ubicacion"></a>
       </div>
 
       <div class="col">
-        <object type="image/svg+xml" data="./assets/svg/github.svg">
-        </object>
-        <br>
-        <h3><a href="https://github.com/jonathanvargas2016" target="_blank">Ver</a></h3>
+        <a href="https://github.com/jonathanvargas2016" type="button" target="_blank"><img src="./assets/svg/github.svg" alt="github"></a>
       </div>
 
       <div class="col">
-        <object type="image/svg+xml" data="./assets/svg/linkedin.svg">
-        </object>
-        <br>
-        <h3><a href="https://www.linkedin.com/in/jonathan-vargas28/" target="_blank">Ver</a></h3>
+        <a href="https://www.linkedin.com/in/jonathan-vargas28/" type="button" target="_blank"><img src="./assets/svg/linkedin.svg" alt="linkedin"></a>
       </div>
-
     </div>
   </div>
 
@@ -114,15 +92,12 @@
       <div class="col color-texto">
         <div class="relleno-fondos"></div>
         <h1 class="espacio-h1">Motivación</h1>
+        <p>{{miPersona.motivacion}}
         <p>
-        <p>En la búsqueda de nuevas oportunidades laborales que me permitan crecer como profesional y a la vez como persona.
-          Tengo poco experiencia laboral por eso estoy dispuesto a trabajar con entusiamo en cualquier empresa ya sea pública o privada para
-          adquirir mas experiencia laboral, mejorar mis conocimientos y aprender acerca del modelo de negocio de esas empresas. Constantemente estoy aprendiendo
-          nuevas tecnologías para el desarrollo web en el Frontend y el Backend en las que utilizo frameworks, lenguajes de programación y base de datos.</p>
       </div>
 
       <div class="col">
-        <img src="./assets/img/motiv.png" alt="motivacion">
+        <img src="./assets/img/motiv.png" alt="motivacion" class="tamano-img">
 
       </div>
     </div>

@@ -1,5 +1,5 @@
 
-img{
+.tamano-img{
   width: 100%;
   height: auto;
 }
@@ -8,7 +8,6 @@ img{
   height: auto;
   display:block;
   margin:auto;
-
 }
 
 .padding-badge{
@@ -61,15 +60,26 @@ img{
 }
 
 .fondo3{
-
   background-size: 100% 100%;
   min-height: 35vw;
 }
+
 .relleno-fondos{
   height: 6vw;
 }
+
 .fondo4{
   background-color: black;
   background-size: 100% 100%;
   min-height: 35vw;
 }
+.contactos div a{
+  padding: 10px 10px;
+  line-height: 50px;
+}
+
+.contactos div a:hover{
+  filter: blur(2px);
+  transform: translate(-3px) scale(1.3);
+}
+
