@@ -1,13 +1,11 @@
 
 .fondo{
- background-color: #f8f9fa!important;
- height: 100px;
+  background-color: #f8f9fa;
+  width: 100%;
+  height: 100px;
 }
 .centrado-texto{
   text-align: center;
 }
 
-.relleno{
-  height: 4px;
-}
 

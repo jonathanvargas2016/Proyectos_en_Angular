@@ -1,15 +1,12 @@
 
-.tamano-img{
-  width: 100%;
+img{
+  max-width: 100%;
   height: auto;
-}
-.tamano-foto-perfil{
-  width: 70%;
-  height: auto;
-  display:block;
-  margin:auto;
 }
 
+.posicion-der-img{
+  text-align: center;
+}
 .padding-badge{
   margin-left: 10px;
 }
@@ -28,6 +25,8 @@
 .centrar-texto-h1{
   text-align: center;
   font-size: 5vw;
+  font-family: Poppins, var(--nv-fallback-ff);
+  font-weight: 600;
 }
 .centrar-texto-p{
   text-align: center;
@@ -40,39 +39,15 @@
   height: 12vw;
 }
 
-.posicion-centrado{
-  text-align: center;
-}
-
 .btn{
   border-radius: 0;
   padding: 1vw 2vw;
-}
-
-.fondo2{
-  min-height: 35vw;
-  background-size: 100% 100%;
-  background-color: #ededed;
 }
 
 .espacio-h1{
   margin-bottom: 20px;
 }
 
-.fondo3{
-  background-size: 100% 100%;
-  min-height: 35vw;
-}
-
-.relleno-fondos{
-  height: 6vw;
-}
-
-.fondo4{
-  background-color: black;
-  background-size: 100% 100%;
-  min-height: 35vw;
-}
 .contactos div a{
   padding: 10px 10px;
   line-height: 50px;

@@ -1,100 +1,189 @@
-<div class="container relleno">
-  <h3>Habilidades</h3>
-  <hr>
-  <br>
 
-  <div class="row">
-    <div class="col">
-      <h6>Programación</h6>
-      <span class="badge rounded-pill bg-secondary" *ngFor="let lenguaje of programacion">{{lenguaje}}</span><br>
-    </div>
+<div class="contenedor">
 
-    <div class="col">
-      <h6>Frameworks</h6>
-      <span class="badge rounded-pill bg-success" *ngFor="let framework of frameworks">{{framework}}</span>
-
-
-    </div>
-
-    <div class="col">
-      <h6>Base de datos</h6>
-      <span class="badge rounded-pill bg-danger" *ngFor="let bd of baseDatos">{{bd}}</span>
-
+  <div class="cabecera">
+    <div class="container">
+      <h1>Educación</h1>
     </div>
   </div>
-  <br>
-  <div class="row">
-    <div class="col">
-      <h6>Sistemas Operativos</h6>
-      <span class="badge rounded-pill bg-warning" *ngFor="let sistema of sistemasOperativos">{{sistema}}</span>
 
+  <div class="fondo4">
+    <div class="relleno-fondos"></div>
+    <div class="container">
+      <div class="row row-cols-2 row-cols-md-3 g-4 ">
+        <div class="col">
+          <h2>Programación</h2>
+          <span class="badge rounded-pill bg-secondary" *ngFor="let lenguaje of programacion">{{lenguaje}}</span><br>
+        </div>
+
+        <div class="col">
+          <h2>Frameworks</h2>
+          <span class="badge rounded-pill bg-success" *ngFor="let framework of frameworks">{{framework}}</span>
+        </div>
+
+        <div class="col">
+          <h2>Base de Datos</h2>
+          <span class="badge rounded-pill bg-danger" *ngFor="let bd of baseDatos">{{bd}}</span>
+        </div>
+
+        <div class="col">
+          <h2>Sistemas Operativos</h2>
+          <span class="badge rounded-pill bg-warning" *ngFor="let sistema of sistemasOperativos">{{sistema}}</span>
+
+        </div>
+
+        <div class="col">
+          <h2>Idiomas</h2>
+          <span class="badge rounded-pill bg-light text-dark" *ngFor="let idioma of idiomas">{{idioma}}</span>
+
+        </div>
+
+        <div class="col">
+          <h2>Otros</h2>
+          <span class="badge rounded-pill bg-info" *ngFor="let otro of otros">{{otro}}</span>
+
+        </div>
+
+      </div>
     </div>
-
-    <div class="col">
-      <h6>Idiomas</h6>
-      <span class="badge rounded-pill bg-light text-dark" *ngFor="let idioma of idiomas">{{idioma}}</span>
-
-    </div>
-    <div class="col">
-      <h6>Otros</h6>
-      <span class="badge rounded-pill bg-info" *ngFor="let otro of otros">{{otro}}</span>
-
-    </div>
-
-  </div>
-  <br><br>
-
-  <h3>Educación</h3>
-  <hr>
-
-  <div class="card" style="width: 40rem;">
-    <div class="card-body">
-      <h5 class="card-title">
-        <object type="image/svg+xml" data="../../../assets/svg/persona.svg"></object>
-        Egresado
-      </h5>
-      <p class="card-text"><object type="image/svg+xml" data="../../../assets/svg/ubicacionb.svg"></object>
-        Escuela Politecnica Nacional
-      </p>
-      <p class="card-text"><object type="image/svg+xml" data="./assets/svg/calendario.svg"></object>
-        04-2021-20
-      </p>
-    </div>
-    <img src="https://slideplayer.es/16112873/97/images/slide_1.jpg" class="card-img-bottom" alt="...">
-  </div>
-  <br>
-  <div class="card" style="width: 40rem;">
-    <div class="card-body">
-      <h5 class="card-title">
-        <object type="image/svg+xml" data="../../../assets/svg/persona.svg"></object>
-        Egresado
-      </h5>
-      <p class="card-text"><object type="image/svg+xml" data="../../../assets/svg/ubicacionb.svg"></object>
-        Escuela Politecnica Nacional
-      </p>
-      <p class="card-text"><object type="image/svg+xml" data="./assets/svg/calendario.svg"></object>
-        04-2021-20
-      </p>
-    </div>
-    <img src="https://slideplayer.es/16112873/97/images/slide_1.jpg" class="card-img-bottom" alt="...">
+    <div class="relleno-fondos"></div>
   </div>
 
-  <br>
-  <div class="card" style="width: 40rem;">
-    <div class="card-body">
-      <h5 class="card-title">
-        <object type="image/svg+xml" data="../../../assets/svg/persona.svg"></object>
-        Egresado
-      </h5>
-      <p class="card-text"><object type="image/svg+xml" data="../../../assets/svg/ubicacionb.svg"></object>
-        Escuela Politecnica Nacional
-      </p>
-      <p class="card-text"><object type="image/svg+xml" data="./assets/svg/calendario.svg"></object>
-        04-2021-20
-      </p>
+  <div class="fondo2">
+    <div class="relleno-fondos"></div>
+    <div class="container">
+      <div class="row row-cols-1 row-cols-md-2 g-4 ">
+
+        <div class="col-md-8">
+          <img src="./assets/img/titulo1.jpg" class="card-img-bottom" alt="...">
+        </div>
+
+        <div class="col-md-4">
+          <h3><strong>Titulo: </strong>
+          Ingeniero en sistemas informaticos y de computacion
+          </h3>
+          <p class="card-text"><img src="./assets/svg/ubicacion.svg" alt="ubicacion">
+            Escuela Politecnica Nacional
+          </p>
+          <p class="card-text"><img src="./assets/svg/calendario.svg" alt="calendario">
+            04/2021/20 - 04/2021/20
+          </p>
+          <div class="centrar-texto">
+            <button class="btn btn-primary">Ver Titulo</button>
+          </div>
+        </div>
+
+
+        <div class="col-md-8">
+          <img src="./assets/img/titulo2.jpg" class="card-img-bottom" alt="...">
+        </div>
+
+        <div class="col-md-4">
+          <h3><strong>Titulo: </strong>
+            Ingeniero en sistemas informaticos y de computacion
+          </h3>
+          <p class="card-text"><img src="./assets/svg/ubicacion.svg" alt="ubicacion">
+            Escuela Politecnica Nacional
+          </p>
+          <p class="card-text"><img src="./assets/svg/calendario.svg" alt="calendario">
+            04/2021/20 - 04/2021/20
+          </p>
+          <div class="centrar-texto">
+            <button class="btn btn-primary">Ver Titulo</button>
+          </div>
+        </div>
+
+
+        <div class="col-md-8">
+          <img src="./assets/img/titulo3.jpg" class="card-img-bottom" alt="...">
+        </div>
+
+        <div class="col-md-4">
+          <h3><strong>Titulo: </strong>
+            Ingeniero en sistemas informaticos y de computacion
+          </h3>
+          <p class="card-text"><img src="./assets/svg/ubicacion.svg" alt="ubicacion">
+            Escuela Politecnica Nacional
+          </p>
+          <p class="card-text"><img src="./assets/svg/calendario.svg" alt="calendario">
+            04/2021/20 - 04/2021/20
+          </p>
+          <div class="centrar-texto">
+            <button class="btn btn-primary">Ver Titulo</button>
+          </div>
+        </div>
+
+
+
+
+
+      </div>
     </div>
-    <img src="https://slideplayer.es/16112873/97/images/slide_1.jpg" class="card-img-bottom" alt="...">
+    <div class="relleno-fondos"></div>
   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </div>
+
+
+
+<!--  <div class="card" style="width: 40rem;">-->
+<!--    <div class="card-body">-->
+<!--      <h5 class="card-title">-->
+
+<!--    </div>-->
+<!--  </div>-->
+<!--  <br>-->
+<!--  <div class="card" style="width: 40rem;">-->
+<!--    <div class="card-body">-->
+<!--      <h5 class="card-title">-->
+<!--        <object type="image/svg+xml" data="../../../assets/svg/persona.svg"></object>-->
+<!--        Egresado-->
+<!--      </h5>-->
+<!--      <p class="card-text"><object type="image/svg+xml" data="../../../assets/svg/ubicacionb.svg"></object>-->
+<!--        Escuela Politecnica Nacional-->
+<!--      </p>-->
+<!--      <p class="card-text"><object type="image/svg+xml" data="./assets/svg/calendario.svg"></object>-->
+<!--        04-2021-20-->
+<!--      </p>-->
+<!--    </div>-->
+<!--    <img src="https://slideplayer.es/16112873/97/images/slide_1.jpg" class="card-img-bottom" alt="...">-->
+<!--  </div>-->
+
+<!--  <br>-->
+<!--  <div class="card" style="width: 40rem;">-->
+<!--    <div class="card-body">-->
+<!--      <h5 class="card-title">-->
+<!--        <object type="image/svg+xml" data="../../../assets/svg/persona.svg"></object>-->
+<!--        Egresado-->
+<!--      </h5>-->
+<!--      <p class="card-text"><object type="image/svg+xml" data="../../../assets/svg/ubicacionb.svg"></object>-->
+<!--        Escuela Politecnica Nacional-->
+<!--      </p>-->
+<!--      <p class="card-text"><object type="image/svg+xml" data="./assets/svg/calendario.svg"></object>-->
+<!--        04-2021-20-->
+<!--      </p>-->
+<!--    </div>-->
+<!--    <img src="https://slideplayer.es/16112873/97/images/slide_1.jpg" class="card-img-bottom" alt="...">-->
+<!--  </div>-->
+
+<!--</div>-->
 

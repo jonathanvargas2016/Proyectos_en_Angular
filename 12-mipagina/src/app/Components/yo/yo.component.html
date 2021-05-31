@@ -1,109 +1,108 @@
-<div class="fondo">
+<div class="contenedor">
 
-  <div class="relleno-fondo-img"></div>
-
-  <div class="container color-texto">
-    <h1 class="centrar-texto-h1">{{miPersona.nombre}}</h1>
-    <p class="centrar-texto-p">{{miPersona.especialidad}}</p>
-  </div>
-
-  <div class="container posicion-centrado">
-    <button class="btn btn-primary">VER CURRICULUM</button>
-  </div>
-
-  <div class="relleno-fondo-img"></div>
-
-</div>
-
-<div class="fondo2">
-  <div class="relleno-fondos"></div>
-
-  <div class="container">
-    <div class="row row-cols-1 row-cols-md-2 g-4">
-
-      <div class="col">
-        <img src="./assets/img/yo.jpg"
-             class="img-fluid tamano-foto-perfil" alt="foto perfil">
-      </div>
-
-      <div class="col">
-        <div class="relleno-fondos"></div>
-        <h1 class="espacio-h1">Perfil Profesional</h1>
-        <p>{{miPersona.perfilProfesional}}</p>
-      </div>
-
+  <div class="fondo">
+    <div class="relleno-fondo-img"></div>
+    <div class="container color-texto">
+      <h1 class="centrar-texto-h1">{{miPersona.nombre}}</h1>
+      <p class="centrar-texto-p">{{miPersona.especialidad}}</p>
     </div>
-  </div>
-  <div class="relleno-fondos"></div>
-</div>
 
-
-<div class="fondo3">
-
-  <div class="relleno-fondos"></div>
-
-  <div class="container">
-
-    <h1>Información de Contacto</h1><br>
-
-    <div class="row row-cols-1 row-cols-md-3 g-4 posicion-centrado contactos">
-
-      <div class="col">
-        <a type="button" (click)="cambiarBanderaEmailP()"><img src="./assets/svg/email.svg" alt="email"></a>
-        <p class="posicion-centrado" *ngIf="banderaEmailP==true">{{informacionContacto.correoPersonal}}</p>
-      </div>
-
-      <div class="col">
-        <a type="button" (click)="cambiarBanderaEmailI()"><img src="./assets/svg/email.svg" alt="email"></a>
-        <p class="posicion-centrado" *ngIf="banderaEmailI==true">{{informacionContacto.correoInstitucional}}</p>
-      </div>
-
-      <div class="col">
-        <a type="button" (click)="cambiarBanderaTelf()"><img src="./assets/svg/phone.svg" alt="phone"></a>
-        <p class="posicion-centrado" *ngIf="banderaTelf==true">+593 {{informacionContacto.celular}}</p>
-      </div>
-
-      <div class="col">
-        <a href="https://goo.gl/maps/gwSTBE1KmqAxUXGF9" type="button" target="_blank"><img src="./assets/svg/ubicacion.svg" alt="ubicacion"></a>
-      </div>
-
-      <div class="col">
-        <a href="https://github.com/jonathanvargas2016" type="button" target="_blank"><img src="./assets/svg/github.svg" alt="github"></a>
-      </div>
-
-      <div class="col">
-        <a href="https://www.linkedin.com/in/jonathan-vargas28/" type="button" target="_blank"><img src="./assets/svg/linkedin.svg" alt="linkedin"></a>
-      </div>
+    <div class="container posicion-centrado">
+      <button class="btn btn-primary">VER CURRICULUM</button>
     </div>
+
+    <div class="relleno-fondo-img"></div>
   </div>
 
-  <div class="relleno-fondos"></div>
+  <div class="fondo2">
+    <div class="relleno-fondos"></div>
 
-</div>
+    <div class="container">
+      <div class="row row-cols-1 row-cols-md-2 g-4">
 
+        <div class="col posicion-der-img">
+          <img src="./assets/img/yo.png"
+               class="img-fluid "  alt="foto perfil">
+        </div>
 
-
-<div class="fondo4">
-  <div class="relleno-fondos"></div>
-
-  <div class="container">
-    <div class="row row-cols-1 row-cols-md-2 g-4">
-
-      <div class="col color-texto">
-        <div class="relleno-fondos"></div>
-        <h1 class="espacio-h1">Motivación</h1>
-        <p>{{miPersona.motivacion}}
-        <p>
-      </div>
-
-      <div class="col">
-        <img src="./assets/img/motiv.png" alt="motivacion" class="tamano-img">
+        <div class="col">
+          <div class="relleno-fondos"></div>
+          <h1 class="espacio-h1">Perfil Profesional</h1>
+          <p>{{miPersona.perfilProfesional}}</p>
+        </div>
 
       </div>
     </div>
+    <div class="relleno-fondos"></div>
+  </div>
+
+
+  <div class="fondo3">
+
+    <div class="relleno-fondos"></div>
+
+    <div class="container">
+
+      <h1>Información de Contacto</h1><br>
+
+      <div class="row row-cols-1 row-cols-md-3 g-4 posicion-centrado contactos">
+
+        <div class="col">
+          <a type="button" (click)="cambiarBanderaEmailP()"><img src="./assets/svg/email.svg" alt="email"></a>
+          <p class="posicion-centrado" *ngIf="banderaEmailP==true">{{informacionContacto.correoPersonal}}</p>
+        </div>
+
+        <div class="col">
+          <a type="button" (click)="cambiarBanderaEmailI()"><img src="./assets/svg/email.svg" alt="email"></a>
+          <p class="posicion-centrado" *ngIf="banderaEmailI==true">{{informacionContacto.correoInstitucional}}</p>
+        </div>
+
+        <div class="col">
+          <a type="button" (click)="cambiarBanderaTelf()"><img src="./assets/svg/phone.svg" alt="phone"></a>
+          <p class="posicion-centrado" *ngIf="banderaTelf==true">+593 {{informacionContacto.celular}}</p>
+        </div>
+
+        <div class="col">
+          <a href="https://goo.gl/maps/gwSTBE1KmqAxUXGF9" type="button" target="_blank"><img src="./assets/svg/ubicacion.svg" alt="ubicacion"></a>
+        </div>
+
+        <div class="col">
+          <a href="https://github.com/jonathanvargas2016" type="button" target="_blank"><img src="./assets/svg/github.svg" alt="github"></a>
+        </div>
+
+        <div class="col">
+          <a href="https://www.linkedin.com/in/jonathan-vargas28/" type="button" target="_blank"><img src="./assets/svg/linkedin.svg" alt="linkedin"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="relleno-fondos"></div>
 
   </div>
 
-  <div class="relleno-fondos"></div>
+
+
+  <div class="fondo4">
+    <div class="relleno-fondos"></div>
+
+    <div class="container">
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col color-texto">
+          <div class="relleno-fondos"></div>
+          <h1 class="espacio-h1">Motivación</h1>
+          <p>{{miPersona.motivacion}}
+          <p>
+        </div>
+
+        <div class="col">
+          <img src="./assets/img/motiv.png" alt="motivacion" class="tamano-img">
+        </div>
+      </div>
+
+    </div>
+
+    <div class="relleno-fondos"></div>
+
+  </div>
 
 </div>

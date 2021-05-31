@@ -1,15 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
-body{
-  /*background: #EFEFBB;  !* fallback for old browsers *!*/
-  /*background: -webkit-linear-gradient(to right, #D4D3DD, #EFEFBB);  !* Chrome 10-25, Safari 5.1-6 *!*/
-  /*background: linear-gradient(to right, #D4D3DD, #EFEFBB); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
-
-  font-family: Arial;
+:root{
+  --nv-fallback-ff: Arial, Helvetica, sans-serif;
+}
+.contenedor{
+  min-height: calc(100vh - 100px - 70px);
 }
 
-.relleno{
-  padding-bottom: 50px;
-}
 a:link, a:visited, a:active {
   color: black;
   text-decoration: none;
@@ -17,10 +12,25 @@ a:link, a:visited, a:active {
 p{
   text-align: justify;
 }
-
-.marco1{
-  border: 2px solid white;
-  padding-bottom: 10px;
-  margin-bottom: 20px;
+.relleno-fondos{
+  height: 6vw;
+}
+.posicion-centrado{
+  text-align: center;
+}
+.fondo2{
+  min-height: 35vw;
+  background-size: 100% 100%;
+  background-color: #ededed;
 }
 
+.fondo3{
+  background-size: 100% 100%;
+  min-height: 35vw;
+  background-color: inherit;
+}
+.fondo4{
+  background-color: black;
+  background-size: 100% 100%;
+  min-height: 35vw;
+}
