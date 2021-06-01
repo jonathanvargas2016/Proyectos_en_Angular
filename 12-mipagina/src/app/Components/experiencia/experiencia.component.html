@@ -1,63 +1,159 @@
-<div class="container relleno">
-
-  <h3>Experiencia Laboral</h3>
-  <hr>
-  <br>
-
-  <div class="card text-dark bg-light mb-3" style="max-width: 60rem;">
-    <div class="card-header">
-      <object type="image/svg+xml" data="./assets/svg/calendario.svg"></object> 05/2019 - 10/2019
-    </div>
-
-    <div class="card-body">
-      <h6 class="card-title"><object type="image/svg+xml" data="../../../assets/svg/ubicacion.svg"></object>
-        Departamento de Talento Humano de la Escuela Politecnica Nacional
-      </h6>
-      <h6>Cargo: Pasante</h6>
-      <p class="card-text">Funciones:
-        1. Revisión, validación y actualización de la información de expedientes personales.
-        2. Registro de información de docentes en el sistema SII.
-        3. Reportes sobre novedades en el funcionamiento del módulo de Talento Humano del Sistema SII.</p>
-    </div>
-  </div>
-  <div class="card text-dark bg-light mb-3" style="max-width: 60rem;">
-    <div class="card-header">
-      <object type="image/svg+xml" data="./assets/svg/calendario.svg"></object> 05/2019 - 10/2019
-    </div>
-
-    <div class="card-body">
-      <h6 class="card-title"><object type="image/svg+xml" data="../../../assets/svg/ubicacion.svg"></object>
-        Departamento de Talento Humano de la Escuela Politecnica Nacional
-      </h6>
-      <h6>Cargo: Pasante</h6>
-      <p class="card-text">Funciones:
-        1. Revisión, validación y actualización de la información de expedientes personales.
-        2. Registro de información de docentes en el sistema SII.
-        3. Reportes sobre novedades en el funcionamiento del módulo de Talento Humano del Sistema SII.</p>
+<div class="contenedor">
+  <div class="cabecera">
+    <div class="container">
+      <h1>Experiencia Laboral</h1>
     </div>
   </div>
 
-  <div class="card text-dark bg-light mb-3" style="max-width: 60rem;">
-    <div class="card-header">
-      <object type="image/svg+xml" data="./assets/svg/calendario.svg"></object> 05/2019 - 10/2019
-    </div>
+  <div class="fondo4">
+    <div class="relleno-fondos"></div>
+    <div class="container">
 
-    <div class="card-body">
-      <h6 class="card-title"><object type="image/svg+xml" data="../../../assets/svg/ubicacion.svg"></object>
-        Departamento de Talento Humano de la Escuela Politecnica Nacional
-      </h6>
-      <h6>Cargo: Pasante</h6>
-      <p class="card-text">Funciones:
-        1. Revisión, validación y actualización de la información de expedientes personales.
-        2. Registro de información de docentes en el sistema SII.
-        3. Reportes sobre novedades en el funcionamiento del módulo de Talento Humano del Sistema SII.</p>
+      <div class="row row-cols-2 row-cols-md-2 g-4">
+        <div class="col">
+          <p>
+            <img src="./assets/svg/ubicacion.svg"
+                 alt="ubicacion" style="width:
+                 30px; height: 30px">
+            Escuela Politecnica Nacional
+          </p>
+
+          <p>
+            <img src="./assets/svg/calendario.svg"
+                 alt="calendario"
+                 style="width: 30px; height: 30px">
+            9/5/2019 - 31/10/2019
+          </p>
+          <p><strong>Cargo: </strong>Pasante</p>
+          <p><strong>Funciones:<br><br></strong>
+            1. Revisión, validación y actualización de la información de expedientes personales.
+            2. Registro de información de docentes en el sistema SII.
+            3. Reportes sobre novedades en el funcionamiento del módulo de Talento Humano del Sistema SII.
+          </p>
+
+          <!--importante utilizar una bandera como aributo para cambiar el estado de la bandera-->
+
+          <button class="btn btn-primary" (click)="cambiarBandera()">Ver Referencias</button>
+
+          <div class="tamano-ref" *ngIf="bandera == true">
+            <br>
+            <p>Nombre: Gladys Quispe</p>
+            <p>Cargo: Especialista en Talento Humano</p>
+            <p>Telefono: 0985421741</p>
+          </div>
+
+          <div class="tamano-ref" *ngIf="bandera == true">
+            <br>
+            <p>Nombre: Gladys Quispe</p>
+            <p>Cargo: Especialista en Talento Humano</p>
+            <p>Telefono: 0985421741</p>
+          </div>
+
+        </div>
+
+
+        <div class="col">
+          <p>
+            <img src="./assets/svg/ubicacion.svg"
+                 alt="ubicacion" style="width:
+                 30px; height: 30px">
+            Escuela Politecnica Nacional
+          </p>
+
+          <p>
+            <img src="./assets/svg/calendario.svg"
+                 alt="calendario"
+                 style="width: 30px; height: 30px">
+            9/5/2019 - 31/10/2019
+          </p>
+          <p><strong>Cargo: </strong>Pasante</p>
+          <p><strong>Funciones:<br><br></strong>
+            1. Revisión, validación y actualización de la información de expedientes personales.
+            2. Registro de información de docentes en el sistema SII.
+            3. Reportes sobre novedades en el funcionamiento del módulo de Talento Humano del Sistema SII.
+          </p>
+          <button class="btn btn-primary" (click)="cambiarBanderaB()">Ver Referencias</button>
+          <div class="tamano-ref" *ngIf="banderab == true">
+            <br>
+            <p>Nombre: Gladys Quispe</p>
+            <p>Cargo: Especialista en Talento Humano</p>
+            <p>Telefono: 0985421741</p>
+          </div>
+
+        </div>
+
+
+
+      </div>
+
     </div>
+    <div class="relleno-fondos"></div>
   </div>
-
-
-
-
-
-
 
 </div>
+
+
+
+
+
+
+
+
+
+
+
+<!--<div class="container relleno">-->
+
+<!--  <h3>Experiencia Laboral</h3>-->
+<!--  <hr>-->
+<!--  <br>-->
+
+<!--  <div class="card text-dark bg-light mb-3" style="max-width: 60rem;">-->
+<!--    <div class="card-header">-->
+<!--      <object type="image/svg+xml" data="./assets/svg/calendario.svg"></object> 05/2019 - 10/2019-->
+<!--    </div>-->
+
+<!--    <div class="card-body">-->
+<!--      <h6 class="card-title"><object type="image/svg+xml" data="../../../assets/svg/ubicacion.svg"></object>-->
+<!--        Departamento de Talento Humano de la Escuela Politecnica Nacional-->
+<!--      </h6>-->
+<!--      <h6>Cargo: Pasante</h6>-->
+<!--      <p class="card-text">Funciones:-->
+
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div class="card text-dark bg-light mb-3" style="max-width: 60rem;">-->
+<!--    <div class="card-header">-->
+<!--      <object type="image/svg+xml" data="./assets/svg/calendario.svg"></object> 05/2019 - 10/2019-->
+<!--    </div>-->
+
+<!--    <div class="card-body">-->
+<!--      <h6 class="card-title"><object type="image/svg+xml" data="../../../assets/svg/ubicacion.svg"></object>-->
+<!--        Departamento de Talento Humano de la Escuela Politecnica Nacional-->
+<!--      </h6>-->
+<!--      <h6>Cargo: Pasante</h6>-->
+<!--      <p class="card-text">Funciones:-->
+<!--        1. Revisión, validación y actualización de la información de expedientes personales.-->
+<!--        2. Registro de información de docentes en el sistema SII.-->
+<!--        3. Reportes sobre novedades en el funcionamiento del módulo de Talento Humano del Sistema SII.</p>-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--  <div class="card text-dark bg-light mb-3" style="max-width: 60rem;">-->
+<!--    <div class="card-header">-->
+<!--      <object type="image/svg+xml" data="./assets/svg/calendario.svg"></object> 05/2019 - 10/2019-->
+<!--    </div>-->
+
+<!--    <div class="card-body">-->
+<!--      <h6 class="card-title"><object type="image/svg+xml" data="../../../assets/svg/ubicacion.svg"></object>-->
+<!--        Departamento de Talento Humano de la Escuela Politecnica Nacional-->
+<!--      </h6>-->
+<!--      <h6>Cargo: Pasante</h6>-->
+<!--      <p class="card-text">Funciones:-->
+<!--        1. Revisión, validación y actualización de la información de expedientes personales.-->
+<!--        2. Registro de información de docentes en el sistema SII.-->
+<!--        3. Reportes sobre novedades en el funcionamiento del módulo de Talento Humano del Sistema SII.</p>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  -->
+<!--</div>-->

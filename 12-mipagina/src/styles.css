@@ -18,6 +18,10 @@ p{
 .posicion-centrado{
   text-align: center;
 }
+.cabecera{
+  background-color: inherit;
+  min-height: 250px;
+}
 .fondo2{
   min-height: 35vw;
   background-size: 100% 100%;

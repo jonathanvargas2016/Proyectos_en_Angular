@@ -5,12 +5,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/educacion/educacion.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/educacion/educacion.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/educacion/educacion.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/educacion/educacion.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/footer/footer.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/footer/footer.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/navbar/navbar.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/navbar/navbar.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/experiencia/experiencia.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/experiencia/experiencia.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/experiencia/experiencia.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/experiencia/experiencia.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/experiencia/experiencia.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/experiencia/experiencia.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/yo/yo.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/yo/yo.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/yo/yo.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/yo/yo.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/assets/img/yo.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/assets/svg/calendario.svg" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/assets/svg/calendario.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/12-mipagina/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -87,6 +85,7 @@
       <workItem from="1622307185642" duration="16820000" />
       <workItem from="1622338259125" duration="7981000" />
       <workItem from="1622402577043" duration="17010000" />
+      <workItem from="1622504252696" duration="7275000" />
     </task>
     <servers />
   </component>

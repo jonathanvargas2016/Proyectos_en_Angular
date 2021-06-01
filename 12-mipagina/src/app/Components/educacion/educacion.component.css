@@ -4,12 +4,11 @@ h1{
   font-weight: 600;
   text-transform: none;
 }
+@media (max-width: 800px) {
+  h1 { font-size: 35px; }
+}
 .centrar-texto{
   text-align: center;
-}
-.cabecera{
-  background-color: inherit;
-  min-height: 250px;
 }
 
 .container h1{
