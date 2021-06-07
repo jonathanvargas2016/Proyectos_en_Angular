@@ -10,6 +10,7 @@ button{
   border-radius: 0px;
   margin-right: 7vw;
   width: 120px;
+  margin-left: 10px;
 }
 .navbar-expand-lg .navbar-nav .nav-link{
   color: black;
@@ -27,4 +28,7 @@ button{
 .alert-info{
   background-color: black;
   color: white;
+}
+img{
+  cursor: pointer;
 }

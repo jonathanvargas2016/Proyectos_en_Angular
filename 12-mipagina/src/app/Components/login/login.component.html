@@ -1,9 +1,16 @@
-<div class="container relleno">
+<div class="contenedor">
+  <div class="container">
+    <div class="relleno-fondos"></div>
 
-  <form (ngSubmit)="guardar()" #forma="ngForm" >
 
-    <div class="mb-3">
 
+    <form (ngSubmit)="guardar()" #forma="ngForm" class="login">
+
+      <div class="alert alert-danger" role="alert" *ngIf="_authService.mensajeErrorLogin">
+        {{_authService.mensajeErrorLogin}}
+      </div>
+
+      <div class="mb-3">
         <label for="email" class="form-label">Correo Electronico</label>
         <input type="email"
                class="form-control" [ngClass]="{'is-invalid':email.errors?.required && email.touched}"
@@ -19,9 +26,9 @@
         <div id="emailHelp" class="form-text color" *ngIf="email.errors?.required && email.touched">Correo es requerido</div>
         <div class="form-text color" *ngIf="email.errors?.pattern">Correo invalido</div>
 
-    </div>
+      </div>
 
-    <div class="mb-3">
+      <div class="mb-3">
         <label for="password" class="form-label">Contraseña</label>
         <input type="password"
                class="form-control" [ngClass]="{'is-invalid': password.errors?.required && password.touched}"
@@ -32,11 +39,16 @@
                [(ngModel)]="credenciales.password"
                required
                #password="ngModel">
+        <div id="passwordHelp" class="form-text color" *ngIf="password.errors?.required && password.touched">Contraseña es requerido</div>
       </div>
-    <div id="passwordHelp" class="form-text color" *ngIf="password.errors?.required && password.touched">Contraseña es requerido</div>
 
 
-    <button type="submit" class="btn btn-primary" [disabled]="forma.invalid">Submit</button>
+      <button type="submit" class="btn btn-primary" [disabled]="forma.invalid">Ingresar</button>
 
-  </form>
+    </form>
+
+
+  </div>
+
+
 </div>

@@ -1,1 +1,146 @@
-<p>administracion works!</p>
+<div class="contenedor">
+  <div class="cabecera">
+    <div class="container">
+      <h1>Administracion
+      </h1>
+    </div>
+  </div>
+
+  <div class="fondo2">
+    <div class="relleno-fondos"></div>
+    <div class="container">
+      <div class="row row-cols-1 row-cols-md-3 g-4 ">
+
+        <div class="col">
+          <h4>Informacion Personal</h4><br>
+
+          <form (ngSubmit)="guardarInfoPersonal()" #forma="ngForm">
+            <div class="mb-3">
+              <label for="nombreInput" class="form-label">Nombres</label>
+              <input type="text"
+                     class="form-control"
+                     id="nombreInput"
+                     placeholder="ingrese nombres y apellidos"
+                     name="nombres"
+                     [(ngModel)]="informacionPersonal.nombres"
+                     required>
+            </div>
+
+            <div class="mb-3">
+              <label for="tituloInput" class="form-label">Titulo</label>
+              <input type="text"
+                     class="form-control"
+                     id="tituloInput"
+                     placeholder="ingrese su titulo actual"
+                     name="titulo"
+                     [(ngModel)]="informacionPersonal.titulo"
+                     required>
+            </div>
+
+            <div class="mb-3">
+              <label for="linkCVInput" class="form-label">Curriculum Vitae</label>
+              <input type="url"
+                     class="form-control"
+                     id="linkCVInput"
+                     placeholder="ingrese el link de acceso al cv"
+                     name="cv"
+                     [(ngModel)]="informacionPersonal.linkCV">
+            </div>
+
+            <div class="mb-3">
+              <label for="perfilProfesionalInput" class="form-label">Perfil Profesional</label>
+              <textarea class="form-control"
+                        id="perfilProfesionalInput"
+                        rows="4"
+                        name="perfilProfesional"
+                        [(ngModel)]="informacionPersonal.perfilProfesional"></textarea>
+            </div>
+
+            <div class="mb-3">
+              <label for="motivacionInput" class="form-label">Motivacion</label>
+              <textarea class="form-control"
+                        id="motivacionInput"
+                        rows="4"
+                        name="motivacion"
+                        [(ngModel)]="informacionPersonal.motivacion"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" [disabled]="forma.invalid">Guardar</button>
+          </form>
+
+        </div>
+
+        <div class="col">
+          <h4>Informacion de Contacto</h4><br>
+          <h6>Correos Electronicos</h6>
+          <form>
+            <div class="mb-3">
+              <label for="correoInput" class="form-label">Correo Electronico</label>
+              <input type="email" class="form-control" id="correoInput" aria-describedby="emailHelp">
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+          </form>
+          <br>
+          <h6>Numeros de Celular o Telefono</h6>
+          <form>
+            <div class="mb-3">
+              <label for="celularInput" class="form-label">Telefono</label>
+              <input type="tel" class="form-control" id="celularInput" placeholder="ingrese numero de celular o telefono">
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+          </form>
+          <br>
+          <h6>Ubicacion o Localizacion</h6>
+          <form>
+            <div class="mb-3">
+              <label for="ubicacionInput" class="form-label">Ubicacion</label>
+              <input type="url" class="form-control" id="ubicacionInput" placeholder="ingrese link de acceso a su ubicacion">
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+          </form>
+          <br>
+          <h6>Redes Sociales o Repositorios</h6>
+          <form>
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Seleccione tipo de red social</option>
+              <option value="facebook">Facebook</option>
+              <option value="instagram">Instagram</option>
+              <option value="twitter">Twitter</option>
+              <option value="youtube">Youtube</option>
+              <option value="github">Github</option>
+              <option value="linkedin">Linkedin</option>
+              <option value="otro">Otro</option>
+            </select>
+            <div class="mb-3">
+              <label for="redesInput" class="form-label">Link de red social</label>
+              <input type="url" class="form-control" id="redesInput" placeholder="ingrese link de acceso a su red social">
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+          </form>
+        </div>
+
+        <div class="col">
+
+        </div>
+
+        <div class="col">
+
+        </div>
+
+        <div class="col">
+
+        </div>
+
+        <div class="col">
+
+        </div>
+
+
+      </div>
+    </div>
+    <div class="relleno-fondos"></div>
+  </div>
+
+
+</div>
+

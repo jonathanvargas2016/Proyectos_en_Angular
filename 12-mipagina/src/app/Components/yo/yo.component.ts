@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MipaginaService} from "../../Servicios/mipagina.service";
 
 @Component({
   selector: 'app-yo',
@@ -13,19 +14,8 @@ export class YoComponent implements OnInit {
   banderaTelf = false;
   banderaLink = false;
 
-  miPersona = {
-    nombre: 'Jonathan Santiago Vargas Nilve',
-    especialidad: 'Egresado en Ingeniería en Sistemas Informáticos y de Computación de la Escuela Politécnica Nacional',
-    perfilProfesional: 'Soy egresado de la Facultad de Sistemas de la Escuela Politécnica Nacional, ' +
-      'me considero una persona responsable, dinámica y creativa, con facilidad de adaptación y ' +
-      'capacidad para trabajar en equipo, en condiciones de alta presión, con iniciativa para resolver ' +
-      'problemas eficientemente y lograr los objetivos y metas propuestos por la empresa.',
-    motivacion: 'En la búsqueda de nuevas oportunidades laborales que me permitan crecer como profesional y a la vez como persona.' +
-      '          Tengo poco experiencia laboral por eso estoy dispuesto a trabajar con entusiamo en cualquier empresa ya sea pública o privada para' +
-      '          adquirir mas experiencia laboral, mejorar mis conocimientos y aprender acerca del modelo de negocio de esas empresas. Constantemente estoy aprendiendo' +
-      '          nuevas tecnologías para el desarrollo web en el Frontend y el Backend en las que utilizo frameworks, lenguajes de programación y base de datos.' +
-      '      '
-  }
+  arrayInfoPersonal: any[] = []
+
   informacionContacto = {
     correoPersonal: 'jonathan.1996mds@gmail.com',
     correoInstitucional: 'jonathan.vargas01@epn.edu.ec',
@@ -36,9 +26,12 @@ export class YoComponent implements OnInit {
   habilidades = ['Javascript', 'Typescript', 'Firebase', 'SQL Server', 'Angular', 'NestJS'
     ,'HTML', 'CSS', 'MySQL', 'Java', 'React']
 
-  constructor() { }
+  constructor(private paginaService: MipaginaService) { }
 
   ngOnInit(): void {
+    this.paginaService.getInfoPersonal().subscribe((datos)=>{
+      this.arrayInfoPersonal[0] = datos[0]
+    })
   }
   cambiarBanderaEmailP(): boolean{
     return this.banderaEmailP = !this.banderaEmailP;

@@ -1,39 +1,43 @@
 import { Injectable } from '@angular/core';
 import {AngularFireAuth} from "@angular/fire/auth";
-import auth from 'firebase/app';
-import {first} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  isLogged = false;
-  constructor(public afAuth: AngularFireAuth) { }
+  mensajeErrorLogin = "";
+  usuario: any = {}
+  aIniciadoSesion = false;
+
+  constructor(public afAuth: AngularFireAuth) {
+
+    if(localStorage.getItem('user') == null){
+      return;
+    }
+    this.aIniciadoSesion = true;
+    const data = localStorage.getItem('user');
+    if(data){
+      this.usuario = JSON.parse(data);
+    }
+  }
 
   async login(email: string, password: string){
-    let resp;
     try{
-      resp = await this.afAuth.signInWithEmailAndPassword(email, password);
-      this.isLogged = true;
+      const resp = await this.afAuth.signInWithEmailAndPassword(email, password)
+      if(resp){
+        this.aIniciadoSesion = true;
+        localStorage.setItem('user', JSON.stringify(resp.user));
+      }
     }catch (error){
-      resp = error;
+      this.mensajeErrorLogin = error.message;
     }
-    return resp;
+
   }
 
-  async logout(){
-    let resp;
-    try {
-      resp = await this.afAuth.signOut();
-      this.isLogged = false;
-    }catch (error) {
-      resp = error;
-    }
-    return resp;
+  logout(){
+    this.afAuth.signOut();
+    this.aIniciadoSesion = false;
+    localStorage.removeItem('user');
   }
 
-  // recuperar usuario actual logeado
-  getUsuarioActual(){
-    return this.afAuth.authState.pipe(first()).toPromise();
-  }
 }

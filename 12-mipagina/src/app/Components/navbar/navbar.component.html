@@ -62,9 +62,9 @@
 
 
       </ul>
-
-      <button class="btn btn-primary" type="button" (click)="redirigirALogin()" *ngIf="!authService.isLogged"><strong>LOGIN</strong></button>
-      <button class="btn btn-danger" type="button" (click)="logout()" *ngIf="authService.isLogged"><strong>LOGOUT</strong></button>
+      <img src="./assets/svg/user.svg" alt="usuario" *ngIf="authService.aIniciadoSesion" (click)="redirigirAAdministracion()">
+      <button class="btn btn-primary" type="button" (click)="redirigirALogin()" *ngIf="!authService.aIniciadoSesion"><strong>LOGIN</strong></button>
+      <button class="btn btn-danger" type="button" (click)="logout()" *ngIf="authService.aIniciadoSesion"><strong>LOGOUT</strong></button>
 
 
 

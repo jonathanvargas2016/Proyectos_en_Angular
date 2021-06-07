@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MipaginaService} from "../../Servicios/mipagina.service";
 
 @Component({
   selector: 'app-administracion',
@@ -6,10 +7,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./administracion.component.css']
 })
 export class AdministracionComponent implements OnInit {
+  constructor(private paginaService: MipaginaService) {
+  }
 
-  constructor() { }
-
+  informacionPersonal = {
+    nombres: '',
+    titulo: '',
+    linkCV: '',
+    perfilProfesional: '',
+    motivacion: '',
+    uid: '',
+  }
   ngOnInit(): void {
+  }
+  async guardarInfoPersonal(){
+    try{
+      await this.paginaService.agregar(this.informacionPersonal);
+    }catch (error){
+      console.log('error en admi' + error);
+    }
   }
 
 }

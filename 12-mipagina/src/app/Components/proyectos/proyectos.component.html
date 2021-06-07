@@ -1,64 +1,41 @@
 
-<div class="container relleno">
-
-  <h3>Proyectos</h3>
-  <hr>
-  <br>
-
-  <div class="marco1">
-    <div class="row">
-      <div class="col-3">
-        <h5>BioApp</h5>
-
-        <img src="./assets/img/web.jpg" alt="">
-
-      </div>
-      <div class="col">
-        <p>Es un prototipo de página web que permite al usuario comprar productos de bioseguridad.
-          Esta pagina fue hecha para el Backend, construida en el Framework NestJS utilizando HTML, CSS y
-          el lenguaje de programación Typescript. Toda la información que recopila la aplicación se almacena
-          en la base de datos MySQL.</p>
-        <button type="button" name="ver" class="btn btn-primary">Visualizar Proyecto</button>
-      </div>
-
-    </div>
-  </div>
-  <div class="marco1">
-    <div class="row">
-      <div class="col-3">
-        <h5>BioApp</h5>
-        <img src="./assets/img/mobil.png" alt="">
-      </div>
-      <div class="col">
-        <p>Es un prototipo de página web que permite al usuario comprar productos de bioseguridad.
-          Esta pagina fue hecha para el Backend, construida en el Framework NestJS utilizando HTML, CSS y
-          el lenguaje de programación Typescript. Toda la información que recopila la aplicación se almacena
-          en la base de datos MySQL.</p>
-        <button type="button" name="ver" class="btn btn-primary">Visualizar Proyecto</button>
-      </div>
-
-    </div>
-  </div>
-  <div class="marco1">
-    <div class="row">
-      <div class="col-3">
-        <h5>BioApp</h5>
-        <img src="./assets/img/otros.jpg" alt="">
-      </div>
-      <div class="col">
-        <p>Es un prototipo de página web que permite al usuario comprar productos de bioseguridad.
-          Esta pagina fue hecha para el Backend, construida en el Framework NestJS utilizando HTML, CSS y
-          el lenguaje de programación Typescript. Toda la información que recopila la aplicación se almacena
-          en la base de datos MySQL.</p>
-        <button type="button" name="ver" class="btn btn-primary">Visualizar Proyecto</button>
-      </div>
-
+<div class="contenedor">
+  <div class="cabecera">
+    <div class="container">
+      <h1>Proyectos</h1>
     </div>
   </div>
 
+  <div class="fondo4">
+    <div class="relleno-fondos"></div>
+    <div class="container">
 
+      <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+        <button type="button" class="btn btn-primary" (click)="mostrarProyectos('Todos')">Todos</button>
+        <button type="button" class="btn btn-warning" (click)="mostrarProyectos('Frontend')">Frontend</button>
+        <button type="button" class="btn btn-success" (click)="mostrarProyectos('Backend')">Backend</button>
+        <button type="button" class="btn btn-secondary" (click)="mostrarProyectos('Movil')">Movil</button>
+        <button type="button" class="btn btn-danger" (click)="mostrarProyectos('Otro')">Otro</button>
+      </div>
 
+      <div class="row row-cols-1 row-cols-md-2 g-4">
 
-
+        <div class="col" *ngFor="let proyecto of proyectosAMostrar">
+          <p>{{proyecto.titulo}}</p>
+          <div class="posicion-centrado">
+            <img src="./assets/img/web.jpg" alt="web" *ngIf="proyecto.tipo == 'Frontend'">
+            <img src="./assets/img/web.jpg" alt="web" *ngIf="proyecto.tipo == 'Backend'">
+            <img src="./assets/img/mobil.png" alt="web" *ngIf="proyecto.tipo == 'Movil'">
+            <img src="./assets/img/otros.jpg" alt="web" *ngIf="proyecto.tipo == 'Otro'">
+          </div>
+          <p>{{proyecto.descripcion}}</p>
+          <div class="posicion-centrado">
+            <a [href]="proyecto.link" target="_blank" type="button" class="btn btn-primary">Ver Proyecto</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="relleno-fondos"></div>
+  </div>
 
 </div>

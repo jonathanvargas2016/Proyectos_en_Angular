@@ -41,6 +41,7 @@ img{
 }
 p{
   font-size: 1.25em;
+  font-family: Poppins, var(--nv-fallback-ff);
 }
 
 .btn{

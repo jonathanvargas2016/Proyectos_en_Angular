@@ -3,8 +3,8 @@
   <div class="fondo">
     <div class="relleno-fondo-img"></div>
     <div class="container color-texto">
-      <h1 class="centrar-texto-h1">{{miPersona.nombre}}</h1>
-      <p class="centrar-texto-p">{{miPersona.especialidad}}</p>
+      <h1 class="centrar-texto-h1">{{arrayInfoPersonal[0]?.nombres}}</h1>
+      <p class="centrar-texto-p">{{arrayInfoPersonal[0]?.titulo}}</p>
     </div>
 
     <div class="container posicion-centrado">
@@ -28,7 +28,7 @@
         <div class="col">
           <div class="relleno-fondos"></div>
           <h1 class="espacio-h1">Perfil Profesional</h1>
-          <p>{{miPersona.perfilProfesional}}</p>
+          <p>{{arrayInfoPersonal[0]?.perfilProfesional}}</p>
         </div>
 
       </div>
@@ -90,8 +90,7 @@
         <div class="col color-texto">
           <div class="relleno-fondos"></div>
           <h1 class="espacio-h1">Motivación</h1>
-          <p>{{miPersona.motivacion}}
-          <p>
+          <p>{{arrayInfoPersonal[0]?.motivacion}}<p>
         </div>
 
         <div class="col">

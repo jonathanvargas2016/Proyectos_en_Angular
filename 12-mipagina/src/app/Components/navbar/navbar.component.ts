@@ -8,26 +8,23 @@ import {AuthService} from "../../Servicios/auth.service";
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  constructor(private router: Router, public authService: AuthService) { }
 
-  async ngOnInit(){
-    const user = await this.authService.getUsuarioActual()
-    if(user){
-    }
+  constructor(private router: Router,
+              public authService: AuthService) { }
+
+  ngOnInit(){
   }
 
-  redirigirALogin(): void{
-    this.router.navigate(['/login'])
+  redirigirALogin(){
+    return this.router.navigate(['/login'])
   }
 
   async logout(){
-    try {
-      await this.authService.logout();
-      this.router.navigate(['/login'])
-
-    }catch (e) {
-
-    }
+    await this.authService.logout();
+    await this.router.navigate(['/login'])
+  }
+  redirigirAAdministracion(){
+    return this.router.navigate(['/administracion'])
   }
 
 }
