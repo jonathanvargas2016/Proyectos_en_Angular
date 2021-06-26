@@ -1,16 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Router} from '@angular/router'
 import {AuthService} from "../../Servicios/auth.service";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit{
+
 
   constructor(private router: Router,
-              public authService: AuthService) { }
+              public authService: AuthService) {
+  }
 
   ngOnInit(){
   }

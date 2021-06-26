@@ -9,7 +9,6 @@ import {map} from "rxjs/operators";
 export class MipaginaService {
   private itemsCollection: AngularFirestoreCollection<any>;
   pathIP = 'informacionPersonal';
-  arrayInfoPersonal: any[] = [];
 
   constructor(private readonly afs: AngularFirestore, public authService: AuthService) {
     this.itemsCollection = afs.collection<any>(this.pathIP)
@@ -20,7 +19,7 @@ export class MipaginaService {
     try{
       await this.itemsCollection.add(infoPersonal)
     }catch (error){
-      console.log(error)
+      throw error
     }
   }
   getInfoPersonal(){

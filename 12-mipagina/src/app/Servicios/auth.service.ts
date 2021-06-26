@@ -6,38 +6,51 @@ import {AngularFireAuth} from "@angular/fire/auth";
 })
 export class AuthService {
   mensajeErrorLogin = "";
-  usuario: any = {}
+  usuario = {
+    uid: '',
+    email: ''
+  };
   aIniciadoSesion = false;
 
   constructor(public afAuth: AngularFireAuth) {
 
-    if(localStorage.getItem('user') == null){
-      return;
+    if(localStorage.getItem('logeado')){
+      this.aIniciadoSesion = true;
+    }else{
+      this.aIniciadoSesion = false;
     }
-    this.aIniciadoSesion = true;
-    const data = localStorage.getItem('user');
-    if(data){
-      this.usuario = JSON.parse(data);
-    }
+    this.getDatos()
+  }
+
+  getDatos(){
+    return this.afAuth.user.subscribe(user =>{
+      if(user){
+        this.usuario.uid = user.uid
+      }
+    });
   }
 
   async login(email: string, password: string){
-    try{
-      const resp = await this.afAuth.signInWithEmailAndPassword(email, password)
-      if(resp){
-        this.aIniciadoSesion = true;
-        localStorage.setItem('user', JSON.stringify(resp.user));
-      }
+
+    try {
+      await this.afAuth.signInWithEmailAndPassword(email, password)
+      this.aIniciadoSesion = true;
+      localStorage.setItem('logeado', "true");
     }catch (error){
       this.mensajeErrorLogin = error.message;
     }
 
   }
 
-  logout(){
-    this.afAuth.signOut();
-    this.aIniciadoSesion = false;
-    localStorage.removeItem('user');
+  async logout(){
+    try {
+      await this.afAuth.signOut();
+      this.aIniciadoSesion = false;
+      localStorage.removeItem('logeado');
+    }catch (error){
+      throw error;
+    }
+
   }
 
 }
