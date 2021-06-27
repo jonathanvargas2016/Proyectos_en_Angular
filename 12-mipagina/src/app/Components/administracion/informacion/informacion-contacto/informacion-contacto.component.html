@@ -1,0 +1,66 @@
+<h4>Informacion de Contacto</h4><br>
+<form (ngSubmit)="guardarInfoContacto()" #formaIC="ngForm">
+
+  <div class="mb-3">
+    <label for="correoInputP" class="form-label">Correo electronico personal</label>
+    <input type="email"
+           class="form-control"
+           id="correoInputP"
+           aria-describedby="emailHelp"
+           placeholder="example@gmail.com"
+           name="correoPersonal"
+           [(ngModel)]="informacionContacto.correoPersonal">
+  </div>
+
+  <div class="mb-3">
+    <label for="correoInputEmpInst" class="form-label">Correo electronico institucional o empresarial</label>
+    <input type="email"
+           class="form-control"
+           id="correoInputEmpInst"
+           aria-describedby="emailHelp"
+           placeholder="example@epn.edu.ec"
+           name="correoInstEmp"
+           [(ngModel)]="informacionContacto.correoInstEmpres">
+  </div>
+
+  <div class="mb-3">
+    <label for="celularInput" class="form-label">Telefono</label>
+    <input type="tel"
+           class="form-control"
+           id="celularInput"
+           placeholder="ingrese numero de celular o telefono"
+           name="telf"
+           [(ngModel)]="informacionContacto.telefono">
+  </div>
+
+  <div class="mb-3">
+    <label for="ubicacionInput" class="form-label">Ubicacion</label>
+    <input type="url"
+           class="form-control"
+           id="ubicacionInput"
+           placeholder="ingrese link de acceso (Google)"
+           name="ubicacion"
+           [(ngModel)]="informacionContacto.ubicacion">
+  </div>
+
+  <div class="mb-3">
+    <label for="github" class="form-label">Ubicacion</label>
+    <input type="url"
+           class="form-control"
+           id="github"
+           placeholder="ingrese link de Github"
+           name="github"
+           [(ngModel)]="informacionContacto.github">
+  </div>
+
+  <div class="mb-3">
+    <label for="linkendin" class="form-label">Ubicacion</label>
+    <input type="url"
+           class="form-control"
+           id="linkendin"
+           placeholder="ingrese link de Linkedin"
+           name="linkedin"
+           [(ngModel)]="informacionContacto.linkedin">
+  </div>
+  <button type="submit" class="btn btn-warning">Guardar</button>
+</form>

@@ -12,237 +12,33 @@
       <div class="row row-cols-1 row-cols-md-3 g-4 ">
 
         <div class="col">
-          <h4>Informacion Personal</h4><br>
-
-          <form (ngSubmit)="guardarInfoUsuario()" #forma="ngForm">
-            <div class="mb-3">
-              <label for="nombreInput" class="form-label">Nombres</label>
-              <input type="text"
-                     class="form-control"
-                     id="nombreInput"
-                     placeholder="ingrese nombres y apellidos"
-                     name="nombres"
-                     [(ngModel)]="informacionPersonal.nombres"
-                     required>
-            </div>
-
-            <div class="mb-3">
-              <label for="tituloInput" class="form-label">Titulo</label>
-              <input type="text"
-                     class="form-control"
-                     id="tituloInput"
-                     placeholder="ingrese su titulo actual"
-                     name="titulo"
-                     [(ngModel)]="informacionPersonal.titulo"
-                     required>
-            </div>
-
-            <div class="mb-3">
-              <label for="linkCVInput" class="form-label">Curriculum Vitae</label>
-              <input type="url"
-                     class="form-control"
-                     id="linkCVInput"
-                     placeholder="ingrese el link de acceso al cv"
-                     name="cv"
-                     [(ngModel)]="informacionPersonal.linkCV">
-            </div>
-
-            <div class="mb-3">
-              <label for="perfilProfesionalInput" class="form-label">Perfil Profesional</label>
-              <textarea class="form-control"
-                        id="perfilProfesionalInput"
-                        rows="4"
-                        name="perfilProfesional"
-                        [(ngModel)]="informacionPersonal.perfilProfesional"></textarea>
-            </div>
-
-            <div class="mb-3">
-              <label for="motivacionInput" class="form-label">Motivacion</label>
-              <textarea class="form-control"
-                        id="motivacionInput"
-                        rows="4"
-                        name="motivacion"
-                        [(ngModel)]="informacionPersonal.motivacion"></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-primary" [disabled]="forma.invalid">Guardar</button>
-          </form>
-
+          <app-informacion-personal-form></app-informacion-personal-form>
         </div>
 
         <div class="col">
-          <h4>Informacion de Contacto</h4><br>
-          <form (ngSubmit)="guardarInfoContacto()" #formaIC="ngForm">
-
-            <div class="mb-3">
-              <label for="correoInputP" class="form-label">Correo electronico personal</label>
-              <input type="email"
-                     class="form-control"
-                     id="correoInputP"
-                     aria-describedby="emailHelp"
-                     placeholder="example@gmail.com"
-                     name="correoPersonal"
-                     [(ngModel)]="informacionContacto.correoPersonal">
-            </div>
-
-            <div class="mb-3">
-              <label for="correoInputEmpInst" class="form-label">Correo electronico institucional o empresarial</label>
-              <input type="email"
-                     class="form-control"
-                     id="correoInputEmpInst"
-                     aria-describedby="emailHelp"
-                     placeholder="example@epn.edu.ec"
-                     name="correoInstEmp"
-                     [(ngModel)]="informacionContacto.correoInstEmpres">
-            </div>
-
-            <div class="mb-3">
-              <label for="celularInput" class="form-label">Telefono</label>
-              <input type="tel"
-                     class="form-control"
-                     id="celularInput"
-                     placeholder="ingrese numero de celular o telefono"
-                     name="telf"
-                     [(ngModel)]="informacionContacto.telefono">
-            </div>
-
-            <div class="mb-3">
-              <label for="ubicacionInput" class="form-label">Ubicacion</label>
-              <input type="url"
-                     class="form-control"
-                     id="ubicacionInput"
-                     placeholder="ingrese link de acceso (Google)"
-                     name="ubicacion"
-                     [(ngModel)]="informacionContacto.ubicacion">
-            </div>
-
-            <div class="mb-3">
-              <label for="github" class="form-label">Ubicacion</label>
-              <input type="url"
-                     class="form-control"
-                     id="github"
-                     placeholder="ingrese link de Github"
-                     name="github"
-                     [(ngModel)]="informacionContacto.github">
-            </div>
-
-            <div class="mb-3">
-              <label for="linkendin" class="form-label">Ubicacion</label>
-              <input type="url"
-                     class="form-control"
-                     id="linkendin"
-                     placeholder="ingrese link de Linkedin"
-                     name="linkedin"
-                     [(ngModel)]="informacionContacto.linkedin">
-            </div>
-            <button type="submit" class="btn btn-warning">Guardar</button>
-          </form>
-
-        </div>
-
-        <div class="col">
-          <form (ngSubmit)="guardarHabilidad()">
-            <h4>Habilidades</h4><br>
-
-            <div class="mb-3">
-              <select class="form-select" [(ngModel)]="habilidad.tipo" name="habilidad">
-                <option value="">Seleccione tipo de habilidad</option>
-                <option value="Programacion">Programacion</option>
-                <option value="Base de datos">Base de datos</option>
-                <option value="Frameworks">Frameworks</option>
-                <option value="Sistemas Operativos">Sistemas Operativos</option>
-                <option value="Idiomas">Idiomas</option>
-                <option value="Otros">Otros</option>
-              </select>
-            </div>
-
-            <div class="mb-3">
-              <label for="habilidadInput" class="form-label">Ingrese su habilidad</label>
-              <input type="url"
-                     class="form-control"
-                     id="habilidadInput"
-                     placeholder="ingrese su habilidad"
-                     name="habilidad"
-                     [(ngModel)]="habilidad.nombreHabilidad">
-            </div>
-            <button type="submit" class="btn btn-secondary">Guardar</button>
-
-          </form>
-
-        </div>
-
-        <div class="col">
-          <h4>Educacion</h4><br>
-          <form (ngSubmit)="guardarEducacion()" >
-            <div class="mb-3">
-              <label for="titulo" class="form-label">Ingrese su titulo obtenido</label>
-              <input type="text"
-                     class="form-control"
-                     id="titulo"
-                     placeholder="titulo en: "
-                     name="titulo"
-                     [(ngModel)]="educacion.titulo">
-
-            </div>
-            <div class="mb-3">
-              <label for="ubicacionEducacion" class="form-label">Ingrese el lugar</label>
-              <input type="text"
-                     class="form-control"
-                     id="ubicacionEducacion"
-                     placeholder="En donde obtuvo su titulo: "
-                     name="ubicacionEducacion"
-                     [(ngModel)]="educacion.ubicacion">
-
-            </div>
-            <div class="mb-3">
-              <label for="fechaInicio" class="form-label">Seleccione la fecha de inicio</label>
-              <input type="date"
-                     class="form-control"
-                     id="fechaInicio"
-                     name="fechaInicio"
-                     [(ngModel)]="educacion.fechaInicio">
-
-            </div>
-            <div class="mb-3">
-              <label for="fechaFin" class="form-label">Seleccione la fecha de culminacion</label>
-              <input type="date"
-                     class="form-control"
-                     id="fechaFin"
-                     name="fechaFin"
-                     [(ngModel)]="educacion.fechaFin">
-
-            </div>
-            <div class="mb-3">
-              <input type="url"
-                     class="form-control"
-                     id="habilidadInput"
-                     placeholder="ingrese su habilidad"
-                     name="habilidad"
-                     [(ngModel)]="habilidad.nombreHabilidad">
-
-            </div>
-            <div class="mb-3">
-              <input type="url"
-                     class="form-control"
-                     id="habilidadInput"
-                     placeholder="ingrese su habilidad"
-                     name="habilidad"
-                     [(ngModel)]="habilidad.nombreHabilidad">
-
-            </div>
-
-            <button type="submit" class="btn btn-dark">Guardar</button>
-          </form>
+          <app-informacion-contacto-form></app-informacion-contacto-form>
         </div>
 
         <div class="col">
 
+          <app-educacion-form></app-educacion-form>
         </div>
 
         <div class="col">
-
+          <app-habilidades-form></app-habilidades-form>
         </div>
 
+        <div class="col">
+          <app-certificaciones-form></app-certificaciones-form>
+        </div>
+
+        <div class="col">
+          <app-proyectos-forms></app-proyectos-forms>
+        </div>
+
+        <div class="col">
+          <app-experiencia-laboral-form></app-experiencia-laboral-form>
+        </div>
 
       </div>
     </div>

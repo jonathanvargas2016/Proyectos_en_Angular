@@ -1,0 +1,54 @@
+<h4>Informacion Personal</h4><br>
+<form (ngSubmit)="guardarInfoUsuario()" #forma="ngForm">
+  <div class="mb-3">
+    <label for="nombreInput" class="form-label">Nombres</label>
+    <input type="text"
+           class="form-control"
+           id="nombreInput"
+           placeholder="ingrese nombres y apellidos"
+           name="nombres"
+           [(ngModel)]="informacionPersonal.nombres"
+           required>
+  </div>
+
+  <div class="mb-3">
+    <label for="tituloInput" class="form-label">Titulo</label>
+    <input type="text"
+           class="form-control"
+           id="tituloInput"
+           placeholder="ingrese su titulo actual"
+           name="titulo"
+           [(ngModel)]="informacionPersonal.titulo"
+           required>
+  </div>
+
+  <div class="mb-3">
+    <label for="linkCVInput" class="form-label">Curriculum Vitae</label>
+    <input type="url"
+           class="form-control"
+           id="linkCVInput"
+           placeholder="ingrese el link de acceso al cv"
+           name="cv"
+           [(ngModel)]="informacionPersonal.linkCV">
+  </div>
+
+  <div class="mb-3">
+    <label for="perfilProfesionalInput" class="form-label">Perfil Profesional</label>
+    <textarea class="form-control"
+              id="perfilProfesionalInput"
+              rows="4"
+              name="perfilProfesional"
+              [(ngModel)]="informacionPersonal.perfilProfesional"></textarea>
+  </div>
+
+  <div class="mb-3">
+    <label for="motivacionInput" class="form-label">Motivacion</label>
+    <textarea class="form-control"
+              id="motivacionInput"
+              rows="4"
+              name="motivacion"
+              [(ngModel)]="informacionPersonal.motivacion"></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary" [disabled]="forma.invalid">Guardar</button>
+</form>

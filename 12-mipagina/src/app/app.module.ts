@@ -11,6 +11,7 @@ import { ProyectosComponent } from './Components/proyectos/proyectos.component';
 import { ReferenciasComponent } from './Components/referencias/referencias.component';
 import { AdministracionComponent } from './Components/administracion/administracion.component';
 import { LoginComponent } from './Components/login/login.component';
+import {EducacionFormComponent} from "./Components/administracion/informacion/educacion/educacion.component";
 
 // rutas
 import {AppRoutingModule} from './app.routes'
@@ -24,6 +25,12 @@ import { PERSISTENCE } from '@angular/fire/auth';
 
 // forms
 import {FormsModule} from "@angular/forms";
+import { ExperienciaLaboralComponent } from './Components/administracion/informacion/experiencia-laboral/experiencia-laboral.component';
+import { InformacionPersonalComponent } from './Components/administracion/informacion/informacion-personal/informacion-personal.component';
+import { InformacionContactoComponent } from './Components/administracion/informacion/informacion-contacto/informacion-contacto.component';
+import { HabilidadesComponent } from './Components/administracion/informacion/habilidades/habilidades.component';
+import { CertificacionesFormComponent } from './Components/administracion/informacion/certificaciones-form/certificaciones-form.component';
+import { ProyectosFormsComponent } from './Components/administracion/informacion/proyectos-forms/proyectos-forms.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +44,14 @@ import {FormsModule} from "@angular/forms";
     ProyectosComponent,
     ReferenciasComponent,
     AdministracionComponent,
-    LoginComponent
+    LoginComponent,
+    ExperienciaLaboralComponent,
+    InformacionPersonalComponent,
+    InformacionContactoComponent,
+    HabilidadesComponent,
+    EducacionFormComponent,
+    CertificacionesFormComponent,
+    ProyectosFormsComponent
   ],
   imports: [
     BrowserModule,

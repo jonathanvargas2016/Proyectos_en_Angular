@@ -1,0 +1,113 @@
+<h4>Experiencia Laboral</h4><br>
+<form (ngSubmit)="guardarExperienciaLaboral()">
+
+  <div class="mb-3">
+    <label for="lugarInput" class="form-label">Ingrese el lugar</label>
+    <input type="text"
+           class="form-control"
+           id="lugarInput"
+           placeholder="lugar donde trabajo: "
+           name="lugarTrabajo"
+           [(ngModel)]="experienciaLaboral.lugar">
+  </div>
+
+  <div class="mb-3">
+    <label for="fechaInicio" class="form-label">Ingrese la fecha de inicio</label>
+    <input type="date"
+           class="form-control"
+           id="fechaInicio"
+           placeholder="fecha en la que inicio: "
+           name="fechaInicio"
+           [(ngModel)]="experienciaLaboral.fechaInicio">
+  </div>
+
+  <div class="mb-3">
+    <label for="fechaFin" class="form-label">Ingrese la fecha fin</label>
+    <input type="date"
+           class="form-control"
+           id="fechaFin"
+           placeholder="fecha en la termino: "
+           name="fechaFin"
+           [(ngModel)]="experienciaLaboral.fechaFin">
+  </div>
+
+  <div class="mb-3">
+    <label for="cargoInput" class="form-label">Ingrese el cargo</label>
+    <input type="text"
+           class="form-control"
+           id="cargoInput"
+           placeholder="cargo que desempeñaba: "
+           name="cargo"
+           [(ngModel)]="experienciaLaboral.cargo">
+  </div>
+
+  <div class="mb-3">
+    <label for="funcionesInput" class="form-label">Funciones</label>
+    <textarea class="form-control"
+              id="funcionesInput"
+              rows="4"
+              name="funciones"
+              [(ngModel)]="experienciaLaboral.funciones"></textarea>
+  </div>
+  <h6>Referencias personales: </h6>
+  <br><h6>Referencia Uno</h6>
+  <div class="mb-3">
+    <label for="nombreRefInputUno" class="form-label">Ingrese el nombre</label>
+    <input type="text"
+           class="form-control"
+           id="nombreRefInputUno"
+           placeholder="nombre de la referencia: "
+           name="nombreRefUno"
+           [(ngModel)]="experienciaLaboral.referencias.refUno.nombre">
+  </div>
+  <div class="mb-3">
+    <label for="cargoRefInputUno" class="form-label">Ingrese el cargo</label>
+    <input type="text"
+           class="form-control"
+           id="cargoRefInputUno"
+           placeholder="cargo que desempeña la referencia: "
+           name="cargoRefUno"
+           [(ngModel)]="experienciaLaboral.referencias.refUno.cargo">
+  </div>
+  <div class="mb-3">
+    <label for="telfRefInputUno" class="form-label">Ingrese el telefono</label>
+    <input type="tel"
+           class="form-control"
+           id="telfRefInputUno"
+           placeholder="telefono de la referencia: "
+           name="telfRefUno"
+           [(ngModel)]="experienciaLaboral.referencias.refUno.telf">
+  </div>
+  <br>
+  <h6>Referencia Dos</h6>
+  <div class="mb-3">
+    <label for="nombreRefInputDos" class="form-label">Ingrese el nombre</label>
+    <input type="text"
+           class="form-control"
+           id="nombreRefInputDos"
+           placeholder="nombre de la referencia: "
+           name="nombreRefDos"
+           [(ngModel)]="experienciaLaboral.referencias.refDos.nombre">
+  </div>
+  <div class="mb-3">
+    <label for="cargoRefInputDos" class="form-label">Ingrese el cargo</label>
+    <input type="text"
+           class="form-control"
+           id="cargoRefInputDos"
+           placeholder="cargo que desempeña la referencia: "
+           name="cargoRefDos"
+           [(ngModel)]="experienciaLaboral.referencias.refDos.cargo">
+  </div>
+  <div class="mb-3">
+    <label for="telfRefInputDos" class="form-label">Ingrese el telefono</label>
+    <input type="tel"
+           class="form-control"
+           id="telfRefInputDos"
+           placeholder="telefono de la referencia: "
+           name="telfRefDos"
+           [(ngModel)]="experienciaLaboral.referencias.refDos.telf">
+  </div>
+
+
+  <button type="submit" class="btn btn-primary">Guardar</button>
+</form>

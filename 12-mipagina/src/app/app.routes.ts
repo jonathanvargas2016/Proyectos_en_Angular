@@ -10,9 +10,6 @@ import {AdministracionComponent} from "./Components/administracion/administracio
 import {AuthGuard} from "./Guard/auth.guard";
 import {LoginGuard} from "./Guard/login.guard";
 
-import { AngularFireAuthGuard } from '@angular/fire/auth-guard';
-
-
 const rutas: Routes = [
   { path: 'yo', component: YoComponent },
   { path: 'educacion', component: EducacionComponent },
