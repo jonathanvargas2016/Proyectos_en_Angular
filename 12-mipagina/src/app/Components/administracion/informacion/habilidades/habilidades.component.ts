@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MipaginaService} from "../../../../Servicios/mipagina.service";
+import {InfoPersonalService} from "../../../../Servicios/infoPersonal.service";
 
 @Component({
   selector: 'app-habilidades-form',
@@ -12,7 +12,7 @@ export class HabilidadesComponent implements OnInit {
     tipo: '',
     nombreHabilidad: ''
   }
-  constructor(private paginaService: MipaginaService) { }
+  constructor(private paginaService: InfoPersonalService) { }
 
   ngOnInit(): void {
   }

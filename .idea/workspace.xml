@@ -2,11 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a23ac72-cb32-4f67-8e2f-ea49f5d7cdf8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/12-mipagina/src/app/Servicios/infoPersonal.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/administracion.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/administracion.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/administracion.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/administracion.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/habilidades/habilidades.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/habilidades/habilidades.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-contacto/informacion-contacto.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-contacto/informacion-contacto.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-contacto/informacion-contacto.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-contacto/informacion-contacto.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-personal/informacion-personal.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-personal/informacion-personal.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-personal/informacion-personal.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-personal/informacion-personal.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/yo/yo.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/yo/yo.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/yo/yo.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/yo/yo.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/yo/yo.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/yo/yo.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Servicios/mipagina.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/app.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/app.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/app.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,11 +108,25 @@
       <workItem from="1623538665818" duration="12714000" />
       <workItem from="1623625968897" duration="2590000" />
       <workItem from="1623987859667" duration="5902000" />
-      <workItem from="1624769225735" duration="5441000" />
+      <workItem from="1624769225735" duration="5598000" />
+      <workItem from="1625687324156" duration="14000" />
+      <workItem from="1625795826021" duration="596000" />
+      <workItem from="1625865105626" duration="26687000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

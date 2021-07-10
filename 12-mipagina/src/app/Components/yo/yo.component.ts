@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {MipaginaService} from "../../Servicios/mipagina.service";
+import {InfoPersonalService} from "../../Servicios/infoPersonal.service";
+import {InfoContactoService} from "../../Servicios/infoContacto.service";
 
 @Component({
   selector: 'app-yo',
@@ -10,27 +11,22 @@ export class YoComponent implements OnInit {
   banderaEmailP = false;
   banderaEmailI = false;
   banderaUbicacion = false;
-  banderaGithub = false;
   banderaTelf = false;
-  banderaLink = false;
-
   arrayInfoPersonal: any[] = []
-
-  informacionContacto = {
-    correoPersonal: 'jonathan.1996mds@gmail.com',
-    correoInstitucional: 'jonathan.vargas01@epn.edu.ec',
-    celular: '0983774891',
-    direccion: 'Quito - Ecuador',
-  }
+  arrayInfoContacto: any[] = []
 
   habilidades = ['Javascript', 'Typescript', 'Firebase', 'SQL Server', 'Angular', 'NestJS'
     ,'HTML', 'CSS', 'MySQL', 'Java', 'React']
 
-  constructor(private paginaService: MipaginaService) { }
+  constructor(private readonly paginaService: InfoPersonalService,
+              private readonly  infoContService: InfoContactoService ) { }
 
   ngOnInit(): void {
     this.paginaService.getInfoPersonal().subscribe((datos)=>{
       this.arrayInfoPersonal[0] = datos[0]
+    })
+    this.infoContService.getInfoContacto().subscribe((datos) =>{
+      this.arrayInfoContacto[0] = datos[0]
     })
   }
   cambiarBanderaEmailP(): boolean{
@@ -44,12 +40,6 @@ export class YoComponent implements OnInit {
   }
   cambiarBanderaTelf(): boolean{
     return this.banderaTelf = !this.banderaTelf;
-  }
-  cambiarBanderaLink(): boolean{
-    return this.banderaLink = !this.banderaLink;
-  }
-  cambiarBanderaGithub(): boolean{
-    return this.banderaGithub = !this.banderaGithub;
   }
 
 }

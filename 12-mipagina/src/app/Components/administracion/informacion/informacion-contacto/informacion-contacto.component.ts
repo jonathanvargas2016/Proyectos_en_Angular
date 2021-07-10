@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MipaginaService} from "../../../../Servicios/mipagina.service";
+import {InfoContactoService} from "../../../../Servicios/infoContacto.service";
 
 @Component({
   selector: 'app-informacion-contacto-form',
@@ -11,17 +11,18 @@ export class InformacionContactoComponent implements OnInit {
   informacionContacto: any = {
     correoPersonal: '',
     correoInstEmpres: '',
-    telefono: '',
-    linkUbicacion: '',
+    whatssap: '',
+    ubicacion: '',
     github: '',
-    linkedin: ''
+    linkedin: '',
+    bandera: false
   }
-  constructor(private paginaService: MipaginaService) { }
+  constructor(public readonly infoContService: InfoContactoService) { }
 
   ngOnInit(): void {
   }
   guardarInfoContacto(){
-    console.log(this.informacionContacto)
+    return this.infoContService.cargarInformacionContacto(this.informacionContacto)
   }
 
 }

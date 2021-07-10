@@ -23,6 +23,9 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import {environment} from "../environments/environment";
 import { PERSISTENCE } from '@angular/fire/auth';
 
+// firestorage
+import {AngularFireStorageModule} from "@angular/fire/storage";
+
 // forms
 import {FormsModule} from "@angular/forms";
 import { ExperienciaLaboralComponent } from './Components/administracion/informacion/experiencia-laboral/experiencia-laboral.component';
@@ -31,6 +34,9 @@ import { InformacionContactoComponent } from './Components/administracion/inform
 import { HabilidadesComponent } from './Components/administracion/informacion/habilidades/habilidades.component';
 import { CertificacionesFormComponent } from './Components/administracion/informacion/certificaciones-form/certificaciones-form.component';
 import { ProyectosFormsComponent } from './Components/administracion/informacion/proyectos-forms/proyectos-forms.component';
+
+// pipes
+import { DomSeguroPipe } from './Pipes/dom-seguro.pipe';
 
 @NgModule({
   declarations: [
@@ -51,7 +57,8 @@ import { ProyectosFormsComponent } from './Components/administracion/informacion
     HabilidadesComponent,
     EducacionFormComponent,
     CertificacionesFormComponent,
-    ProyectosFormsComponent
+    ProyectosFormsComponent,
+    DomSeguroPipe
   ],
   imports: [
     BrowserModule,
@@ -59,7 +66,8 @@ import { ProyectosFormsComponent } from './Components/administracion/informacion
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     FormsModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AngularFireStorageModule
   ],
   providers: [
       {provide: PERSISTENCE, useValue: 'local'}

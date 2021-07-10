@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {MipaginaService} from "../../Servicios/mipagina.service";
+import {InfoPersonalService} from "../../Servicios/infoPersonal.service";
 
 @Component({
   selector: 'app-administracion',
@@ -7,7 +7,7 @@ import {MipaginaService} from "../../Servicios/mipagina.service";
   styleUrls: ['./administracion.component.css']
 })
 export class AdministracionComponent implements OnInit {
-  constructor(private paginaService: MipaginaService) {
+  constructor(private paginaService: InfoPersonalService) {
   }
 
   ngOnInit(): void {

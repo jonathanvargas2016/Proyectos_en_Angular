@@ -8,7 +8,10 @@
     </div>
 
     <div class="container posicion-centrado">
-      <button class="btn btn-primary">VER CURRICULUM</button>
+      <a [href]="arrayInfoPersonal[0]?.pdfCV"
+         target="_blank"
+         role="button"
+         class="btn btn-primary">VER CURRICULUM</a>
     </div>
 
     <div class="relleno-fondo-img"></div>
@@ -21,7 +24,7 @@
       <div class="row row-cols-1 row-cols-md-2 g-4">
 
         <div class="col posicion-der-img">
-          <img src="./assets/img/yo.png"
+          <img [src]="arrayInfoPersonal[0]?.imagen"
                class="img-fluid "  alt="foto perfil">
         </div>
 
@@ -48,30 +51,36 @@
       <div class="row row-cols-1 row-cols-md-3 g-4 posicion-centrado contactos">
 
         <div class="col">
-          <a type="button" (click)="cambiarBanderaEmailP()"><img src="./assets/svg/email.svg" alt="email"></a>
-          <p class="posicion-centrado" *ngIf="banderaEmailP==true">{{informacionContacto.correoPersonal}}</p>
+          <img src="./assets/svg/email.svg" alt="email" (click)="cambiarBanderaEmailP()">
+          <p class="posicion-centrado" *ngIf="banderaEmailP==true">{{arrayInfoContacto[0]?.correoPersonal}}</p>
         </div>
 
         <div class="col">
-          <a type="button" (click)="cambiarBanderaEmailI()"><img src="./assets/svg/email.svg" alt="email"></a>
-          <p class="posicion-centrado" *ngIf="banderaEmailI==true">{{informacionContacto.correoInstitucional}}</p>
+          <img src="./assets/svg/email.svg" alt="email" (click)="cambiarBanderaEmailI()">
+          <p class="posicion-centrado" *ngIf="banderaEmailI==true">{{arrayInfoContacto[0]?.correoInstEmpres}}</p>
         </div>
 
         <div class="col">
-          <a type="button" (click)="cambiarBanderaTelf()"><img src="./assets/svg/phone.svg" alt="phone"></a>
-          <p class="posicion-centrado" *ngIf="banderaTelf==true">+593 {{informacionContacto.celular}}</p>
+          <img src="./assets/svg/whatsapp.svg" alt="phone" (click)="cambiarBanderaTelf()">
+          <p class="posicion-centrado" *ngIf="banderaTelf">+593 {{arrayInfoContacto[0]?.whatssap}}</p>
         </div>
 
         <div class="col">
-          <a href="https://goo.gl/maps/gwSTBE1KmqAxUXGF9" type="button" target="_blank"><img src="./assets/svg/ubicacion.svg" alt="ubicacion"></a>
+          <img src="./assets/svg/ubicacion.svg" alt="phone" (click)="cambiarBanderaUbicacion()">
+          <br>
+          <iframe [src]="arrayInfoContacto[0]?.ubicacion | domSeguro: 'https://www.google.com/maps/embed?pb=!'"
+                  class="e2e-iframe-trusted-src"
+                  width="400"
+                  height="400" style="border:0;" allowfullscreen="" loading="lazy"
+                  *ngIf="banderaUbicacion"></iframe>
         </div>
 
         <div class="col">
-          <a href="https://github.com/jonathanvargas2016" type="button" target="_blank"><img src="./assets/svg/github.svg" alt="github"></a>
+          <a [href]="arrayInfoContacto[0]?.github" type="button" target="_blank"><img src="./assets/svg/github.svg" alt="github"></a>
         </div>
 
         <div class="col">
-          <a href="https://www.linkedin.com/in/jonathan-vargas28/" type="button" target="_blank"><img src="./assets/svg/linkedin.svg" alt="linkedin"></a>
+          <a [href]="arrayInfoContacto[0]?.linkedin" type="button" target="_blank"><img src="./assets/svg/linkedin.svg" alt="linkedin"></a>
         </div>
       </div>
     </div>

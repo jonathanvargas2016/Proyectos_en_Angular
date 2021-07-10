@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {MipaginaService} from "../../../../Servicios/mipagina.service";
+import {Component, OnInit} from '@angular/core';
+import {InfoPersonalService} from "../../../../Servicios/infoPersonal.service";
 
 @Component({
   selector: 'app-informacion-personal-form',
@@ -8,24 +8,39 @@ import {MipaginaService} from "../../../../Servicios/mipagina.service";
 })
 export class InformacionPersonalComponent implements OnInit {
   informacionPersonal: any = {
-    uid: '',
     nombres: '',
     titulo: '',
-    linkCV: '',
     perfilProfesional: '',
     motivacion: '',
+    imagen: '',
+    pdfCV: ''
   }
-  constructor(private paginaService: MipaginaService) { }
+  imagenCapturada: any
+  pdfCapturado: any
+
+  constructor(
+    public paginaService: InfoPersonalService
+  ) {
+  }
 
   ngOnInit(): void {
   }
 
   async guardarInfoUsuario(){
     try{
-      await this.paginaService.agregar(this.informacionPersonal);
+      await this.paginaService.cargarFormularioCompleto(this.informacionPersonal,
+        this.imagenCapturada,
+        this.pdfCapturado);
     }catch (error){
       throw error;
     }
+
+  }
+  capturarFotoPerfil(event: any): any{
+     this. imagenCapturada = event.target.files[0]
+  }
+  capturarCV(event: any):any{
+    this. pdfCapturado = event.target.files[0]
   }
 
 }

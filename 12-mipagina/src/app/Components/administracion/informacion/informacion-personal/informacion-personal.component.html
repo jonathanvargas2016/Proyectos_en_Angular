@@ -1,4 +1,14 @@
 <h4>Informacion Personal</h4><br>
+
+<div class="alert alert-danger posicion-alerta" role="alert"  *ngIf="paginaService.espera">
+    Espere...
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<div class="alert alert-success posicion-alerta" role="alert"  *ngIf="paginaService.cargado">
+  Se subio
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
 <form (ngSubmit)="guardarInfoUsuario()" #forma="ngForm">
   <div class="mb-3">
     <label for="nombreInput" class="form-label">Nombres</label>
@@ -9,7 +19,25 @@
            name="nombres"
            [(ngModel)]="informacionPersonal.nombres"
            required>
+
   </div>
+  <div class="mb-3">
+    <label for="formFile" class="form-label">Seleccione foto de perfil</label>
+    <input (change)="capturarFotoPerfil($event)"
+           class="form-control"
+           type="file" id="formFile"
+           accept=".png, .jpg">
+  </div>
+
+  <div class="mb-3">
+    <label for="formFile" class="form-label">Seleccione CV (.pdf)</label>
+    <input (change)="capturarCV($event)"
+           class="form-control"
+           type="file" id="formPdf"
+           accept=".pdf">
+  </div>
+
+
 
   <div class="mb-3">
     <label for="tituloInput" class="form-label">Titulo</label>
@@ -20,16 +48,6 @@
            name="titulo"
            [(ngModel)]="informacionPersonal.titulo"
            required>
-  </div>
-
-  <div class="mb-3">
-    <label for="linkCVInput" class="form-label">Curriculum Vitae</label>
-    <input type="url"
-           class="form-control"
-           id="linkCVInput"
-           placeholder="ingrese el link de acceso al cv"
-           name="cv"
-           [(ngModel)]="informacionPersonal.linkCV">
   </div>
 
   <div class="mb-3">

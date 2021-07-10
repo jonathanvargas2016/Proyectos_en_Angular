@@ -1,4 +1,15 @@
 <h4>Informacion de Contacto</h4><br>
+
+<div class="alert alert-danger posicion-alerta" role="alert"  *ngIf="infoContService.espera">
+  Espere...
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<div class="alert alert-success posicion-alerta" role="alert"  *ngIf="infoContService.cargado">
+  Se subio
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+
 <form (ngSubmit)="guardarInfoContacto()" #formaIC="ngForm">
 
   <div class="mb-3">
@@ -9,7 +20,9 @@
            aria-describedby="emailHelp"
            placeholder="example@gmail.com"
            name="correoPersonal"
-           [(ngModel)]="informacionContacto.correoPersonal">
+           [(ngModel)]="informacionContacto.correoPersonal"
+           required
+           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
   </div>
 
   <div class="mb-3">
@@ -20,17 +33,18 @@
            aria-describedby="emailHelp"
            placeholder="example@epn.edu.ec"
            name="correoInstEmp"
-           [(ngModel)]="informacionContacto.correoInstEmpres">
+           [(ngModel)]="informacionContacto.correoInstEmpres"
+           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
   </div>
 
   <div class="mb-3">
-    <label for="celularInput" class="form-label">Telefono</label>
+    <label for="celularInput" class="form-label">Whatssap</label>
     <input type="tel"
            class="form-control"
            id="celularInput"
            placeholder="ingrese numero de celular o telefono"
            name="telf"
-           [(ngModel)]="informacionContacto.telefono">
+           [(ngModel)]="informacionContacto.whatssap">
   </div>
 
   <div class="mb-3">
@@ -44,7 +58,7 @@
   </div>
 
   <div class="mb-3">
-    <label for="github" class="form-label">Ubicacion</label>
+    <label for="github" class="form-label">Github</label>
     <input type="url"
            class="form-control"
            id="github"
@@ -54,7 +68,7 @@
   </div>
 
   <div class="mb-3">
-    <label for="linkendin" class="form-label">Ubicacion</label>
+    <label for="linkendin" class="form-label">Linkedin</label>
     <input type="url"
            class="form-control"
            id="linkendin"
@@ -62,5 +76,5 @@
            name="linkedin"
            [(ngModel)]="informacionContacto.linkedin">
   </div>
-  <button type="submit" class="btn btn-warning">Guardar</button>
+  <button type="submit" class="btn btn-warning" [disabled]="formaIC.invalid">Guardar</button>
 </form>
