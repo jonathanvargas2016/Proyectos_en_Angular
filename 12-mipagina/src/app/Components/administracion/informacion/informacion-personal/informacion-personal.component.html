@@ -11,17 +11,24 @@
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 
-<form (ngSubmit)="guardarInfoUsuario()" #forma="ngForm">
+<form (ngSubmit)="guardarInfoUsuario(forma)" #forma="ngForm">
 
   <div class="mb-3">
     <label for="nombreInput" class="form-label">Nombres</label>
     <input type="text"
            class="form-control"
+           [ngClass]="{'is-invalid':(nombres.errors?.required && nombres.touched) || nombres.errors?.minlength}"
            id="nombreInput"
            placeholder="Ingrese nombres y apellidos"
            name="nombres"
            [(ngModel)]="informacionPersonal.nombres"
-           required>
+           required
+           #nombres="ngModel"
+           minlength="10"
+           maxlength="50">
+
+    <div class="form-text color" *ngIf="nombres.errors?.required && nombres.touched">Nombres y apellidos son requeridos</div>
+    <div class="form-text color" *ngIf="nombres.errors?.minlength">Mínimo {{nombres.errors?.minlength.requiredLength}} caracteres</div>
 
   </div>
   <div class="mb-3">
@@ -29,8 +36,9 @@
     <input (change)="capturarFotoPerfil($event)"
            class="form-control"
            type="file" id="formFileImg"
-           accept=".png, .jpg"
-           required>
+           accept=".png, .jpg">
+    <div class="form-text color" *ngIf="existeErrorImg">Debe seleccionar foto de perfil</div>
+
   </div>
 
   <div class="mb-3">
@@ -38,8 +46,8 @@
     <input (change)="capturarCV($event)"
            class="form-control"
            type="file" id="formFilePdf"
-           accept=".pdf"
-           required>
+           accept=".pdf">
+    <div class="form-text color" *ngIf="existeErrorPdf">Debe seleccionar CV</div>
   </div>
 
   <div class="mb-3">
@@ -47,10 +55,18 @@
     <input type="text"
            class="form-control"
            id="tituloInput"
+           [ngClass]="{'is-invalid':(titulo.errors?.required && titulo.touched) || titulo.errors?.minlength}"
            placeholder="Ingrese su título actual"
            name="titulo"
+           #titulo="ngModel"
            [(ngModel)]="informacionPersonal.titulo"
+           minlength="10"
+           maxlength="100"
            required>
+
+    <div class="form-text color" *ngIf="titulo.errors?.required && titulo.touched">Título es requerido</div>
+    <div class="form-text color" *ngIf="titulo.errors?.minlength">Mínimo {{titulo.errors?.minlength.requiredLength}} caracteres</div>
+
   </div>
 
   <div class="mb-3">
@@ -58,8 +74,17 @@
     <textarea class="form-control"
               id="perfilProfesionalInput"
               rows="4"
+              [ngClass]="{'is-invalid':(perfilProf.errors?.required && perfilProf.touched) || perfilProf.errors?.minlength}"
               name="perfilProfesional"
-              [(ngModel)]="informacionPersonal.perfilProfesional"></textarea>
+              [(ngModel)]="informacionPersonal.perfilProfesional"
+              required
+              minlength="100"
+              maxlength="500"
+              #perfilProf="ngModel"></textarea>
+
+    <div class="form-text color" *ngIf="perfilProf.errors?.required && perfilProf.touched">Perfil profesional es requerido</div>
+    <div class="form-text color" *ngIf="perfilProf.errors?.minlength">Mínimo {{perfilProf.errors?.minlength.requiredLength}} caracteres</div>
+
   </div>
 
   <div class="mb-3">
@@ -67,8 +92,17 @@
     <textarea class="form-control"
               id="motivacionInput"
               rows="4"
+              [ngClass]="{'is-invalid':(motivacion.errors?.required && motivacion.touched) || motivacion.errors?.minlength}"
               name="motivacion"
-              [(ngModel)]="informacionPersonal.motivacion"></textarea>
+              [(ngModel)]="informacionPersonal.motivacion"
+              required
+              minlength="100"
+              maxlength="500"
+              #motivacion="ngModel"></textarea>
+
+    <div class="form-text color" *ngIf="motivacion.errors?.required && motivacion.touched">Motivación es requerido</div>
+    <div class="form-text color" *ngIf="motivacion.errors?.minlength">Mínimo {{motivacion.errors?.minlength.requiredLength}} caracteres</div>
+
   </div>
 
   <button type="submit" class="btn btn-primary" [disabled]="forma.invalid || infoPerService.espera">Guardar</button>

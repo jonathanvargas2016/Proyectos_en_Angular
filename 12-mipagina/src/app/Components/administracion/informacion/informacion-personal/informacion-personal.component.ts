@@ -17,7 +17,8 @@ export class InformacionPersonalComponent implements OnInit {
   }
   imagenCapturada: any
   pdfCapturado: any
-
+  existeErrorImg = false;
+  existeErrorPdf = false;
   constructor(
     public infoPerService: InfoPersonalService
   ) {
@@ -26,21 +27,37 @@ export class InformacionPersonalComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  async guardarInfoUsuario(){
-    try{
-      await this.infoPerService.cargarFormInfoPerson(this.informacionPersonal,
-        this.imagenCapturada,
-        this.pdfCapturado);
-    }catch (error){
-      throw error;
+  async guardarInfoUsuario(forma: any){
+
+    if(this.imagenCapturada == undefined){
+      this.existeErrorImg = true;
+    }else{
+      this.existeErrorImg = false
     }
 
+    if(this.pdfCapturado == undefined){
+      this.existeErrorPdf = true;
+    }else{
+      this.existeErrorPdf = false
+    }
+
+    if (this.imagenCapturada && this.pdfCapturado) {
+      try {
+        await this.infoPerService.cargarFormInfoPerson(this.informacionPersonal,
+          this.imagenCapturada,
+          this.pdfCapturado);
+      } catch (error) {
+        throw error;
+      }
+    }
   }
-  capturarFotoPerfil(event: any): any{
-     this. imagenCapturada = event.target.files[0]
+
+  capturarFotoPerfil(eventFP: any): any{
+     this.imagenCapturada = eventFP.target.files[0]
   }
   capturarCV(event: any):any{
-    this. pdfCapturado = event.target.files[0]
+
+    this.pdfCapturado = event.target.files[0]
   }
 
 }

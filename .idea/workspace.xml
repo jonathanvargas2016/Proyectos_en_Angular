@@ -3,24 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="1a23ac72-cb32-4f67-8e2f-ea49f5d7cdf8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/certificaciones-form/certificaciones-form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/certificaciones-form/certificaciones-form.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/certificaciones-form/certificaciones-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/certificaciones-form/certificaciones-form.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/educacion/educacion.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/educacion/educacion.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/educacion/educacion.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/educacion/educacion.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/experiencia-laboral/experiencia-laboral.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/experiencia-laboral/experiencia-laboral.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/experiencia-laboral/experiencia-laboral.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/experiencia-laboral/experiencia-laboral.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/habilidades/habilidades.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/habilidades/habilidades.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/habilidades/habilidades.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/habilidades/habilidades.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-contacto/informacion-contacto.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-contacto/informacion-contacto.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-contacto/informacion-contacto.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-contacto/informacion-contacto.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-personal/informacion-personal.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-personal/informacion-personal.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-personal/informacion-personal.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-personal/informacion-personal.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-personal/informacion-personal.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-personal/informacion-personal.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/proyectos-forms/proyectos-forms.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/proyectos-forms/proyectos-forms.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/proyectos-forms/proyectos-forms.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/proyectos-forms/proyectos-forms.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/yo/yo.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/yo/yo.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/yo/yo.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/yo/yo.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Servicios/infoContacto.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Servicios/infoContacto.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Servicios/infoPersonal.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Servicios/infoPersonal.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +103,7 @@
       <workItem from="1625865105626" duration="26687000" />
       <workItem from="1626842725258" duration="29000" />
       <workItem from="1628457624966" duration="16787000" />
-      <workItem from="1628524852791" duration="10239000" />
+      <workItem from="1628524852791" duration="17592000" />
     </task>
     <servers />
   </component>
