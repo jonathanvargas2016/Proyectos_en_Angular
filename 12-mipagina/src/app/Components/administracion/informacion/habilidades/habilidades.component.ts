@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {InfoPersonalService} from "../../../../Servicios/infoPersonal.service";
+import {HabilidadService} from "../../../../Servicios/habilidad.service";
 
 @Component({
   selector: 'app-habilidades-form',
@@ -12,12 +12,17 @@ export class HabilidadesComponent implements OnInit {
     tipo: '',
     nombreHabilidad: ''
   }
-  constructor(private paginaService: InfoPersonalService) { }
+  tiposHabilidad = ['Programación', 'Base de datos', 'Frameworks', 'Sistemas Operativos', 'Idiomas', 'Otros']
+  constructor(public readonly habService: HabilidadService) { }
 
   ngOnInit(): void {
   }
-  guardarHabilidad(){
-    console.log(this.habilidad)
+  async guardarHabilidad(){
+    try {
+      await this.habService.cargarFormularioHabilidad(this.habilidad)
+    }catch (e){
+      throw  e;
+    }
   }
 
 

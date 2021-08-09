@@ -16,6 +16,7 @@ export class InfoPersonalService {
   espera = false;
   cargado = false;
   id = "";
+  mensajeError = "";
   constructor(private readonly afs: AngularFirestore,
               public readonly authService: AuthService,
               private readonly storage: AngularFireStorage) {
@@ -26,23 +27,6 @@ export class InfoPersonalService {
 
   }
 
-
-  cargarFormularioCompleto(infoPersonal: any, imagenCapturada: any, pdfCV: any){
-    this.cargarImagen(imagenCapturada, infoPersonal);
-    this.cargarPdfCV(pdfCV, infoPersonal);
-    this.espera = true
-
-    // cargar formulario
-    setTimeout(()=>{
-      if(infoPersonal.imagen && infoPersonal.pdfCV){
-        infoPersonal.uid = this.authService.usuario.uid
-        this.itemsCollection.add(infoPersonal).then()
-      }
-      this.cargado = true;
-      this.espera = false;
-    }, 3000)
-  }
-
   getInfoPersonal(){
     this.itemsCollection = this.afs.collection<any>(this.pathIP)
     return this.itemsCollection.valueChanges().pipe(map(datosIP =>{
@@ -50,32 +34,34 @@ export class InfoPersonalService {
     }))
   }
 
-  private cargarImagen(imagenCapturada: any, infoPersonal: any){
+  public cargarFormInfoPerson(infoPersonal: any, imagenCapturada: any,  pdfCVCapturado: any,){
 
     const filePath = `img/img_${this.id}`
-    const ref = this.storage.ref(filePath)
     const task = this.storage.upload(filePath, imagenCapturada);
-    task.snapshotChanges().pipe(finalize( ()=>{
-      this.urlImage = ref.getDownloadURL()
+    this.espera = true;
 
+    task.snapshotChanges().pipe(finalize( ()=>{
+      this.urlImage = this.storage.ref(filePath).getDownloadURL()
       this.urlImage.subscribe((url)=>{
-        return infoPersonal.imagen = url
-      })
+        infoPersonal.imagen = url
+        this.cargarPdfCV(pdfCVCapturado, infoPersonal)
+      }, error => this.mensajeError = error)
     })).subscribe()
   }
 
   private cargarPdfCV(pdfCVCapturado: any, infoPersonal: any): any{
-    const idPdf = Math.random().toString(36).substring(2)
-    const filePath = `file/pdf_${idPdf}`
-    const ref = this.storage.ref(filePath)
+    const filePath = `file/pdf_${this.id}`
+    const fileRefPdf = this.storage.ref(filePath)
     const task = this.storage.upload(filePath, pdfCVCapturado);
     task.snapshotChanges().pipe(finalize( ()=>{
-      this.pdfCV = ref.getDownloadURL()
+      this.pdfCV = fileRefPdf.getDownloadURL()
       this.pdfCV.subscribe((url)=>{
-        return infoPersonal.pdfCV = url
-      })
+        infoPersonal.pdfCV = url
+        infoPersonal.uid = this.authService.usuario.uid
+        this.itemsCollection.add(infoPersonal).then()
+        this.espera = false;
+        this.cargado = true;
+      }, error => this.mensajeError = error)
     })).subscribe()
   }
-
-
 }

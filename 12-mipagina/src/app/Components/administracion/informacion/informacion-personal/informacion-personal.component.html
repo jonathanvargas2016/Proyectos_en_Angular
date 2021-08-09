@@ -1,50 +1,53 @@
-<h4>Informacion Personal</h4><br>
-
-<div class="alert alert-danger posicion-alerta" role="alert"  *ngIf="paginaService.espera">
+<h4>Información Personal</h4><br>
+<div class="alert alert-danger" role="alert" *ngIf="infoPerService.mensajeError">
+  {{infoPerService.mensajeError}}
+</div>
+<div class="alert alert-danger posicion-alerta" role="alert"  *ngIf="infoPerService.espera">
     Espere...
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
-<div class="alert alert-success posicion-alerta" role="alert"  *ngIf="paginaService.cargado">
-  Se subio
+<div class="alert alert-success posicion-alerta" role="alert"  *ngIf="infoPerService.cargado">
+  Cargado
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 
 <form (ngSubmit)="guardarInfoUsuario()" #forma="ngForm">
+
   <div class="mb-3">
     <label for="nombreInput" class="form-label">Nombres</label>
     <input type="text"
            class="form-control"
            id="nombreInput"
-           placeholder="ingrese nombres y apellidos"
+           placeholder="Ingrese nombres y apellidos"
            name="nombres"
            [(ngModel)]="informacionPersonal.nombres"
            required>
 
   </div>
   <div class="mb-3">
-    <label for="formFile" class="form-label">Seleccione foto de perfil</label>
+    <label for="formFileImg" class="form-label">Seleccione foto de perfil</label>
     <input (change)="capturarFotoPerfil($event)"
            class="form-control"
-           type="file" id="formFile"
-           accept=".png, .jpg">
+           type="file" id="formFileImg"
+           accept=".png, .jpg"
+           required>
   </div>
 
   <div class="mb-3">
-    <label for="formFile" class="form-label">Seleccione CV (.pdf)</label>
+    <label for="formFilePdf" class="form-label">Seleccione CV (.pdf)</label>
     <input (change)="capturarCV($event)"
            class="form-control"
-           type="file" id="formPdf"
-           accept=".pdf">
+           type="file" id="formFilePdf"
+           accept=".pdf"
+           required>
   </div>
 
-
-
   <div class="mb-3">
-    <label for="tituloInput" class="form-label">Titulo</label>
+    <label for="tituloInput" class="form-label">Título</label>
     <input type="text"
            class="form-control"
            id="tituloInput"
-           placeholder="ingrese su titulo actual"
+           placeholder="Ingrese su título actual"
            name="titulo"
            [(ngModel)]="informacionPersonal.titulo"
            required>
@@ -60,7 +63,7 @@
   </div>
 
   <div class="mb-3">
-    <label for="motivacionInput" class="form-label">Motivacion</label>
+    <label for="motivacionInput" class="form-label">Motivación</label>
     <textarea class="form-control"
               id="motivacionInput"
               rows="4"
@@ -68,5 +71,5 @@
               [(ngModel)]="informacionPersonal.motivacion"></textarea>
   </div>
 
-  <button type="submit" class="btn btn-primary" [disabled]="forma.invalid">Guardar</button>
+  <button type="submit" class="btn btn-primary" [disabled]="forma.invalid || infoPerService.espera">Guardar</button>
 </form>

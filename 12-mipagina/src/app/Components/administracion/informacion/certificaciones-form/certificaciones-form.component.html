@@ -1,16 +1,49 @@
 <h4>Cursos y Certificaciones</h4><br>
-<form (ngSubmit)="guardarCertificaciones()">
+
+<div class="alert alert-danger" role="alert" *ngIf="certService.mensajeError">
+  {{certService.mensajeError}}
+</div>
+
+<div class="alert alert-danger posicion-alerta" role="alert"  *ngIf="certService.espera">
+  Espere...
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<div class="alert alert-success posicion-alerta" role="alert"  *ngIf="certService.cargado">
+  Cargado
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+
+<form (ngSubmit)="guardarCertificaciones()" #formaCert='ngForm'>
   <div class="mb-3">
-    <label for="tituloInput" class="form-label">Ingrese el titulo</label>
+    <label for="certifInput" class="form-label">Certificado o Curso</label>
     <input type="text"
            class="form-control"
-           id="tituloInput"
-           placeholder="titulo de la certificacion: "
+           id="certifInput"
+           placeholder="Ingreso nombre del certificado o curso"
            name="tituloCertificacion"
-           [(ngModel)]="certificaciones.titulo">
+           [(ngModel)]="certificaciones.titulo"
+           required>
   </div>
   <div class="mb-3">
-
+    <label for="certImg" class="form-label">Seleccione el certificado</label>
+    <input (change)="capturarCertImg($event)"
+           class="form-control"
+           type="file" id="certImg"
+           accept=".png, .jpg"
+           required>
   </div>
 
+
+  <div class="mb-3">
+    <label for="fechaCert" class="form-label">Seleccione la fecha</label>
+    <input type="date"
+           class="form-control"
+           id="fechaCert"
+           name="fechaInicio"
+           [(ngModel)]="certificaciones.fecha"
+           required>
+
+  </div>
+  <button type="submit" class="btn btn-dark" [disabled]="formaCert.invalid || certService.espera">Guardar</button>
 </form>

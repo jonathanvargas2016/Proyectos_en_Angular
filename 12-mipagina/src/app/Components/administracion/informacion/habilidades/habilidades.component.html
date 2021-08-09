@@ -1,27 +1,36 @@
 <h4>Habilidades</h4><br>
-<form (ngSubmit)="guardarHabilidad()">
+<div class="alert alert-danger" role="alert" *ngIf="habService.mensajeError">
+  {{habService.mensajeError}}
+</div>
+
+<div class="alert alert-danger posicion-alerta" role="alert"  *ngIf="habService.espera">
+  Espere...
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<div class="alert alert-success posicion-alerta" role="alert"  *ngIf="habService.cargado">
+  Cargado
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+<form (ngSubmit)="guardarHabilidad()" #formaHab="ngForm">
 
   <div class="mb-3">
     <select class="form-select" [(ngModel)]="habilidad.tipo" name="habilidad">
       <option value="">Seleccione tipo de habilidad</option>
-      <option value="Programacion">Programacion</option>
-      <option value="Base de datos">Base de datos</option>
-      <option value="Frameworks">Frameworks</option>
-      <option value="Sistemas Operativos">Sistemas Operativos</option>
-      <option value="Idiomas">Idiomas</option>
-      <option value="Otros">Otros</option>
+      <option [value]="tipoHabilidad" *ngFor="let tipoHabilidad of tiposHabilidad">{{tipoHabilidad}}</option>
     </select>
   </div>
 
   <div class="mb-3">
-    <label for="habilidadInput" class="form-label">Ingrese su habilidad</label>
+    <label for="habilidadInput" class="form-label">Habilidad</label>
     <input type="url"
            class="form-control"
            id="habilidadInput"
-           placeholder="ingrese su habilidad"
+           placeholder="Ingrese su habilidad"
            name="habilidad"
-           [(ngModel)]="habilidad.nombreHabilidad">
+           [(ngModel)]="habilidad.nombreHabilidad"
+           required>
   </div>
-  <button type="submit" class="btn btn-secondary">Guardar</button>
+  <button type="submit" class="btn btn-secondary" [disabled]="formaHab.invalid || habService.espera">Guardar</button>
 
 </form>

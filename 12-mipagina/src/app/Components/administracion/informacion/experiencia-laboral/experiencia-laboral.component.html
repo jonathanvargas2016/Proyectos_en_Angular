@@ -1,4 +1,18 @@
 <h4>Experiencia Laboral</h4><br>
+
+<div class="alert alert-danger" role="alert" *ngIf="expLaboralService.mensajeError">
+  {{expLaboralService.mensajeError}}
+</div>
+
+<div class="alert alert-danger posicion-alerta" role="alert"  *ngIf="expLaboralService.espera">
+  Espere...
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<div class="alert alert-success posicion-alerta" role="alert"  *ngIf="expLaboralService.cargado">
+  Cargado
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
 <form (ngSubmit)="guardarExperienciaLaboral()">
 
   <div class="mb-3">
@@ -109,5 +123,5 @@
   </div>
 
 
-  <button type="submit" class="btn btn-primary">Guardar</button>
+  <button type="submit" class="btn btn-primary" [disabled]="expLaboralService.espera">Guardar</button>
 </form>

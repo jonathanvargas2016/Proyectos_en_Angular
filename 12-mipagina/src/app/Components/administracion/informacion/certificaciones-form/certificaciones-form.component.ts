@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {CertificacionService} from "../../../../Servicios/certificacion.service";
 
 @Component({
   selector: 'app-certificaciones-form',
@@ -6,21 +7,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./certificaciones-form.component.css']
 })
 export class CertificacionesFormComponent implements OnInit {
-
+  certCapturado: any
   certificaciones = {
-    uid: '',
-    img: '',
     titulo: '',
-    enlace: ''
+    img: '',
+    fecha: ''
   }
 
-
-  constructor() { }
+  constructor(public readonly certService: CertificacionService) { }
 
   ngOnInit(): void {
   }
   guardarCertificaciones(){
+    try {
+      this.certService.cargarFormCertificacion(this.certificaciones, this.certCapturado);
+    }catch (e){
+      throw e;
+    }
+  }
 
+  capturarCertImg(event: any){
+    this.certCapturado = event.target.files[0]
   }
 
 }

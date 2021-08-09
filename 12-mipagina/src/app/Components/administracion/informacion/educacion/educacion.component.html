@@ -1,63 +1,68 @@
-<h4>Educacion</h4><br>
-<form (ngSubmit)="guardarEducacion()" >
+<h4>Educación</h4><br>
+
+<div class="alert alert-danger" role="alert" *ngIf="eduService.mensajeError">
+  {{eduService.mensajeError}}
+</div>
+
+<div class="alert alert-danger posicion-alerta" role="alert"  *ngIf="eduService.espera">
+  Espere...
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<div class="alert alert-success posicion-alerta" role="alert"  *ngIf="eduService.cargado">
+  Cargado
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+
+<form (ngSubmit)="guardarEducacion()" #formaEdu="ngForm">
   <div class="mb-3">
-    <label for="titulo" class="form-label">Ingrese su titulo obtenido</label>
+    <label for="tituloEdu" class="form-label">Ingrese su título obtenido</label>
     <input type="text"
            class="form-control"
-           id="titulo"
-           placeholder="titulo en: "
+           id="tituloEdu"
+           placeholder="Título en: "
            name="titulo"
-           [(ngModel)]="educacion.titulo">
+           [(ngModel)]="educacion.titulo"
+           required>
 
+  </div>
+  <div class="mb-3">
+    <label for="tituloImg" class="form-label">Seleccione el Título</label>
+    <input (change)="capturarTituloImg($event)"
+           class="form-control"
+           type="file" id="tituloImg"
+           accept=".png, .jpg"
+           required>
   </div>
   <div class="mb-3">
     <label for="ubicacionEducacion" class="form-label">Ingrese el lugar</label>
     <input type="text"
            class="form-control"
            id="ubicacionEducacion"
-           placeholder="En donde obtuvo su titulo: "
+           placeholder="En donde obtuvo su título: "
            name="ubicacionEducacion"
-           [(ngModel)]="educacion.ubicacion">
+           [(ngModel)]="educacion.ubicacion"
+           required>
 
   </div>
   <div class="mb-3">
-    <label for="fechaInicio" class="form-label">Seleccione la fecha de inicio</label>
+    <label for="fechaInicioEdu" class="form-label">Seleccione la fecha de inicio</label>
     <input type="date"
            class="form-control"
-           id="fechaInicio"
+           id="fechaInicioEdu"
            name="fechaInicio"
-           [(ngModel)]="educacion.fechaInicio">
+           [(ngModel)]="educacion.fechaInicio"
+           required>
 
   </div>
   <div class="mb-3">
-    <label for="fechaFin" class="form-label">Seleccione la fecha de culminacion</label>
+    <label for="fechaFinEdu" class="form-label">Seleccione la fecha de culminación</label>
     <input type="date"
            class="form-control"
-           id="fechaFin"
+           id="fechaFinEdu"
            name="fechaFin"
            [(ngModel)]="educacion.fechaFin">
 
   </div>
-
-  <!--            <div class="mb-3">-->
-  <!--              <input type="url"-->
-  <!--                     class="form-control"-->
-  <!--                     id="habilidadInput"-->
-  <!--                     placeholder="ingrese su habilidad"-->
-  <!--                     name="habilidad"-->
-  <!--                     [(ngModel)]="habilidad.nombreHabilidad">-->
-
-  <!--            </div>-->
-
-  <!--            <div class="mb-3">-->
-  <!--              <input type="url"-->
-  <!--                     class="form-control"-->
-  <!--                     id="habilidadInput"-->
-  <!--                     placeholder="ingrese su habilidad"-->
-  <!--                     name="habilidad"-->
-  <!--                     [(ngModel)]="habilidad.nombreHabilidad">-->
-
-  <!--            </div>-->
-
-  <button type="submit" class="btn btn-dark">Guardar</button>
+  <button type="submit" class="btn btn-dark" [disabled]="formaEdu.invalid || eduService.espera">Guardar</button>
 </form>

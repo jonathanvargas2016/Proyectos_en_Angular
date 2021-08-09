@@ -10,8 +10,8 @@ export class  InfoContactoService {
   private itemsCollection: AngularFirestoreCollection<any>;
   pathIC = 'informacionContacto'
   espera = false;
-  cargado = false
-
+  cargado = false;
+  mensajeError = "";
   constructor(
     public readonly authService: AuthService,
     private readonly afs: AngularFirestore) {
@@ -21,12 +21,10 @@ export class  InfoContactoService {
   cargarInformacionContacto(infoContacto: any){
     this.espera = true
     infoContacto.uid = this.authService.usuario.uid
-    setTimeout(()=>{
-      this.itemsCollection.add(infoContacto).then()
+    this.itemsCollection.add(infoContacto).then(()=>{
       this.cargado = true;
       this.espera = false;
-    }, 3000)
-
+    }).catch(error => this.mensajeError = error)
   }
 
   getInfoContacto(){

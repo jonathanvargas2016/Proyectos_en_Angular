@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ExperienciaService} from "../../../../Servicios/experiencia.service";
 
 @Component({
   selector: 'app-experiencia-laboral-form',
@@ -30,12 +31,16 @@ export class ExperienciaLaboralComponent implements OnInit {
 
   }
 
-  constructor() { }
+  constructor(public readonly expLaboralService: ExperienciaService) { }
 
   ngOnInit(): void {
   }
   guardarExperienciaLaboral(){
-    console.log(this.experienciaLaboral)
+    try {
+      this.expLaboralService.cargarFormExperiencia(this.experienciaLaboral)
+    }catch (e){
+      throw e;
+    }
   }
 
 }

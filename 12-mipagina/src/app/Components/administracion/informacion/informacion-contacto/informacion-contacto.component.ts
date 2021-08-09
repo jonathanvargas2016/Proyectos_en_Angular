@@ -15,7 +15,6 @@ export class InformacionContactoComponent implements OnInit {
     ubicacion: '',
     github: '',
     linkedin: '',
-    bandera: false
   }
   constructor(public readonly infoContService: InfoContactoService) { }
 

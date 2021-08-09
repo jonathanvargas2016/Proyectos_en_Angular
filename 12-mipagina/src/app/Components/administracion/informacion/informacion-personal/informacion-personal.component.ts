@@ -19,7 +19,7 @@ export class InformacionPersonalComponent implements OnInit {
   pdfCapturado: any
 
   constructor(
-    public paginaService: InfoPersonalService
+    public infoPerService: InfoPersonalService
   ) {
   }
 
@@ -28,7 +28,7 @@ export class InformacionPersonalComponent implements OnInit {
 
   async guardarInfoUsuario(){
     try{
-      await this.paginaService.cargarFormularioCompleto(this.informacionPersonal,
+      await this.infoPerService.cargarFormInfoPerson(this.informacionPersonal,
         this.imagenCapturada,
         this.pdfCapturado);
     }catch (error){

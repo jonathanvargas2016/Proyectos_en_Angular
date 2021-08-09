@@ -1,6 +1,27 @@
 <h4>Proyectos</h4><br>
 
+<div class="alert alert-danger" role="alert" *ngIf="proyeService.mensajeError">
+  {{proyeService.mensajeError}}
+</div>
+
+<div class="alert alert-danger posicion-alerta" role="alert"  *ngIf="proyeService.espera">
+  Espere...
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<div class="alert alert-success posicion-alerta" role="alert"  *ngIf="proyeService.cargado">
+  Cargado
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
 <form (ngSubmit)="guardarProyecto()">
+
+  <div class="mb-3">
+    <select class="form-select" [(ngModel)]="proyecto.tipo" name="tipoProyecto">
+      <option value="">Seleccione tipo de proyecto</option>
+      <option [value]="tiposProyecto" *ngFor="let tipoProyecto of tiposProyecto">{{tipoProyecto}}</option>
+    </select>
+  </div>
+
 
   <div class="mb-3">
     <label for="tituloProyectoInput" class="form-label">Ingrese el titulo del proyecto</label>
@@ -9,7 +30,16 @@
            id="tituloProyectoInput"
            placeholder="nombre del proyecto: "
            name="tituloProyecto"
-           [(ngModel)]="proyectos.titulo">
+           [(ngModel)]="proyecto.nombre"
+           required>
+  </div>
+
+  <div class="mb-3">
+    <label for="proyImg" class="form-label">Seleccione Imagen del Proyecto</label>
+    <input (change)="capturarProyImg($event)"
+           class="form-control"
+           type="file" id="proyImg"
+           accept=".png, .jpg">
   </div>
 
   <div class="mb-3">
@@ -18,9 +48,10 @@
               id="descripcionProyInput"
               rows="4"
               name="descripcionProyecto"
-              [(ngModel)]="proyectos.descripcion"></textarea>
+              [(ngModel)]="proyecto.descripcion"
+              required></textarea>
   </div>
-
+  <button type="submit" class="btn btn-dark" [disabled]="proyeService.espera">Guardar</button>
 
 
 </form>
