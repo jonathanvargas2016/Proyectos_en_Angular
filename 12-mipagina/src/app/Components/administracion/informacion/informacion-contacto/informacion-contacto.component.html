@@ -16,13 +16,20 @@
     <label for="correoInputP" class="form-label">Correo electrónico personal</label>
     <input type="email"
            class="form-control"
+           class="form-control"
+           [ngClass]="{'is-invalid':(correoP.errors?.required && correoP.touched) || correoP.errors?.pattern}"
            id="correoInputP"
-           aria-describedby="emailHelp"
            placeholder="example@gmail.com"
            name="correoPersonal"
            [(ngModel)]="informacionContacto.correoPersonal"
            required
+           #correoP="ngModel"
+           maxlength="60"
            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+
+    <div class="form-text color" *ngIf="correoP.errors?.required && correoP.touched">Correo es requerido</div>
+    <div class="form-text color" *ngIf="correoP.errors?.pattern">Correo inválido</div>
+
   </div>
 
   <div class="mb-3">
@@ -30,11 +37,15 @@
     <input type="email"
            class="form-control"
            id="correoInputEmpInst"
-           aria-describedby="emailHelp"
+           [ngClass]="{'is-invalid': correoEI.errors?.pattern}"
            placeholder="example@epn.edu.ec"
            name="correoInstEmp"
            [(ngModel)]="informacionContacto.correoInstEmpres"
+           #correoEI="ngModel"
+           maxlength="60"
            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+
+    <div class="form-text color" *ngIf="correoEI.errors?.pattern">Correo inválido</div>
   </div>
 
   <div class="mb-3">
@@ -42,10 +53,18 @@
     <input type="tel"
            class="form-control"
            id="celularInput"
+           [ngClass]="{'is-invalid':(whatssap.errors?.required && whatssap.touched) || whatssap.errors?.pattern}"
            placeholder="Ingrese número de celular o teléfono"
            name="telf"
+           #whatssap="ngModel"
+           maxlength="10"
+           pattern="^(?:(?:09)?9?)?\d{8}$"
            [(ngModel)]="informacionContacto.whatssap"
            required>
+
+    <div class="form-text color" *ngIf="whatssap.errors?.required && whatssap.touched">Whatssap es requerido</div>
+    <div class="form-text color" *ngIf="whatssap.errors?.pattern">Whatssap inválido</div>
+
   </div>
 
   <div class="mb-3">
@@ -53,9 +72,13 @@
     <input type="url"
            class="form-control"
            id="ubicacionInput"
-           placeholder="Ingrese link de acceso (Google)"
+           [ngClass]="{'is-invalid': ubicacion.errors?.required && ubicacion.touched}"
+           placeholder="1m18!1m12!1m3!1d7979.539432820407!2d-78.56277132910466!3d-0"
            name="ubicacion"
-           [(ngModel)]="informacionContacto.ubicacion">
+           #ubicacion="ngModel"
+           [(ngModel)]="informacionContacto.ubicacion"
+           required>
+    <div class="form-text color" *ngIf="ubicacion.errors?.required && ubicacion.touched">Ubicación es requerido</div>
   </div>
 
   <div class="mb-3">
@@ -63,9 +86,16 @@
     <input type="url"
            class="form-control"
            id="github"
-           placeholder="Ingrese link de Github"
+           [ngClass]="{'is-invalid':(github.errors?.required && github.touched) || github.errors?.pattern}"
+           placeholder="https://github.com/cuenta"
            name="github"
-           [(ngModel)]="informacionContacto.github">
+           #github="ngModel"
+           pattern="https://www.github.com/[a-zA-Z].*"
+           [(ngModel)]="informacionContacto.github"
+           maxlength="100"
+           required>
+    <div class="form-text color" *ngIf="github.errors?.required && github.touched">Github es requerido</div>
+    <div class="form-text color" *ngIf="github.errors?.pattern">Github inválido</div>
   </div>
 
   <div class="mb-3">
@@ -73,9 +103,17 @@
     <input type="url"
            class="form-control"
            id="linkendin"
-           placeholder="Ingrese link de Linkedin"
+           [ngClass]="{'is-invalid':(linkedin.errors?.required && linkedin.touched) || linkedin.errors?.pattern}"
+           placeholder="https://www.linkedin.com/in/cuenta"
            name="linkedin"
-           [(ngModel)]="informacionContacto.linkedin">
+           [(ngModel)]="informacionContacto.linkedin"
+           #linkedin="ngModel"
+           pattern="https://www.linkedin.com/in/[a-zA-Z].*"
+           maxlength="100"
+           required>
+
+    <div class="form-text color" *ngIf="linkedin.errors?.required && linkedin.touched">Linkedin es requerido</div>
+    <div class="form-text color" *ngIf="linkedin.errors?.pattern">Linkedin inválido</div>
   </div>
   <button type="submit" class="btn btn-warning" [disabled]="formaIC.invalid || infoContService.espera">
     Guardar

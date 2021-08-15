@@ -24,7 +24,7 @@
                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
 
         <div id="emailHelp" class="form-text color" *ngIf="email.errors?.required && email.touched">Correo es requerido</div>
-        <div class="form-text color" *ngIf="email.errors?.pattern">Correo invalido</div>
+        <div class="form-text color" *ngIf="email.errors?.pattern">Correo inválido</div>
 
       </div>
 
