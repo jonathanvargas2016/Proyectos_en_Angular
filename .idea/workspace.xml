@@ -2,6 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a23ac72-cb32-4f67-8e2f-ea49f5d7cdf8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/footer/footer.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/footer/footer.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/footer/footer.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/footer/footer.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/assets/svg/facebook.svg" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/assets/svg/facebook.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/assets/svg/twitter.svg" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/assets/svg/twitter.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/12-mipagina/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/environments/environment.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -29,7 +34,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/12-mipagina/src/assets/svg" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
@@ -40,6 +45,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\jonat\Documents\Github\Proyectos_en_Angular\12-mipagina\src\assets\svg" />
       <recent name="C:\Users\jonat\Documents\GitHub\Proyectos_en_Angular\12-mipagina\src\assets\svg" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -101,7 +107,7 @@
       <workItem from="1626842725258" duration="29000" />
       <workItem from="1628457624966" duration="16787000" />
       <workItem from="1628524852791" duration="17592000" />
-      <workItem from="1629056817206" duration="7457000" />
+      <workItem from="1629056817206" duration="11149000" />
     </task>
     <servers />
   </component>

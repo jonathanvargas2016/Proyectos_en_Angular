@@ -1,11 +1,23 @@
-
+.corte-footer{
+ background-color: white;
+  height: 5px;
+}
 .fondo{
-  background-color: #f8f9fa;
+  background-color: #ededed;
   width: 100%;
-  height: 100px;
+  min-height: 20vw;
 }
 .centrado-texto{
   text-align: center;
+}
+
+.espacio ul li {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.efecto ul li a:hover{
+  color: white;
 }
 
 
