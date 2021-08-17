@@ -3,10 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="1a23ac72-cb32-4f67-8e2f-ea49f5d7cdf8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/footer/footer.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/footer/footer.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/footer/footer.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/footer/footer.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/assets/svg/facebook.svg" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/assets/svg/facebook.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/assets/svg/twitter.svg" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/assets/svg/twitter.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/habilidades/habilidades.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/habilidades/habilidades.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/habilidades/habilidades.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/habilidades/habilidades.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/habilidades/habilidades.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/habilidades/habilidades.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/12-mipagina/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/environments/environment.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -107,7 +106,8 @@
       <workItem from="1626842725258" duration="29000" />
       <workItem from="1628457624966" duration="16787000" />
       <workItem from="1628524852791" duration="17592000" />
-      <workItem from="1629056817206" duration="11149000" />
+      <workItem from="1629056817206" duration="11237000" />
+      <workItem from="1629170433961" duration="2951000" />
     </task>
     <servers />
   </component>

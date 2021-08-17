@@ -7,7 +7,6 @@ import {HabilidadService} from "../../../../Servicios/habilidad.service";
   styleUrls: ['./habilidades.component.css']
 })
 export class HabilidadesComponent implements OnInit {
-
   habilidad: any = {
     tipo: '',
     nombreHabilidad: ''
@@ -18,11 +17,13 @@ export class HabilidadesComponent implements OnInit {
   ngOnInit(): void {
   }
   async guardarHabilidad(){
+
     try {
       await this.habService.cargarFormularioHabilidad(this.habilidad)
     }catch (e){
       throw  e;
     }
+
   }
 
 

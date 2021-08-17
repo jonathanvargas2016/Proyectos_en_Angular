@@ -15,10 +15,17 @@
 <form (ngSubmit)="guardarHabilidad()" #formaHab="ngForm">
 
   <div class="mb-3">
-    <select class="form-select" [(ngModel)]="habilidad.tipo" name="habilidad">
+    <select class="form-select"
+            [(ngModel)]="habilidad.tipo"
+            name="tipoHabilidad"
+            [ngClass]="{'is-invalid':tipoHabilidad.errors?.required && tipoHabilidad.touched}"
+            #tipoHabilidad="ngModel"
+            required>
       <option value="">Seleccione tipo de habilidad</option>
       <option [value]="tipoHabilidad" *ngFor="let tipoHabilidad of tiposHabilidad">{{tipoHabilidad}}</option>
     </select>
+
+    <div class="form-text color" *ngIf="tipoHabilidad.errors?.required && tipoHabilidad.touched">Seleccione una habilidad</div>
   </div>
 
   <div class="mb-3">
@@ -26,10 +33,18 @@
     <input type="url"
            class="form-control"
            id="habilidadInput"
+           [ngClass]="{'is-invalid':(nombreHabilidad.errors?.required && nombreHabilidad.touched) || nombreHabilidad.errors?.minlength}"
            placeholder="Ingrese su habilidad"
-           name="habilidad"
+           name="nombreHabilidad"
            [(ngModel)]="habilidad.nombreHabilidad"
+           #nombreHabilidad="ngModel"
+           minlength="3"
+           maxlength="60"
            required>
+
+    <div class="form-text color" *ngIf="nombreHabilidad.errors?.required && nombreHabilidad.touched">Ingrese la habilidad</div>
+    <div class="form-text color" *ngIf="nombreHabilidad.errors?.minlength">Mínimo {{nombreHabilidad.errors?.minlength.requiredLength}} caracteres</div>
+
   </div>
   <button type="submit" class="btn btn-secondary" [disabled]="formaHab.invalid || habService.espera">Guardar</button>
 
