@@ -1,21 +1,15 @@
 <h4>Información de Contacto</h4><br>
 
-<div class="alert alert-danger posicion-alerta" role="alert"  *ngIf="infoContService.espera">
-  Espere...
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
-<div class="alert alert-success posicion-alerta" role="alert"  *ngIf="infoContService.cargado">
-  Cargado
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
-
+<app-alertas [mensajeError]="infoContService.mensajeError"
+             [espera]="infoContService.espera"
+             [cargado]="infoContService.cargado">
+</app-alertas>
 
 <form (ngSubmit)="guardarInfoContacto()" #formaIC="ngForm">
 
   <div class="mb-3">
     <label for="correoInputP" class="form-label">Correo electrónico personal</label>
     <input type="email"
-           class="form-control"
            class="form-control"
            [ngClass]="{'is-invalid':(correoP.errors?.required && correoP.touched) || correoP.errors?.pattern}"
            id="correoInputP"

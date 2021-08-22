@@ -14,8 +14,7 @@ button{
 }
 .navbar-expand-lg .navbar-nav .nav-link{
   color: black;
-  font-size: 13px;
-  font-family: Poppins, var(--nv-fallback-ff);
+  font-size: 14px;
   font-weight: 500;
 }
 .navbar-expand-lg .navbar-nav .nav-link.active{

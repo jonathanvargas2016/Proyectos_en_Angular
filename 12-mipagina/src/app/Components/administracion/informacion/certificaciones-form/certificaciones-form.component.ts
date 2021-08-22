@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CertificacionService} from "../../../../Servicios/certificacion.service";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-certificaciones-form',
@@ -21,15 +22,22 @@ export class CertificacionesFormComponent implements OnInit {
   ngOnInit(): void {
   }
   guardarCertificaciones(){
-
-    this.verificarErrores();
-    if(this.certCapturado && !this.errorCertCapturado && !this.errorCertCapturado){
-      try {
-        this.certService.cargarFormCertificacion(this.certificaciones, this.certCapturado);
-      }catch (e){
-        throw e;
+    Swal.fire({
+      title: 'Desea guardar los datos?',
+      text: 'Tus datos se guardarán y podrás modificarlos mas tarde',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, guardar datos'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.verificarErrores();
+        if (this.certCapturado && !this.errorCertCapturado && !this.errorCertCapturado) {
+          this.certService.cargarFormCertificacion(this.certificaciones, this.certCapturado);
+        }
       }
-    }
+    })
   }
 
   capturarCertImg(event: any){

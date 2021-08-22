@@ -1,16 +1,9 @@
 <h4>Habilidades</h4><br>
-<div class="alert alert-danger" role="alert" *ngIf="habService.mensajeError">
-  {{habService.mensajeError}}
-</div>
 
-<div class="alert alert-danger posicion-alerta" role="alert"  *ngIf="habService.espera">
-  Espere...
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
-<div class="alert alert-success posicion-alerta" role="alert"  *ngIf="habService.cargado">
-  Cargado
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
+<app-alertas [mensajeError]="habService.mensajeError"
+             [espera]="habService.espera"
+             [cargado]="habService.cargado">
+</app-alertas>
 
 <form (ngSubmit)="guardarHabilidad()" #formaHab="ngForm">
 

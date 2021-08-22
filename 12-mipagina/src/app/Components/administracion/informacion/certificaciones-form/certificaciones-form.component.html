@@ -1,18 +1,9 @@
 <h4>Cursos y Certificaciones</h4><br>
 
-<div class="alert alert-danger" role="alert" *ngIf="certService.mensajeError">
-  {{certService.mensajeError}}
-</div>
-
-<div class="alert alert-danger posicion-alerta" role="alert"  *ngIf="certService.espera">
-  Espere...
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
-<div class="alert alert-success posicion-alerta" role="alert"  *ngIf="certService.cargado">
-  Cargado
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
-
+<app-alertas [mensajeError]="certService.mensajeError"
+             [espera]="certService.espera"
+             [cargado]="certService.cargado">
+</app-alertas>
 
 <form (ngSubmit)="guardarCertificaciones()" #formaCert='ngForm'>
   <div class="mb-3">

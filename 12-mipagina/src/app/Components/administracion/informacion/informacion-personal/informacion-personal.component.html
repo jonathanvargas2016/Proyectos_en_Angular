@@ -1,15 +1,9 @@
 <h4>Información Personal</h4><br>
-<div class="alert alert-danger" role="alert" *ngIf="infoPerService.mensajeError">
-  {{infoPerService.mensajeError}}
-</div>
-<div class="alert alert-danger posicion-alerta" role="alert"  *ngIf="infoPerService.espera">
-    Espere...
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
-<div class="alert alert-success posicion-alerta" role="alert"  *ngIf="infoPerService.cargado">
-  Cargado
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
+
+<app-alertas [mensajeError]="infoPerService.mensajeError"
+             [espera]="infoPerService.espera"
+             [cargado]="infoPerService.cargado">
+</app-alertas>
 
 <form (ngSubmit)="guardarInfoUsuario(forma)" #forma="ngForm">
 

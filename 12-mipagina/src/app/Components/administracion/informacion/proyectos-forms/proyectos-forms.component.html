@@ -1,17 +1,8 @@
 <h4>Proyectos</h4><br>
-
-<div class="alert alert-danger" role="alert" *ngIf="proyeService.mensajeError">
-  {{proyeService.mensajeError}}
-</div>
-
-<div class="alert alert-danger posicion-alerta" role="alert"  *ngIf="proyeService.espera">
-  Espere...
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
-<div class="alert alert-success posicion-alerta" role="alert"  *ngIf="proyeService.cargado">
-  Cargado
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
+<app-alertas [mensajeError]="proyeService.mensajeError"
+             [espera]="proyeService.espera"
+             [cargado]="proyeService.cargado">
+</app-alertas>
 
 <form (ngSubmit)="guardarProyecto()" #formaProy="ngForm">
 
@@ -31,12 +22,12 @@
 
 
   <div class="mb-3">
-    <label for="tituloProyectoInput" class="form-label">Ingrese el título del proyecto</label>
+    <label for="tituloProyectoInput" class="form-label">Título del proyecto</label>
     <input type="text"
            class="form-control"
            id="tituloProyectoInput"
            [ngClass]="{'is-invalid':(tituloProy.errors?.required && tituloProy.touched) || tituloProy.errors?.minlength}"
-           placeholder="nombre del proyecto: "
+           placeholder="Ingrese nombre del proyecto: "
            name="tituloProyecto"
            #tituloProy="ngModel"
            [(ngModel)]="proyecto.nombre"
@@ -69,6 +60,5 @@
     </textarea>
   </div>
   <button type="submit" class="btn btn-dark" [disabled]="proyeService.espera || formaProy.invalid">Guardar</button>
-
 
 </form>

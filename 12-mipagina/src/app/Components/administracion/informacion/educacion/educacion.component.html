@@ -1,18 +1,9 @@
 <h4>Educación</h4><br>
 
-<div class="alert alert-danger" role="alert" *ngIf="eduService.mensajeError">
-  {{eduService.mensajeError}}
-</div>
-
-<div class="alert alert-danger posicion-alerta" role="alert"  *ngIf="eduService.espera">
-  Espere...
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
-<div class="alert alert-success posicion-alerta" role="alert"  *ngIf="eduService.cargado">
-  Cargado
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
-
+<app-alertas [mensajeError]="eduService.mensajeError"
+             [espera]="eduService.espera"
+             [cargado]="eduService.cargado">
+</app-alertas>
 
 <form (ngSubmit)="guardarEducacion()" #formaEdu="ngForm">
   <div class="mb-3">
@@ -21,7 +12,7 @@
            class="form-control"
            id="tituloEdu"
            [ngClass]="{'is-invalid': (tituloEdu.errors?.required && tituloEdu.touched) || tituloEdu.errors?.minlength}"
-           placeholder="Título en: "
+           placeholder="Ingrese el título obtenido"
            name="titulo"
            #tituloEdu="ngModel"
            [(ngModel)]="educacion.titulo"
@@ -73,8 +64,7 @@
            required>
 
     <div class="form-text color" *ngIf="fechaInicio.errors?.required && fechaInicio.touched">Fecha de inicio es requerido</div>
-    <div class="form-text color" *ngIf="errorFechaInicioMayor">Error en fecha de inicio</div>
-    <div class="form-text color" *ngIf="errorFechaInicioVacio">Debe seleccionar la fecha</div>
+    <div class="form-text color" *ngIf="errorFechaInicioMayor">Fecha de inicio mayor o igual a fecha fin</div>
   </div>
   <div class="mb-3">
     <label for="fechaFinEdu" class="form-label">Seleccione la fecha de culminación</label>
@@ -87,7 +77,6 @@
            #fechaFin="ngModel"
            required>
     <div class="form-text color" *ngIf="fechaFin.errors?.required && fechaFin.touched">Fecha fin es requerido</div>
-    <div class="form-text color" *ngIf="errorFechaFinVacio">Debe seleccionar la fecha</div>
 
   </div>
   <button type="submit" class="btn btn-dark" [disabled]="formaEdu.invalid || eduService.espera">Guardar</button>

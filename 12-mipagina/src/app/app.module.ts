@@ -37,6 +37,7 @@ import { ProyectosFormsComponent } from './Components/administracion/informacion
 
 // pipes
 import { DomSeguroPipe } from './Pipes/dom-seguro.pipe';
+import { AlertasComponent } from './Components/alertas/alertas.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { DomSeguroPipe } from './Pipes/dom-seguro.pipe';
     EducacionFormComponent,
     CertificacionesFormComponent,
     ProyectosFormsComponent,
-    DomSeguroPipe
+    DomSeguroPipe,
+    AlertasComponent
   ],
   imports: [
     BrowserModule,
