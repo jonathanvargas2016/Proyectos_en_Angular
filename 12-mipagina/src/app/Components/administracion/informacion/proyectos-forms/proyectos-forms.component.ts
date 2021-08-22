@@ -8,6 +8,7 @@ import {ProyectoService} from "../../../../Servicios/proyecto.service";
 })
 export class ProyectosFormsComponent implements OnInit {
   proyImgCapturado: any;
+  errorImgProy = false;
   proyecto = {
     uid: '',
     nombre: '',
@@ -21,15 +22,26 @@ export class ProyectosFormsComponent implements OnInit {
   ngOnInit(): void {
   }
   async guardarProyecto(){
-    try {
-      await this.proyeService.cargarFormProyecto(this.proyecto, this.proyImgCapturado)
-    }catch (e){
-      throw e;
+    this.verificarErrores()
+    if(this.proyImgCapturado){
+      try {
+        await this.proyeService.cargarFormProyecto(this.proyecto, this.proyImgCapturado)
+      }catch (e){
+        throw e;
+      }
     }
   }
 
   capturarProyImg(event: any){
     this.proyImgCapturado = event.target.files[0];
+  }
+
+  verificarErrores(){
+    if(this.proyImgCapturado === undefined){
+      this.errorImgProy = true;
+    }else{
+      this.errorImgProy = false;
+    }
   }
 
 }

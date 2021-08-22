@@ -55,17 +55,17 @@
     <input type="text"
            class="form-control"
            id="tituloInput"
-           [ngClass]="{'is-invalid':(titulo.errors?.required && titulo.touched) || titulo.errors?.minlength}"
+           [ngClass]="{'is-invalid':(tituloInp.errors?.required && tituloInp.touched) || tituloInp.errors?.minlength}"
            placeholder="Ingrese su título actual"
            name="titulo"
-           #titulo="ngModel"
+           #tituloInp="ngModel"
            [(ngModel)]="informacionPersonal.titulo"
            minlength="10"
            maxlength="100"
            required>
 
-    <div class="form-text color" *ngIf="titulo.errors?.required && titulo.touched">Título es requerido</div>
-    <div class="form-text color" *ngIf="titulo.errors?.minlength">Mínimo {{titulo.errors?.minlength.requiredLength}} caracteres</div>
+    <div class="form-text color" *ngIf="tituloInp.errors?.required && tituloInp.touched">Título es requerido</div>
+    <div class="form-text color" *ngIf="tituloInp.errors?.minlength">Mínimo {{tituloInp.errors?.minlength.requiredLength}} caracteres</div>
 
   </div>
 

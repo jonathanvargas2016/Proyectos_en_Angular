@@ -20,10 +20,18 @@
     <input type="text"
            class="form-control"
            id="certifInput"
+           [ngClass]="{'is-invalid':(certificado.errors?.required && certificado.touched) || certificado.errors?.minlength}"
            placeholder="Ingreso nombre del certificado o curso"
            name="tituloCertificacion"
            [(ngModel)]="certificaciones.titulo"
+           #certificado="ngModel"
+           minlength="5"
+           maxlength="100"
            required>
+
+    <div class="form-text color" *ngIf="certificado.errors?.required && certificado.touched">Nombre del certificado es necesario</div>
+    <div class="form-text color" *ngIf="certificado.errors?.minlength">Mínimo {{certificado.errors?.minlength.requiredLength}} caracteres</div>
+
   </div>
   <div class="mb-3">
     <label for="certImg" class="form-label">Seleccione el certificado</label>
@@ -32,6 +40,7 @@
            type="file" id="certImg"
            accept=".png, .jpg"
            required>
+    <div class="form-text color" *ngIf="errorCertCapturado">Imagen del certificado es requerido</div>
   </div>
 
 
@@ -40,10 +49,13 @@
     <input type="date"
            class="form-control"
            id="fechaCert"
-           name="fechaInicio"
+           name="fechaCert"
+           [ngClass]="{'is-invalid': (fechaCert.errors?.required && fechaCert.touched)}"
            [(ngModel)]="certificaciones.fecha"
+           #fechaCert="ngModel"
            required>
 
+    <div class="form-text color" *ngIf="fechaCert.errors?.required && fechaCert.touched">Debe seleccionar la fecha</div>
   </div>
   <button type="submit" class="btn btn-dark" [disabled]="formaCert.invalid || certService.espera">Guardar</button>
 </form>

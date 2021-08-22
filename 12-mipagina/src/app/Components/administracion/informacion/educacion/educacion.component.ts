@@ -12,6 +12,7 @@ export class EducacionFormComponent implements OnInit {
   errorFechaInicioMayor = false;
   errorFechaFinVacio = false;
   errorFechaInicioVacio = false;
+
   educacion: any = {
     titulo: '',
     ubicacion: '',

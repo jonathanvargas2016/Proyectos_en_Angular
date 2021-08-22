@@ -28,7 +28,6 @@ img{
 .centrar-texto-h1{
   text-align: center;
   font-size: 5vw;
-  font-family: Poppins, var(--nv-fallback-ff);
   font-weight: 600;
 }
 .centrar-texto-p{

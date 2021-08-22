@@ -45,3 +45,6 @@ p{
   top: 0;
   left: 50%;
 }
+body{
+  font-family: Poppins, var(--nv-fallback-ff);
+}
