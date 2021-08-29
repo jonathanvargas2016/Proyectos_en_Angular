@@ -1,5 +1,5 @@
 
-import {Routes } from '@angular/router';
+import {Routes} from '@angular/router';
 
 import { UsuarioNuevoComponent } from './usuario-nuevo.component';
 import { UsuarioEditarComponent } from './usuario-editar.component';

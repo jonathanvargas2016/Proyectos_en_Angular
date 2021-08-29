@@ -1,0 +1,34 @@
+<div class="posicion-btn">
+  <button pButton type="button" icon="pi pi-user" iconPos="left" label="Agregar" (click)="dirigirAgregar()"></button>
+</div>
+
+<div class="row row-cols-1 row-cols-md-2 g-4" *ngIf="datosIP" >
+
+  <div class="col" *ngFor="let datos of datosIP; index as i" >
+    <div class="card h-100">
+      <img [src]="datos.imagen | noimagen" class="card-img-top" alt="foto de perfil">
+      <div class="card-body">
+        <h5 class="card-title">{{datos.nombres}}</h5>
+        <h6 class="card-title">{{datos.titulo}}</h6>
+        <p class="card-text"><strong>Perfil Profesional. </strong>{{datos.perfilProfesional}}</p>
+        <p class="card-text"><strong>Motivación. </strong>{{datos.motivacion}}</p>
+      </div>
+      <div class="card-footer text-muted">
+        <button pButton
+                type="button"
+                icon="pi pi-check"
+                class="p-button-success p-button-rounded espacio-right p-button"></button>
+
+        <button pButton
+                type="button"
+                icon="pi pi-times"
+                class="p-button-danger p-button-rounded"
+                (click)="eliminar(i)"
+        ></button>
+
+
+      </div>
+    </div>
+  </div>
+
+</div>

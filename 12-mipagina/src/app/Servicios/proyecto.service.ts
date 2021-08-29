@@ -30,9 +30,16 @@ export class ProyectoService {
       observableUrl.subscribe(url =>{
         proyecto.img = url;
         proyecto.uid = this.authService.usuario.uid
-        this.itemsCollection.add(proyecto).then()
-        this.cargado = true;
-        this.espera = false;
+        this.itemsCollection.add(proyecto).then(()=>{
+          this.mensajeError = ""
+          this.cargado = true;
+          this.espera = false;
+        }).catch(error =>{
+          this.mensajeError = error.message
+          this.espera = false;
+          this.cargado = false;
+        })
+
       }, error => this.mensajeError = error)
     })).subscribe();
   }

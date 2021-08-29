@@ -30,9 +30,16 @@ export class CertificacionService {
       observableUrl.subscribe(url =>{
         certificacion.img = url;
         certificacion.uid = this.authService.usuario.uid
-        this.itemsCollection.add(certificacion).then()
-        this.cargado = true;
-        this.espera = false;
+        this.itemsCollection.add(certificacion).then(() =>{
+          this.mensajeError = ""
+          this.cargado = true;
+          this.espera = false;
+        }).catch( error =>{
+          this.mensajeError = error.message
+          this.cargado = false;
+          this.espera = false;
+        })
+
       }, error => this.mensajeError = error)
     })).subscribe();
 

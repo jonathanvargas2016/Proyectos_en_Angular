@@ -39,9 +39,16 @@ export class EducacionService {
       observableUrl.subscribe(url =>{ // suscripcion
         educacion.img = url;
         educacion.uid = this.authService.usuario.uid
-        this.itemsCollection.add(educacion).then()
-        this.cargado = true;
-        this.espera = false;
+        this.itemsCollection.add(educacion).then(()=>{
+          this.mensajeError = ""
+          this.cargado = true;
+          this.espera = false;
+        }).catch(error =>{
+          this.mensajeError = error.message
+          this.cargado = false;
+          this.espera = false;
+        })
+
       }, error => this.mensajeError = error)
     })).subscribe();
   }

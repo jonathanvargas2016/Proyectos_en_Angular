@@ -4,10 +4,10 @@ import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-informacion-personal-form',
-  templateUrl: './informacion-personal.component.html',
-  styleUrls: ['./informacion-personal.component.css']
+  templateUrl: './informacion-personal-form.component.html',
+  styleUrls: ['./informacion-personal-form.component.css']
 })
-export class InformacionPersonalComponent implements OnInit {
+export class InformacionPersonalFormComponent implements OnInit {
   informacionPersonal: any = {
     nombres: '',
     titulo: '',
@@ -21,7 +21,7 @@ export class InformacionPersonalComponent implements OnInit {
   existeErrorImg = false;
   existeErrorPdf = false;
   constructor(
-    public infoPerService: InfoPersonalService
+    public readonly infoPerService: InfoPersonalService
   ) {}
 
   ngOnInit(): void {
@@ -70,6 +70,9 @@ export class InformacionPersonalComponent implements OnInit {
       this.existeErrorPdf = false
     }
   }
+
+
+
 
 }
 

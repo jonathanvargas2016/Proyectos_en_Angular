@@ -2,28 +2,53 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a23ac72-cb32-4f67-8e2f-ea49f5d7cdf8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/experiencia-laboral/experiencia-laboral-form.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/06-miscelaneos/src/app/components/usuario/usuario.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/06-miscelaneos/src/app/components/usuario/usuario.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/angular.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/12-mipagina/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/12-mipagina/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/certificaciones-form/certificaciones-form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/certificaciones-form/certificaciones-form.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/certificaciones-form/certificaciones-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/certificaciones-form/certificaciones-form.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/educacion/educacion.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/educacion/educacion.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/educacion/educacion.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/educacion/educacion.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/experiencia-laboral/experiencia-laboral.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/experiencia-laboral/experiencia-laboral.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/experiencia-laboral/experiencia-laboral.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/experiencia-laboral/experiencia-laboral.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/experiencia-laboral/experiencia-laboral.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/experiencia-laboral/experiencia-laboral.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/habilidades/habilidades.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/habilidades/habilidades.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/habilidades/habilidades.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/habilidades/habilidades.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-contacto/informacion-contacto.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-contacto/informacion-contacto.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-contacto/informacion-contacto.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-contacto/informacion-contacto.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-personal/informacion-personal.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-personal/informacion-personal.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-personal/informacion-personal.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-personal/informacion-personal.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/proyectos-forms/proyectos-forms.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/proyectos-forms/proyectos-forms.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/proyectos-forms/proyectos-forms.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/proyectos-forms/proyectos-forms.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/proyectos-forms/proyectos-forms.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/proyectos-forms/proyectos-forms.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/navbar/navbar.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/navbar/navbar.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/administracion.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/administracion.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/administracion.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/administracion.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/administracion.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/administracion.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/educacion/educacion.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/educacion/educacion-form.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/educacion/educacion.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/educacion/educacion-form.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/educacion/educacion.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/educacion/educacion.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/educacion/educacion.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/educacion/educacion-form.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/experiencia-laboral/experiencia-laboral.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/experiencia-laboral/experiencia-laboral-form.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/experiencia-laboral/experiencia-laboral.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/experiencia-laboral/experiencia-laboral.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/experiencia-laboral/experiencia-laboral-form.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/experiencia-laboral/experiencia-laboral.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/experiencia-laboral/experiencia-laboral-form.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/habilidades/habilidades.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/habilidades/habilidades-form.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/habilidades/habilidades.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/habilidades/habilidades-form.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/habilidades/habilidades.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/habilidades/habilidades-form.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/habilidades/habilidades.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/habilidades/habilidades-form.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-contacto/informacion-contacto.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-contacto/informacion-contacto-form.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-contacto/informacion-contacto.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-contacto/informacion-contacto-form.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-contacto/informacion-contacto.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-contacto/informacion-contacto-form.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-contacto/informacion-contacto.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-contacto/informacion-contacto-form.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-personal/informacion-personal.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-personal/informacion-personal-form.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-personal/informacion-personal.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-personal/informacion-personal-form.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-personal/informacion-personal.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-personal/informacion-personal-form.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-personal/informacion-personal.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-personal/informacion-personal-form.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/alertas/alertas.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/alertas/alertas.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/navbar/navbar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/navbar/navbar.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/navbar/navbar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/navbar/navbar.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Servicios/certificacion.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Servicios/certificacion.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Servicios/educacion.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Servicios/educacion.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Servicios/experiencia.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Servicios/experiencia.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Servicios/habilidad.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Servicios/habilidad.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Servicios/infoContacto.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Servicios/infoContacto.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Servicios/infoPersonal.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Servicios/infoPersonal.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Servicios/proyecto.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Servicios/proyecto.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/app.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/app.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/app.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/app.routes.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/12-mipagina/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/environments/environment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +90,7 @@
       <recent name="C:\Users\jonat\Documents\GitHub\Proyectos_en_Angular\12-mipagina\src\assets\svg" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\jonat\Documents\Github\Proyectos_en_Angular\12-mipagina\src\app\Components\administracion" />
       <recent name="C:\Users\jonat\Documents\GitHub\Proyectos_en_Angular\12-mipagina\src\app\Guard" />
       <recent name="C:\Users\jonat\Documents\GitHub\Proyectos_en_Angular\12-mipagina\src\app" />
     </key>
@@ -127,6 +153,13 @@
       <workItem from="1629170433961" duration="2951000" />
       <workItem from="1629599776829" duration="4941000" />
       <workItem from="1629661041649" duration="9866000" />
+      <workItem from="1629762481264" duration="4801000" />
+      <workItem from="1629848248298" duration="7385000" />
+      <workItem from="1629858112297" duration="53000" />
+      <workItem from="1630025018206" duration="7887000" />
+      <workItem from="1630111629724" duration="1811000" />
+      <workItem from="1630199682462" duration="10949000" />
+      <workItem from="1630258004090" duration="20580000" />
     </task>
     <servers />
   </component>

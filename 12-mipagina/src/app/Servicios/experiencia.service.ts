@@ -21,8 +21,13 @@ export class ExperienciaService {
     this.espera = true
     experiencia.uid = this.authService.usuario.uid
     this.itemsCollection.add(experiencia).then(()=>{
+      this.mensajeError = ""
       this.cargado = true;
       this.espera = false;
-    }).catch((error)=> this.mensajeError = error)
+    }).catch((error)=> {
+      this.mensajeError = error.message
+      this.cargado = false;
+      this.espera = false;
+    })
   }
 }

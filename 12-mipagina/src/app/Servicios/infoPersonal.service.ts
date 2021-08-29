@@ -58,10 +58,26 @@ export class InfoPersonalService {
       this.pdfCV.subscribe((url)=>{
         infoPersonal.pdfCV = url
         infoPersonal.uid = this.authService.usuario.uid
-        this.itemsCollection.add(infoPersonal).then()
-        this.espera = false;
-        this.cargado = true;
+        infoPersonal.id = this.afs.createId();
+        this.itemsCollection.add(infoPersonal).then(()=>{
+          this.mensajeError = ""
+          this.espera = false;
+          this.cargado = true;
+        }).catch(error =>{
+          this.mensajeError = error.message
+          this.espera = false;
+          this.cargado = false;
+        })
+
       }, error => this.mensajeError = error)
     })).subscribe()
+  }
+
+  async eliminarInfoPersonal(id: string){
+    try {
+      await this.itemsCollection.doc(id).delete()
+    }catch (error){
+      this.mensajeError = error.message
+    }
   }
 }

@@ -60,20 +60,72 @@
           </a>
         </li>
 
+        <li class="nav-item dropdown" *ngIf="authService.aIniciadoSesion">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            ADMINISTRACIÓN
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li>
+              <a class="dropdown-item"
+                 routerLink="administracion/informacion-personal"
+                 routerLinkActive="active">
+                Información Personal
+              </a>
+            </li>
 
+            <li>
+              <a class="dropdown-item"
+                   routerLink="administracion/informacion-contacto-form"
+                   routerLinkActive="active">
+              Información de Contacto
+            </a>
+            </li>
+
+            <li>
+              <a class="dropdown-item"
+                 routerLink="administracion/educacion-form"
+                 routerLinkActive="active">
+                Educación
+              </a>
+            </li>
+
+            <li>
+              <a class="dropdown-item"
+                 routerLink="administracion/habilidades-form"
+                 routerLinkActive="active">
+                Habilidades
+              </a>
+            </li>
+
+            <li>
+              <a
+                class="dropdown-item"
+                routerLink="administracion/cursos-certificaciones-form"
+                routerLinkActive="active">
+                Cursos y Certificaciones
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item"
+                 routerLink="administracion/proyectos-form"
+                 routerLinkActive="active">
+                Proyectos
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item"
+                 routerLink="administracion/experiencia-laboral-form"
+                 routerLinkActive="active">
+                Experiencia Laboral
+              </a>
+            </li>
+          </ul>
+        </li>
       </ul>
-      <img src="./assets/svg/user.svg" alt="usuario" *ngIf="authService.aIniciadoSesion" (click)="redirigirAAdministracion()">
+      <p-avatar image="./assets/img/web.jpg" pBadge value="4" severity="danger" shape="circle" *ngIf="authService.aIniciadoSesion"></p-avatar>
+
       <button class="btn btn-primary" type="button" (click)="redirigirALogin()" *ngIf="!authService.aIniciadoSesion"><strong>LOGIN</strong></button>
       <button class="btn btn-danger" type="button" (click)="logout()" *ngIf="authService.aIniciadoSesion"><strong>LOGOUT</strong></button>
-
-
-<!--      <img src="./assets/svg/user.svg" alt="usuario" *ngIf="auth.user | async as user; else showLogin" (click)="redirigirAAdministracion()">-->
-<!--      <button class="btn btn-danger" type="button" (click)="logout()" *ngIf="auth.user | async as user"><strong>LOGOUT</strong></button>-->
-
-<!--      <ng-template #showLogin>-->
-<!--        <button class="btn btn-primary" type="button" (click)="redirigirALogin()"><strong>LOGIN</strong></button>-->
-<!--      </ng-template>-->
-
 
     </div>
   </div>

@@ -1,16 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {ExperienciaService} from "../../../../Servicios/experiencia.service";
 import Swal from "sweetalert2";
 
 @Component({
+  // changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-experiencia-laboral-form',
-  templateUrl: './experiencia-laboral.component.html',
-  styleUrls: ['./experiencia-laboral.component.css']
+  templateUrl: './experiencia-laboral-form.component.html',
+  styleUrls: ['./experiencia-laboral-form.component.css']
 })
-export class ExperienciaLaboralComponent implements OnInit {
+export class ExperienciaLaboralFormComponent implements OnInit {
   errorFechaInicio = false
   experienciaLaboral = {
     uid: '',
+    trabajaActualmente: false,
     lugar: '',
     fechaInicio: '',
     fechaFin: '',
@@ -29,15 +31,14 @@ export class ExperienciaLaboralComponent implements OnInit {
         telf: ''
       }
     }
-
   }
 
-  constructor(public readonly expLaboralService: ExperienciaService) { }
+  constructor(public readonly expLaboralService: ExperienciaService) {
+  }
 
   ngOnInit(): void {
   }
   guardarExperienciaLaboral(){
-
     Swal.fire({
       title: 'Desea guardar los datos?',
       text: 'Tus datos se guardarán y podrás modificarlos mas tarde',
@@ -65,5 +66,6 @@ export class ExperienciaLaboralComponent implements OnInit {
     }
 
   }
+
 
 }

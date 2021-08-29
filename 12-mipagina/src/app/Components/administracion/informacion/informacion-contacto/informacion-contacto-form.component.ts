@@ -4,10 +4,10 @@ import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-informacion-contacto-form',
-  templateUrl: './informacion-contacto.component.html',
-  styleUrls: ['./informacion-contacto.component.css']
+  templateUrl: './informacion-contacto-form.component.html',
+  styleUrls: ['./informacion-contacto-form.component.css']
 })
-export class InformacionContactoComponent implements OnInit {
+export class InformacionContactoFormComponent implements OnInit {
 
   informacionContacto: any = {
     correoPersonal: '',

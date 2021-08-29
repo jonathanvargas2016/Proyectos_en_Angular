@@ -4,8 +4,8 @@ import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-educacion-form',
-  templateUrl: './educacion.component.html',
-  styleUrls: ['./educacion.component.css']
+  templateUrl: './educacion-form.component.html',
+  styleUrls: ['./educacion-form.component.css']
 })
 export class EducacionFormComponent implements OnInit {
   tituloCapturadoImg: any;

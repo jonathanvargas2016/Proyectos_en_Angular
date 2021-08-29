@@ -11,7 +11,6 @@ export class AlertasComponent implements OnInit {
   @Input() cargado: boolean = false;
   constructor() {
   }
-
   ngOnInit(): void {
   }
 

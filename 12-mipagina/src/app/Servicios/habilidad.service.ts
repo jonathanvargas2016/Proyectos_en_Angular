@@ -22,6 +22,11 @@ export class HabilidadService {
     this.itemsCollection.add(habilidad).then(()=>{
       this.cargado = true;
       this.espera = false;
-    }).catch((error)=> this.mensajeError = error)
+      this.mensajeError = "";
+    }).catch((error)=> {
+      this.mensajeError = error.message
+      this.cargado = false;
+      this.espera = false;
+    })
   }
 }

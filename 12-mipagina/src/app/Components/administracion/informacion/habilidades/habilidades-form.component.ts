@@ -4,10 +4,10 @@ import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-habilidades-form',
-  templateUrl: './habilidades.component.html',
-  styleUrls: ['./habilidades.component.css']
+  templateUrl: './habilidades-form.component.html',
+  styleUrls: ['./habilidades-form.component.css']
 })
-export class HabilidadesComponent implements OnInit {
+export class HabilidadesFormComponent implements OnInit {
   habilidad: any = {
     tipo: '',
     nombreHabilidad: ''

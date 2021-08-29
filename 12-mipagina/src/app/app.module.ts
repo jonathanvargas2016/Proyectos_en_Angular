@@ -11,7 +11,8 @@ import { ProyectosComponent } from './Components/proyectos/proyectos.component';
 import { ReferenciasComponent } from './Components/referencias/referencias.component';
 import { AdministracionComponent } from './Components/administracion/administracion.component';
 import { LoginComponent } from './Components/login/login.component';
-import {EducacionFormComponent} from "./Components/administracion/informacion/educacion/educacion.component";
+import {EducacionFormComponent} from "./Components/administracion/informacion/educacion/educacion-form.component";
+import { AlertasComponent } from './Components/alertas/alertas.component';
 
 // rutas
 import {AppRoutingModule} from './app.routes'
@@ -28,16 +29,23 @@ import {AngularFireStorageModule} from "@angular/fire/storage";
 
 // forms
 import {FormsModule} from "@angular/forms";
-import { ExperienciaLaboralComponent } from './Components/administracion/informacion/experiencia-laboral/experiencia-laboral.component';
-import { InformacionPersonalComponent } from './Components/administracion/informacion/informacion-personal/informacion-personal.component';
-import { InformacionContactoComponent } from './Components/administracion/informacion/informacion-contacto/informacion-contacto.component';
-import { HabilidadesComponent } from './Components/administracion/informacion/habilidades/habilidades.component';
+import { ExperienciaLaboralFormComponent } from './Components/administracion/informacion/experiencia-laboral/experiencia-laboral-form.component';
+import { InformacionPersonalFormComponent } from './Components/administracion/informacion/informacion-personal/informacion-personal-form.component';
+import { InformacionContactoFormComponent } from './Components/administracion/informacion/informacion-contacto/informacion-contacto-form.component';
+import { HabilidadesFormComponent } from './Components/administracion/informacion/habilidades/habilidades-form.component';
 import { CertificacionesFormComponent } from './Components/administracion/informacion/certificaciones-form/certificaciones-form.component';
 import { ProyectosFormsComponent } from './Components/administracion/informacion/proyectos-forms/proyectos-forms.component';
 
 // pipes
 import { DomSeguroPipe } from './Pipes/dom-seguro.pipe';
-import { AlertasComponent } from './Components/alertas/alertas.component';
+
+// blockUI
+import {BlockUIModule} from "ng-block-ui";
+
+// primeNg
+import {PrimeNgModule} from "./Components/administracion/prime-ng/prime-ng.module";
+import { CardInfoPerComponent } from './Components/administracion/informacion/informacion-personal/card/card-info-per.component';
+import { NoimagenPipe } from './Pipes/noimagen.pipe';
 
 @NgModule({
   declarations: [
@@ -52,15 +60,17 @@ import { AlertasComponent } from './Components/alertas/alertas.component';
     ReferenciasComponent,
     AdministracionComponent,
     LoginComponent,
-    ExperienciaLaboralComponent,
-    InformacionPersonalComponent,
-    InformacionContactoComponent,
-    HabilidadesComponent,
+    ExperienciaLaboralFormComponent,
+    InformacionPersonalFormComponent,
+    InformacionContactoFormComponent,
+    HabilidadesFormComponent,
     EducacionFormComponent,
     CertificacionesFormComponent,
     ProyectosFormsComponent,
     DomSeguroPipe,
-    AlertasComponent
+    AlertasComponent,
+    CardInfoPerComponent,
+    NoimagenPipe,
   ],
   imports: [
     BrowserModule,
@@ -69,11 +79,13 @@ import { AlertasComponent } from './Components/alertas/alertas.component';
     AngularFirestoreModule,
     FormsModule,
     AngularFireAuthModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    BlockUIModule.forRoot(),
+    PrimeNgModule
   ],
   providers: [
-      {provide: PERSISTENCE, useValue: 'local'}
-    ],
+    {provide: PERSISTENCE, useValue: 'local'}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

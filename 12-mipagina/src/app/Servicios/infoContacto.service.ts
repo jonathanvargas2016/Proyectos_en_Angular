@@ -22,9 +22,14 @@ export class  InfoContactoService {
     this.espera = true
     infoContacto.uid = this.authService.usuario.uid
     this.itemsCollection.add(infoContacto).then(()=>{
+      this.mensajeError = ""
       this.cargado = true;
       this.espera = false;
-    }).catch(error => this.mensajeError = error)
+    }).catch(error => {
+      this.cargado = false;
+      this.espera = false;
+      this.mensajeError = error.message
+    })
   }
 
   getInfoContacto(){
