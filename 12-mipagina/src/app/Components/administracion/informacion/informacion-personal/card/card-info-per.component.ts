@@ -1,8 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import {InfoPersonalService} from "../../../../../Servicios/infoPersonal.service";
 import Swal from 'sweetalert2'
-
 
 @Component({
   selector: 'app-card-info-per',
@@ -11,22 +10,21 @@ import Swal from 'sweetalert2'
 })
 export class CardInfoPerComponent implements OnInit {
 
-  datosIP: any = [];
+  documentos: any = [];
   constructor(
     private readonly router: Router,
     public readonly infoPerService: InfoPersonalService
   ) { }
 
   ngOnInit(): void {
-    this.infoPerService.getInfoPersonal().subscribe((datos) =>{
-      this.datosIP = datos;
+    this.infoPerService.getInfoPersonal().subscribe(resp =>{
+      this.documentos = resp
     })
   }
   dirigirAgregar(){
     this.router.navigate(['administracion','informacion-personal','agregar'])
   }
-  eliminar(i: number){
-    console.log('id ' + i)
+  eliminar(id: string){
     Swal.fire({
       title: 'Desea eliminar?',
       text:'Tus datos eliminados no se podrán recuperar',
@@ -37,8 +35,22 @@ export class CardInfoPerComponent implements OnInit {
       confirmButtonText: 'Si, eliminar'
     }).then((result) => {
       if (result.isConfirmed) {
-        const id = i.toString()
-        this.infoPerService.eliminarInfoPersonal(id).then();
+        this.infoPerService.eliminarInfoPersonal(id).then(()=>{
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Eliminado',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        }).catch((error)=>{
+          Swal.fire({
+            position: 'top-end',
+            icon: 'error',
+            title: error.message,
+            showConfirmButton: true,
+          })
+        });
       }
     })
 

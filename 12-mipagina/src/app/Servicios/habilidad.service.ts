@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {AngularFirestore, AngularFirestoreCollection} from "@angular/fire/firestore";
 import {AuthService} from "./auth.service";
+import {map} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,9 @@ export class HabilidadService {
   cargarFormularioHabilidad(habilidad: any){
     this.espera = true
     habilidad.uid = this.authService.usuario.uid
-    this.itemsCollection.add(habilidad).then(()=>{
+    this.itemsCollection.add(habilidad).then((a)=>{
+      habilidad.DocumentReference = a.id
+      console.log(habilidad.DocumentReference)
       this.cargado = true;
       this.espera = false;
       this.mensajeError = "";
@@ -29,4 +32,16 @@ export class HabilidadService {
       this.espera = false;
     })
   }
+  // getHabilidades(){
+  //
+  //   this.itemsCollection = this.afs.collection<any>(this.pathHabilidad)
+  //   return this.itemsCollection.snapshotChanges().pipe(map((resp)=>{
+  //     return resp;
+  //   }))
+  //
+  //
+  //
+  // }
+
+
 }

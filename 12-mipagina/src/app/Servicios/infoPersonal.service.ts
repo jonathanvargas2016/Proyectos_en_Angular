@@ -29,9 +29,10 @@ export class InfoPersonalService {
 
   getInfoPersonal(){
     this.itemsCollection = this.afs.collection<any>(this.pathIP)
-    return this.itemsCollection.valueChanges().pipe(map(datosIP =>{
-      return datosIP;
+    return this.itemsCollection.snapshotChanges().pipe(map((document) => {
+      return document;
     }))
+
   }
 
   public cargarFormInfoPerson(infoPersonal: any, imagenCapturada: any,  pdfCVCapturado: any,){
@@ -58,8 +59,7 @@ export class InfoPersonalService {
       this.pdfCV.subscribe((url)=>{
         infoPersonal.pdfCV = url
         infoPersonal.uid = this.authService.usuario.uid
-        infoPersonal.id = this.afs.createId();
-        this.itemsCollection.add(infoPersonal).then(()=>{
+        this.itemsCollection.add(infoPersonal).then(() =>{
           this.mensajeError = ""
           this.espera = false;
           this.cargado = true;
@@ -73,11 +73,7 @@ export class InfoPersonalService {
     })).subscribe()
   }
 
-  async eliminarInfoPersonal(id: string){
-    try {
-      await this.itemsCollection.doc(id).delete()
-    }catch (error){
-      this.mensajeError = error.message
-    }
+  eliminarInfoPersonal(id: string){
+    return this.itemsCollection.doc(id).delete()
   }
 }

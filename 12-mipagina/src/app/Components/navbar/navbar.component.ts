@@ -1,6 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Router} from '@angular/router'
 import {AuthService} from "../../Servicios/auth.service";
+import {YoComponent} from "../yo/yo.component";
 
 @Component({
   selector: 'app-navbar',

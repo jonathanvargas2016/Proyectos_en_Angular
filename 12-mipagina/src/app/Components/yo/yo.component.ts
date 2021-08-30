@@ -22,8 +22,8 @@ export class YoComponent implements OnInit {
               private readonly  infoContService: InfoContactoService ) { }
 
   ngOnInit(): void {
-    this.paginaService.getInfoPersonal().subscribe((datos)=>{
-      this.arrayInfoPersonal[0] = datos[0]
+    this.paginaService.getInfoPersonal().subscribe(documentos =>{
+      this.arrayInfoPersonal[0] = documentos[0].payload.doc.data()
     })
     this.infoContService.getInfoContacto().subscribe((datos) =>{
       this.arrayInfoContacto[0] = datos[0]
