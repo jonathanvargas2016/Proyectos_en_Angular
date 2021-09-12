@@ -47,6 +47,10 @@ import {PrimeNgModule} from "./Components/administracion/prime-ng/prime-ng.modul
 import { CardInfoPerComponent } from './Components/administracion/informacion/informacion-personal/card/card-info-per.component';
 import { NoimagenPipe } from './Pipes/noimagen.pipe';
 
+import {MessageService} from 'primeng/api';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -81,10 +85,12 @@ import { NoimagenPipe } from './Pipes/noimagen.pipe';
     AngularFireAuthModule,
     AngularFireStorageModule,
     BlockUIModule.forRoot(),
-    PrimeNgModule
+    PrimeNgModule,
+    BrowserAnimationsModule
   ],
   providers: [
-    {provide: PERSISTENCE, useValue: 'local'}
+    {provide: PERSISTENCE, useValue: 'local'},
+    MessageService
   ],
   bootstrap: [AppComponent]
 })

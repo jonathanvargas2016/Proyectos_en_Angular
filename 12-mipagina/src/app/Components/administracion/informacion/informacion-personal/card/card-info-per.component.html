@@ -1,12 +1,10 @@
-<div class="posicion-btn">
-  <button pButton type="button" icon="pi pi-user" iconPos="left" label="Agregar" (click)="dirigirAgregar()"></button>
-</div>
-
 <div class="row row-cols-1 row-cols-md-2 g-4" *ngIf="documentos" >
 
   <div class="col" *ngFor="let documento of documentos; index as i" >
     <div class="card h-100">
-      <img [src]="documento.payload.doc.data().imagen | noimagen" class="card-img-top" alt="foto de perfil">
+      <img [src]="documento.payload.doc.data().imagen | noimagen"
+           class="card-img-top" alt="foto de perfil"
+      onerror="this.src='assets/img/noimage.jpg'">
       <div class="card-body">
         <h5 class="card-title">{{documento.payload.doc.data().nombres}}</h5>
         <h6 class="card-title">{{documento.payload.doc.data().titulo}}</h6>
@@ -23,8 +21,9 @@
                 type="button"
                 icon="pi pi-times"
                 class="p-button-danger p-button-rounded"
-                (click)="eliminar(documento.payload.doc.id)"
-        ></button>
+                (click)="eliminar(documento.payload.doc.id)">
+
+        </button>
 
 
       </div>

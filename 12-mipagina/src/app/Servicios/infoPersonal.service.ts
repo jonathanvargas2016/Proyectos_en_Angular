@@ -35,7 +35,7 @@ export class InfoPersonalService {
 
   }
 
-  public cargarFormInfoPerson(infoPersonal: any, imagenCapturada: any,  pdfCVCapturado: any,){
+  public cargarFormInfoPerson(infoPersonal: any, imagenCapturada: any,  pdfCVCapturado: any, forma: any){
 
     const filePath = `img/img_${this.id}`
     const task = this.storage.upload(filePath, imagenCapturada);
@@ -45,12 +45,12 @@ export class InfoPersonalService {
       this.urlImage = this.storage.ref(filePath).getDownloadURL()
       this.urlImage.subscribe((url)=>{
         infoPersonal.imagen = url
-        this.cargarPdfCV(pdfCVCapturado, infoPersonal)
+        this.cargarPdfCV(pdfCVCapturado, infoPersonal, forma)
       }, error => this.mensajeError = error)
     })).subscribe()
   }
 
-  private cargarPdfCV(pdfCVCapturado: any, infoPersonal: any): any{
+  private cargarPdfCV(pdfCVCapturado: any, infoPersonal: any, forma: any): any{
     const filePath = `file/pdf_${this.id}`
     const fileRefPdf = this.storage.ref(filePath)
     const task = this.storage.upload(filePath, pdfCVCapturado);
@@ -63,6 +63,8 @@ export class InfoPersonalService {
           this.mensajeError = ""
           this.espera = false;
           this.cargado = true;
+          forma.reset()
+
         }).catch(error =>{
           this.mensajeError = error.message
           this.espera = false;

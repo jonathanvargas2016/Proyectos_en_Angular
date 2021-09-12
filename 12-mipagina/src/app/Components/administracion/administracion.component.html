@@ -11,7 +11,19 @@
     <div class="container">
 
 
-      <app-card-info-per></app-card-info-per>
+      <div>
+        <button type="button"
+                class="btn btn-primary margin-btn"
+                data-bs-toggle="modal"
+                data-bs-target="#modalInfoPersonal"
+                data-bs-whatever="@mdo"
+                [disabled]="infoPers.espera">
+          Agregar
+        </button>
+        <app-card-info-per></app-card-info-per>
+        <app-informacion-personal-form></app-informacion-personal-form>
+
+      </div>
 
 <!--      <div class="row row-cols-1 row-cols-md-3 g-4 ">-->
 
@@ -28,9 +40,9 @@
 <!--          <app-educacion-form></app-educacion-form>-->
 <!--        </div>-->
 
-        <div class="col">
-          <app-habilidades-form></app-habilidades-form>
-        </div>
+<!--        <div class="col">-->
+<!--          <app-habilidades-form></app-habilidades-form>-->
+<!--        </div>-->
 
 <!--        <div class="col">-->
 <!--          <app-certificaciones-form></app-certificaciones-form>-->
@@ -58,4 +70,8 @@
 
 
 </div>
+
+
+
+
 

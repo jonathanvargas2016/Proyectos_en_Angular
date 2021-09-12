@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {InfoPersonalService} from "../../../../../Servicios/infoPersonal.service";
 import Swal from 'sweetalert2'
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-card-info-per',
   templateUrl: './card-info-per.component.html',
   styleUrls: ['./card-info-per.component.css']
 })
-export class CardInfoPerComponent implements OnInit {
+export class CardInfoPerComponent implements OnInit, OnDestroy {
 
+  suscripcion: Subscription
   documentos: any = [];
   constructor(
     private readonly router: Router,
@@ -17,13 +19,14 @@ export class CardInfoPerComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.infoPerService.getInfoPersonal().subscribe(resp =>{
+    this.suscripcion = this.infoPerService.getInfoPersonal().subscribe(resp =>{
       this.documentos = resp
     })
   }
   dirigirAgregar(){
     this.router.navigate(['administracion','informacion-personal','agregar'])
   }
+
   eliminar(id: string){
     Swal.fire({
       title: 'Desea eliminar?',
@@ -60,4 +63,9 @@ export class CardInfoPerComponent implements OnInit {
 
 
   }
+
+  ngOnDestroy(): void{
+    this.suscripcion.unsubscribe()
+  }
+
 }
