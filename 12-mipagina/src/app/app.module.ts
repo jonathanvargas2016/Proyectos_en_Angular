@@ -49,6 +49,8 @@ import { NoimagenPipe } from './Pipes/noimagen.pipe';
 
 import {MessageService} from 'primeng/api';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { MediosComponent } from './Components/administracion/medios/medios.component';
+import { MediosModalComponent } from './Components/administracion/medios/medios-modal/medios-modal.component';
 
 
 @NgModule({
@@ -75,6 +77,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     AlertasComponent,
     CardInfoPerComponent,
     NoimagenPipe,
+    MediosComponent,
+    MediosModalComponent,
   ],
   imports: [
     BrowserModule,

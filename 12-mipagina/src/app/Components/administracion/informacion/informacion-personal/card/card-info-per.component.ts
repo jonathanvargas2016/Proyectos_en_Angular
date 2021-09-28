@@ -12,7 +12,9 @@ import {Subscription} from "rxjs";
 export class CardInfoPerComponent implements OnInit, OnDestroy {
 
   suscripcion: Subscription
+  suscripcionGetDocument: Subscription
   documentos: any = [];
+  documentInfoPersonal: any = {}
   constructor(
     private readonly router: Router,
     public readonly infoPerService: InfoPersonalService
@@ -23,12 +25,9 @@ export class CardInfoPerComponent implements OnInit, OnDestroy {
       this.documentos = resp
     })
   }
-  dirigirAgregar(){
-    this.router.navigate(['administracion','informacion-personal','agregar'])
-  }
 
-  eliminar(id: string){
-    Swal.fire({
+  async eliminar(id: string, pathImg: string, pathPdf: string){
+    const resp = await Swal.fire({
       title: 'Desea eliminar?',
       text:'Tus datos eliminados no se podrán recuperar',
       icon: 'warning',
@@ -36,36 +35,42 @@ export class CardInfoPerComponent implements OnInit, OnDestroy {
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Si, eliminar'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        this.infoPerService.eliminarInfoPersonal(id).then(()=>{
-          Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: 'Eliminado',
-            showConfirmButton: false,
-            timer: 1500
-          })
-        }).catch((error)=>{
-          Swal.fire({
-            position: 'top-end',
-            icon: 'error',
-            title: error.message,
-            showConfirmButton: true,
-          })
-        });
-      }
     })
+    if(resp.isConfirmed){
+      try {
+        await this.infoPerService.eliminarInfoPersonal(id)
+        await Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Eliminado',
+          showConfirmButton: false,
+          timer: 1500
+        })
 
+      }catch (e) {
+        await Swal.fire({
+          position: 'top-end',
+          icon: 'error',
+          title: "No se pudo eliminar",
+          showConfirmButton: true,
+        })
+      }
+    }
+  }
 
-
-
-
+  actualizar(id: string){
+    return this.suscripcionGetDocument = this.infoPerService.getdocumentInfoPersonal(id)
+      .subscribe(data=>{
+        return this.documentInfoPersonal = data
+        }
+      )
 
   }
 
   ngOnDestroy(): void{
     this.suscripcion.unsubscribe()
+    if (this.suscripcionGetDocument){
+      this.suscripcionGetDocument.unsubscribe()
+    }
   }
-
 }

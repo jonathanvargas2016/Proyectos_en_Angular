@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {AvatarModule} from 'primeng/avatar';
 import {ButtonModule} from 'primeng/button';
 import {ToastModule} from 'primeng/toast';
+import {GalleriaModule} from "primeng/galleria";
 
 @NgModule({
   declarations: [],
@@ -10,12 +11,14 @@ import {ToastModule} from 'primeng/toast';
     CommonModule,
     AvatarModule,
     ButtonModule,
-    ToastModule
+    ToastModule,
+    GalleriaModule
   ],
   exports:[
     AvatarModule,
     ButtonModule,
-    ToastModule
+    ToastModule,
+    GalleriaModule
   ]
 })
 export class PrimeNgModule { }

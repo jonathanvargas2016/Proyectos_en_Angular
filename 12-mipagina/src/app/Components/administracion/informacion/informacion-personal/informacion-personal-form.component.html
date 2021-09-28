@@ -1,36 +1,7 @@
-<!--<div class="contenedor">-->
-
-<!--  <div class="cabecera">-->
-<!--    <div class="container">-->
-<!--      <h1>Información Personal-->
-<!--      </h1>-->
-<!--    </div>-->
-<!--  </div>-->
-
-
-<!--  <div class="fondo2">-->
-<!--    <div class="relleno-fondos"></div>-->
-
-<!--    <div class="container">-->
-      <app-alertas [mensajeError]="infoPerService.mensajeError"
-                   [espera]="infoPerService.espera"
-                   [cargado]="infoPerService.cargado">
-      </app-alertas>
-
-<!--      <div class="row">-->
-<!--        <div class="col-12 col-lg-5 col-md-8">-->
-
-<!--        </div>-->
-<!--      </div>-->
-
-
-<!--    </div>-->
-<!--    <div class="relleno-fondos"></div>-->
-<!--  </div>-->
-
-
-
-<!--</div>-->
+<app-alertas [mensajeError]="infoPerService.mensajeError"
+             [espera]="infoPerService.espera"
+             [cargado]="infoPerService.cargado">
+</app-alertas>
 <p-toast></p-toast>
 
 <div class="modal fade" id="modalInfoPersonal" tabindex="-1" aria-labelledby="modalInfoPersonalLabel" aria-hidden="true"
@@ -67,24 +38,24 @@
             </div>
 
           </div>
-          <div class="mb-3">
-            <label for="formFileImg" class="form-label">Seleccione foto de perfil</label>
-            <input (change)="capturarFotoPerfil($event)"
-                   class="form-control"
-                   type="file" id="formFileImg"
-                   accept=".png, .jpg">
-            <div class="form-text color" *ngIf="existeErrorImg">Debe seleccionar foto de perfil</div>
+<!--          <div class="mb-3">-->
+<!--            <label for="formFileImg" class="form-label">Seleccione foto de perfil</label>-->
+<!--            <input (change)="capturarFotoPerfil($event)"-->
+<!--                   class="form-control"-->
+<!--                   type="file" id="formFileImg"-->
+<!--                   accept=".png, .jpg">-->
+<!--            <div class="form-text color" *ngIf="existeErrorImg">Debe seleccionar foto de perfil</div>-->
 
-          </div>
+<!--          </div>-->
 
-          <div class="mb-3">
-            <label for="formFilePdf" class="form-label">Seleccione CV (.pdf)</label>
-            <input (change)="capturarCV($event)"
-                   class="form-control"
-                   type="file" id="formFilePdf"
-                   accept=".pdf">
-            <div class="form-text color" *ngIf="existeErrorPdf">Debe seleccionar CV</div>
-          </div>
+<!--          <div class="mb-3">-->
+<!--            <label for="formFilePdf" class="form-label">Seleccione CV (.pdf)</label>-->
+<!--            <input (change)="capturarCV($event)"-->
+<!--                   class="form-control"-->
+<!--                   type="file" id="formFilePdf"-->
+<!--                   accept=".pdf">-->
+<!--            <div class="form-text color" *ngIf="existeErrorPdf">Debe seleccionar CV</div>-->
+<!--          </div>-->
 
           <div class="mb-3">
             <label for="tituloInput" class="form-label">Título</label>
@@ -105,7 +76,6 @@
             <div class="form-text color" *ngIf="tituloInp.errors?.minlength">
               Mínimo {{tituloInp.errors?.minlength.requiredLength}} caracteres
             </div>
-
           </div>
 
           <div class="mb-3">

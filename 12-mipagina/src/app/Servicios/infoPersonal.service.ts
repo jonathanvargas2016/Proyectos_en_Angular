@@ -28,54 +28,87 @@ export class InfoPersonalService {
   }
 
   getInfoPersonal(){
-    this.itemsCollection = this.afs.collection<any>(this.pathIP)
-    return this.itemsCollection.snapshotChanges().pipe(map((document) => {
-      return document;
+    return this.itemsCollection.snapshotChanges().pipe(map(document => {
+      return document.reverse();
     }))
 
   }
 
-  public cargarFormInfoPerson(infoPersonal: any, imagenCapturada: any,  pdfCVCapturado: any, forma: any){
+  // public cargarFormInfoPerson(infoPersonal: any, imagenCapturada: any,  pdfCVCapturado: any, forma: any){
+  //
+  //   const filePath = `img/img_${this.id}`
+  //   const task = this.storage.upload(filePath, imagenCapturada);
+  //   this.espera = true;
+  //   task.snapshotChanges().pipe(finalize( ()=>{
+  //     this.urlImage = this.storage.ref(filePath).getDownloadURL()
+  //     this.urlImage.subscribe((url)=>{
+  //       infoPersonal.imagen = url
+  //       infoPersonal.pathImg = filePath
+  //       this.cargarPdfCV(pdfCVCapturado, infoPersonal, forma)
+  //     }, error => {
+  //       this.espera = false;
+  //       this.cargado = false;
+  //       this.mensajeError = error.message
+  //     })
+  //   })).subscribe()
+  // }
 
-    const filePath = `img/img_${this.id}`
-    const task = this.storage.upload(filePath, imagenCapturada);
+  // private cargarPdfCV(pdfCVCapturado: any, infoPersonal: any, forma: any): any{
+  //   const filePath = `file/pdf_${this.id}`
+  //   const fileRefPdf = this.storage.ref(filePath)
+  //   const task = this.storage.upload(filePath, pdfCVCapturado);
+  //   task.snapshotChanges().pipe(finalize( ()=>{
+  //     this.pdfCV = fileRefPdf.getDownloadURL()
+  //     this.pdfCV.subscribe((url)=>{
+  //       infoPersonal.pdfCV = url
+  //       infoPersonal.pathPdf = filePath
+  //       infoPersonal.uid = this.authService.usuario.uid
+  //       this.itemsCollection.add(infoPersonal).then(() =>{
+  //         this.espera = false;
+  //         this.cargado = true;
+  //         forma.reset()
+  //
+  //       }).catch(error =>{
+  //         this.mensajeError = error.message
+  //         this.espera = false;
+  //         this.cargado = false;
+  //         this.storage.storage.ref(`img/img_${this.id}`).delete().then()
+  //         this.storage.storage.ref(`file/pdf_${this.id}`).delete().then()
+  //       })
+  //
+  //     }, error => this.mensajeError = error.message)
+  //   })).subscribe()
+  // }
+
+  // async eliminarInfoPersonal(id: string, pathImg: string, pathPdf: string){
+  //     await this.storage.storage.ref(pathImg).delete()
+  //     await this.storage.storage.ref(pathPdf).delete()
+  //     await this.itemsCollection.doc(id).delete()
+  // }
+
+  async eliminarInfoPersonal(id: string){
+    await this.itemsCollection.doc(id).delete()
+  }
+
+  getdocumentInfoPersonal(id: string){
+    return this.itemsCollection.doc(id).valueChanges()
+  }
+
+  async cargarFormInfoPerson(infoPersonal: any){
+    infoPersonal.uid = this.authService.usuario.uid
     this.espera = true;
-
-    task.snapshotChanges().pipe(finalize( ()=>{
-      this.urlImage = this.storage.ref(filePath).getDownloadURL()
-      this.urlImage.subscribe((url)=>{
-        infoPersonal.imagen = url
-        this.cargarPdfCV(pdfCVCapturado, infoPersonal, forma)
-      }, error => this.mensajeError = error)
-    })).subscribe()
-  }
-
-  private cargarPdfCV(pdfCVCapturado: any, infoPersonal: any, forma: any): any{
-    const filePath = `file/pdf_${this.id}`
-    const fileRefPdf = this.storage.ref(filePath)
-    const task = this.storage.upload(filePath, pdfCVCapturado);
-    task.snapshotChanges().pipe(finalize( ()=>{
-      this.pdfCV = fileRefPdf.getDownloadURL()
-      this.pdfCV.subscribe((url)=>{
-        infoPersonal.pdfCV = url
-        infoPersonal.uid = this.authService.usuario.uid
-        this.itemsCollection.add(infoPersonal).then(() =>{
-          this.mensajeError = ""
-          this.espera = false;
-          this.cargado = true;
-          forma.reset()
-
-        }).catch(error =>{
-          this.mensajeError = error.message
-          this.espera = false;
-          this.cargado = false;
-        })
-
-      }, error => this.mensajeError = error)
-    })).subscribe()
-  }
-
-  eliminarInfoPersonal(id: string){
-    return this.itemsCollection.doc(id).delete()
+    let resp
+    try {
+      resp = await this.itemsCollection.add(infoPersonal)
+    }catch (e) {
+      this.mensajeError = e.message
+      this.espera = false
+      this.cargado = false
+    }
+    if(resp){
+      this.espera = false
+      this.cargado = true
+    }
+    return resp
   }
 }

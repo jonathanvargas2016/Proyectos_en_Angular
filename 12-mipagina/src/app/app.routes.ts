@@ -17,6 +17,7 @@ import {EducacionFormComponent} from "./Components/administracion/informacion/ed
 import {CertificacionesFormComponent} from "./Components/administracion/informacion/certificaciones-form/certificaciones-form.component";
 import {ProyectosFormsComponent} from "./Components/administracion/informacion/proyectos-forms/proyectos-forms.component";
 import {CardInfoPerComponent} from "./Components/administracion/informacion/informacion-personal/card/card-info-per.component";
+import {MediosComponent} from "./Components/administracion/medios/medios.component";
 
 const rutas: Routes = [
   { path: 'yo', component: YoComponent },
@@ -25,40 +26,14 @@ const rutas: Routes = [
   { path: 'cursos-certificaciones', component: CertificacionesComponent },
   { path: 'proyectos', component: ProyectosComponent },
   { path: 'login', component: LoginComponent, canActivate:[LoginGuard] },
-  {
-    path: 'administracion',
-    component: AdministracionComponent,
-    children: [
-      {
-        path: 'informacion-personal', component: CardInfoPerComponent,
-      },
-      {
-        path: 'informacion-contacto', component: InformacionContactoFormComponent,
-      },
-      {
-        path: 'habilidades', component: HabilidadesFormComponent,
-      },
-      {
-        path: 'experiencia-laboral', component: ExperienciaLaboralFormComponent,
-      },
-      {
-        path: 'educacion', component: EducacionFormComponent,
-      },
-      {
-        path: 'cursos-certificaciones', component: CertificacionesFormComponent,
-      },
-      {
-        path: 'proyectos', component: ProyectosFormsComponent,
-      }
-    ],
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'administracion/informacion-personal/agregar',
-    component: InformacionPersonalFormComponent,
-    canActivate: [AuthGuard]
-  },
-
+  { path: 'administracion/informacion-contacto', component: InformacionContactoFormComponent, canActivate: [AuthGuard]},
+  { path: 'administracion/habilidades', component: HabilidadesFormComponent, canActivate: [AuthGuard]},
+  { path: 'administracion/experiencia-laboral', component: ExperienciaLaboralFormComponent, canActivate: [AuthGuard]},
+  { path: 'administracion/educacion', component: EducacionFormComponent, canActivate: [AuthGuard]},
+  { path: 'administracion/cursos-certificaciones', component: CertificacionesFormComponent, canActivate: [AuthGuard]},
+  { path: 'administracion/proyectos', component: ProyectosFormsComponent, canActivate: [AuthGuard]},
+  { path: 'administracion/medios', component: MediosComponent, canActivate: [AuthGuard]},
+  { path: 'administracion/informacion-personal', component: CardInfoPerComponent, canActivate: [AuthGuard]},
   { path: '**', pathMatch: 'full', redirectTo: 'yo' },
 ]
 
