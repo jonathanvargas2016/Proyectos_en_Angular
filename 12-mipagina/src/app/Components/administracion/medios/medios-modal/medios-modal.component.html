@@ -1,64 +1,57 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="modalCargarMedios" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="mediosLabel" aria-hidden="true">
   <div class="modal-dialog  modal-xl">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Agregar Imágen</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="resetearInputImg()"></button>
+        <h5 class="modal-title" id="mediosLabel">Agregar Imagen</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="resetearFormImg()"></button>
       </div>
       <div class="modal-body">
 
         <div class="row">
           <div class="col-md-6 col-12 col-lg-6">
-          <form id="forma">
-            <input (change)="capturarImagen($event)"
-                   id="inputImg"
-                   class="form-control"
-                   type="file" id="formFileImg"
-                   accept=".png, .jpg" multiple>
-          </form>
+            <form id="forma">
+              <input (change)="capturarImagen($event)"
+                     id="inputImg"
+                     class="form-control"
+                     type="file" id="formFileImg"
+                     accept=".png, .jpg" multiple>
+            </form>
           </div>
 
           <div class="col-md-6 col-12 col-lg-6">
-            <a type="button" (click)="cambiarBandera()">Seleccionar imágen</a>
+            <a type="button" (click)="cambiarBandera()">Seleccionar imagen</a>
           </div>
 
         </div>
 
-        <div class="row">
-          <div class="col-md-3 col-lg-3 col-6" *ngIf="bandera">
-            <img src="https://wallpaperaccess.com/full/222577.jpg" alt="" class="img-thumbnail">
+        <div class="row" *ngIf="bandera">
+          <div class="col-md-3 col-lg-3 col-6" *ngFor="let imagen of imagenes">
+            <img [src]="imagen.payload.doc.data().url" [alt]="imagen.payload.doc.data().nombre" class="img-thumbnail" (click)="seleccionarImg(imagen.payload.doc.data().url)">
+            <img src="./assets/img/remove.png" alt="eliminar" class="img-eliminar" (click)="eliminarImg(imagen.payload.doc.id, imagen.payload.doc.data().path)">
           </div>
-          <div class="col-md-3 col-lg-3 col-6" *ngIf="bandera">
-            <img src="https://wallpaperaccess.com/full/222577.jpg" alt="" class="img-thumbnail">
-          </div>
-          <div class="col-md-3 col-lg-3 col-6" *ngIf="bandera">
-            <img src="https://wallpaperaccess.com/full/222577.jpg" alt="" class="img-thumbnail">
-          </div>
-          <div class="col-md-3 col-lg-3 col-6" *ngIf="bandera">
-            <img src="https://wallpaperaccess.com/full/222577.jpg" alt="" class="img-thumbnail">
-          </div>
-          <div class="col-md-3 col-lg-3 col-6" *ngIf="bandera">
-            <img src="https://wallpaperaccess.com/full/222577.jpg" alt="" class="img-thumbnail">
-          </div>
-          <div class="col-md-3 col-lg-3 col-6" *ngIf="bandera">
-            <img src="https://wallpaperaccess.com/full/222577.jpg" alt="" class="img-thumbnail">
+
+
+          <div class="col-md-3 col-lg-3 col-6" *ngFor="let archivo of cargarArchivoService.archivos">
+            <p-progressBar [value]="archivo.progreso | number:'1.0-0'" *ngIf="cargarArchivoService.cargando">
+            </p-progressBar>
           </div>
 
         </div>
-
 
       </div>
+
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="resetearInputImg()">Cerrar</button>
-        <button type="button" class="btn btn-primary" *ngIf="bandera;else mostrarOtroBtn">Seleccionar</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="resetearFormImg()">Cerrar</button>
+        <button type="button" class="btn btn-primary" *ngIf="bandera;else mostrarOtroBtn" >Seleccionar</button>
       </div>
     </div>
   </div>
 </div>
 
 <ng-template #mostrarOtroBtn>
-  <button type="button" class="btn btn-primary">Guardar</button>
+  <button type="button" class="btn btn-primary" (click)="cargarImagenes()">Guardar</button>
 </ng-template>
+

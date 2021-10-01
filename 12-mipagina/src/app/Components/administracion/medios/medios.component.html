@@ -1,26 +1,48 @@
-<h5>Custom Contents</h5>
-<p-galleria  [(visible)]="displayCustom" [(activeIndex)]="activeIndex" [responsiveOptions]="responsiveOptions" [containerStyle]="{'max-width': '850px'}" [numVisible]="7"
-            [circular]="true" [fullScreen]="true" [showItemNavigators]="true" [showThumbnails]="false" [baseZIndex]="100000">
-  <ng-template pTemplate="item" let-item>
-    <img [src]="item.previewImageSrc" style="width: 100%; display: block;"/>
-  </ng-template>
-  <ng-template pTemplate="thumbnail" let-item>
-    <div class="p-grid p-nogutter p-justify-center">
-      <img [src]="item.thumbnailImageSrc" style="display: block;"/>
+<div class="contenedor">
+
+  <div class="cabecera">
+    <div class="container">
+      <h1>Medios</h1>
     </div>
-  </ng-template>
-</p-galleria>
-<div *ngIf="images" class="p-grid" style="max-width: 400px;">
-  <div *ngFor="let image of images; let index = index;" class="p-col-3" key="index">
-    <img [src]="image.thumbnailImageSrc" [alt]="image.alt" style="cursor: pointer" (click)="imageClick(index)"/>
   </div>
+
+<div class="fondo4">
+  <div class="relleno-fondos"></div>
+  <div class="container">
+    <h5>Custom Contents</h5>
+    <p-galleria  [(visible)]="displayCustom" [(activeIndex)]="activeIndex" [responsiveOptions]="responsiveOptions" [containerStyle]="{'max-width': '850px'}" [numVisible]="7"
+                 [circular]="true" [fullScreen]="true" [showItemNavigators]="true" [showThumbnails]="false" [baseZIndex]="100000">
+      <ng-template pTemplate="item" let-item>
+        <img [src]="item.previewImageSrc" style="width: 100%; display: block;"/>
+      </ng-template>
+      <ng-template pTemplate="thumbnail" let-item>
+        <div class="p-grid p-nogutter p-justify-center">
+          <img [src]="item.thumbnailImageSrc" style="display: block;"/>
+        </div>
+      </ng-template>
+    </p-galleria>
+    <div *ngIf="images" class="p-grid" style="max-width: 400px;">
+      <div *ngFor="let image of images; let index = index;" class="p-col-3" key="index">
+        <img [src]="image.thumbnailImageSrc" [alt]="image.alt" style="cursor: pointer" (click)="imageClick(index)"/>
+      </div>
+    </div>
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCargarMedios">
+      Agregar Imágen
+    </button>
+  </div>
+  </div>
+  <div class="relleno-fondos"></div>
 </div>
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-  Launch static backdrop modal
-</button>
+
+
 <app-medios-modal></app-medios-modal>
+
+
+
+
 
 
 

@@ -4,7 +4,7 @@ import {AvatarModule} from 'primeng/avatar';
 import {ButtonModule} from 'primeng/button';
 import {ToastModule} from 'primeng/toast';
 import {GalleriaModule} from "primeng/galleria";
-
+import {ProgressBarModule} from 'primeng/progressbar';
 @NgModule({
   declarations: [],
   imports: [
@@ -12,13 +12,15 @@ import {GalleriaModule} from "primeng/galleria";
     AvatarModule,
     ButtonModule,
     ToastModule,
-    GalleriaModule
+    GalleriaModule,
+    ProgressBarModule
   ],
   exports:[
     AvatarModule,
     ButtonModule,
     ToastModule,
-    GalleriaModule
+    GalleriaModule,
+    ProgressBarModule
   ]
 })
 export class PrimeNgModule { }

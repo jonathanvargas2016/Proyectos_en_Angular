@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {FileItem} from "../../../Modelos/FileItem";
+import {CargarArchivosService} from "../../../Servicios/cargar-archivos.service";
 
 @Component({
   selector: 'app-medios',
@@ -50,8 +52,9 @@ export class MediosComponent implements OnInit {
   displayCustom: boolean;
 
   activeIndex: number = 0;
-
-  constructor(/*private photoService: PhotoService*/) { }
+  archivosImg: FileItem[] = []
+  bandera = false
+  constructor(/*private photoService: PhotoService*/public readonly cargarArchivoService: CargarArchivosService) { }
 
   ngOnInit() {
     /*this.photoService.getImages().then(images =>{

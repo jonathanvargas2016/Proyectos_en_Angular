@@ -1,0 +1,6 @@
+h1{
+  font-size: 70px;
+  font-family: Poppins, var(--nv-fallback-ff);
+  font-weight: 600;
+  text-transform: none;
+}

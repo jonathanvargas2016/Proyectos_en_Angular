@@ -3,17 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="1a23ac72-cb32-4f67-8e2f-ea49f5d7cdf8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/administracion.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/administracion.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-personal/card/card-info-per.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-personal/card/card-info-per.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-personal/card/card-info-per.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-personal/card/card-info-per.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-personal/card/card-info-per.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-personal/card/card-info-per.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-personal/informacion-personal-form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-personal/informacion-personal-form.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-personal/informacion-personal-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/informacion/informacion-personal/informacion-personal-form.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/medios/medios-modal/medios-modal.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/medios/medios-modal/medios-modal.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/medios/medios-modal/medios-modal.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/medios/medios-modal/medios-modal.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/medios/medios-modal/medios-modal.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/medios/medios-modal/medios-modal.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/medios/medios.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/medios/medios.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/medios/medios.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/medios/medios.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/medios/medios.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/medios/medios.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/prime-ng/prime-ng.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/administracion/prime-ng/prime-ng.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Components/navbar/navbar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Components/navbar/navbar.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Servicios/infoPersonal.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Servicios/infoPersonal.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/app.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/12-mipagina/src/app/Interfaces/usuario.interface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/12-mipagina/src/app/Modelos/usuario.interface.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,6 +138,9 @@
       <workItem from="1632019049002" duration="778000" />
       <workItem from="1632689920279" duration="13022000" />
       <workItem from="1632795385122" duration="5095000" />
+      <workItem from="1632877717700" duration="9563000" />
+      <workItem from="1632969972690" duration="5855000" />
+      <workItem from="1633049268874" duration="10516000" />
     </task>
     <servers />
   </component>
