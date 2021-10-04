@@ -15,6 +15,16 @@
       </div>
       <div class="modal-body">
 
+        <div>
+          <button (click)="ocultarModalInfoPersonal()" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCargarMedios">
+            Seleccione Foto de perfil
+          </button>
+          <br><br>
+          <div *ngIf="informacionPersonal.urlImagen">
+            <img [src]="informacionPersonal.urlImagen" class="img-thumbnail" alt="foto perfil">
+          </div>
+        </div>
+
         <form #forma="ngForm" id="forma">
           <div class="mb-3">
             <label for="nombreInput" class="form-label">Nombres</label>
@@ -38,25 +48,6 @@
             </div>
 
           </div>
-<!--          <div class="mb-3">-->
-<!--            <label for="formFileImg" class="form-label">Seleccione foto de perfil</label>-->
-<!--            <input (change)="capturarFotoPerfil($event)"-->
-<!--                   class="form-control"-->
-<!--                   type="file" id="formFileImg"-->
-<!--                   accept=".png, .jpg">-->
-<!--            <div class="form-text color" *ngIf="existeErrorImg">Debe seleccionar foto de perfil</div>-->
-
-<!--          </div>-->
-
-<!--          <div class="mb-3">-->
-<!--            <label for="formFilePdf" class="form-label">Seleccione CV (.pdf)</label>-->
-<!--            <input (change)="capturarCV($event)"-->
-<!--                   class="form-control"-->
-<!--                   type="file" id="formFilePdf"-->
-<!--                   accept=".pdf">-->
-<!--            <div class="form-text color" *ngIf="existeErrorPdf">Debe seleccionar CV</div>-->
-<!--          </div>-->
-
           <div class="mb-3">
             <label for="tituloInput" class="form-label">Título</label>
             <input type="text"
@@ -121,14 +112,15 @@
             </div>
           </div>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="resetearForma()">Close</button>
-          <button type="button" (click)="guardarDatosmodal(forma)" class="btn btn-primary margin-btn" data-bs-dismiss="modal"
+          <button type="button" (click)="guardarDatosmodal(forma)" class="btn btn-primary margin-btn"
+                  data-bs-dismiss="modal"
                   [disabled]="forma.invalid || infoPerService.espera">Guardar
           </button>
         </form>
       </div>
     </div>
-
-
   </div>
 </div>
+<app-medios-modal (urlImagenSeleccionada)="conseguirUrlImg($event)" (cerrar)="cerrarModalMedios($event)"></app-medios-modal>
+
 

@@ -23,3 +23,7 @@ h1{
 .margin-btn{
   margin-bottom: 30px;
 }
+.img-thumbnail{
+  width: 200px;
+  height: auto;
+}

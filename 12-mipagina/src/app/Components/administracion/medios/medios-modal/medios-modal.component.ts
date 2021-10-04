@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {FileItem} from "../../../../Modelos/FileItem";
 import {CargarArchivosService} from "../../../../Servicios/cargar-archivos.service";
 import Swal from "sweetalert2";
@@ -9,8 +9,10 @@ import Swal from "sweetalert2";
   styleUrls: ['./medios-modal.component.css']
 })
 export class MediosModalComponent implements OnInit {
+  @Output() urlImagenSeleccionada = new EventEmitter<string>();
+  @Output() cerrar = new EventEmitter<boolean>()
   archivosImg: FileItem[] = []
-  archivos: any
+  archivos: any = []
   imagenes: any = []
   constructor(public readonly cargarArchivoService: CargarArchivosService) { }
   bandera=false
@@ -34,14 +36,15 @@ export class MediosModalComponent implements OnInit {
   }
 
   cambiarBandera(){
-    this.bandera = !this.bandera
+    this.bandera = true
   }
 
   resetearFormImg(){
+    this.cerrar.emit(true)
     const forma = <HTMLFormElement>document.getElementById('forma');
     forma.reset()
     this.bandera = false
-    this.archivosImg = []
+    this.archivos = []
   }
   cargarImagenes(){
     if(this.archivos){
@@ -94,6 +97,7 @@ export class MediosModalComponent implements OnInit {
     }
   }
   seleccionarImg(url: string){
-    console.log("url********", url)
+    this.urlImagenSeleccionada.emit(url)
+    this.resetearFormImg()
   }
 }

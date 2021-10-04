@@ -108,6 +108,9 @@ export class InfoPersonalService {
     if(resp){
       this.espera = false
       this.cargado = true
+      setTimeout(()=>{
+        this.cargado = false
+      }, 3000)
     }
     return resp
   }

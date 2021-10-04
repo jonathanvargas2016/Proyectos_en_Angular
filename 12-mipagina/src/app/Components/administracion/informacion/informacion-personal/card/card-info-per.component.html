@@ -14,46 +14,40 @@
                 class="btn btn-primary margin-btn"
                 data-bs-toggle="modal"
                 data-bs-target="#modalInfoPersonal"
-                data-bs-whatever="@mdo"
                 [disabled]="infoPerService.espera">
           Agregar
         </button>
       </div>
 
-      <div class="row row-cols-1 row-cols-md-2 g-4" *ngIf="documentos" >
+      <div class="row row-cols-1 row-cols-md-2 g-4" *ngIf="documentos">
 
-        <div class="col" *ngFor="let documento of documentos; index as i" >
+        <div class="col" *ngFor="let documento of documentos; index as i">
           <div class="card h-100">
-            <img [src]="documento.payload.doc.data().imagen | noimagen"
+            <img [src]="documento.payload.doc.data().urlImagen | noimagen"
                  class="card-img-top" alt="foto de perfil"
                  onerror="this.src='assets/img/noimage.jpg'">
             <div class="card-body">
               <h5 class="card-title">{{documento.payload.doc.data().nombres}}</h5>
               <h6 class="card-title">{{documento.payload.doc.data().titulo}}</h6>
-              <p class="card-text"><strong>Perfil Profesional. </strong>{{documento.payload.doc.data().perfilProfesional}}</p>
+              <p class="card-text"><strong>Perfil
+                Profesional. </strong>{{documento.payload.doc.data().perfilProfesional}}</p>
               <p class="card-text"><strong>Motivación. </strong>{{documento.payload.doc.data().motivacion}}</p>
             </div>
             <div class="card-footer text-muted">
-
               <button pButton
                       type="button"
                       icon="pi pi-check"
+                      data-bs-target="#modalInfoPersonalUpdate"
                       data-bs-toggle="modal"
-                      data-bs-target="#modalInfoPersonal"
-                      data-bs-whatever="@mdo"
                       class="p-button-success p-button-rounded espacio-right p-button"
-                      (click)="actualizar(documento.payload.doc.id)">
+                      (click)="getIdDocument(documento.payload.doc.id)">
 
               </button>
-
               <button pButton
                       type="button"
                       icon="pi pi-times"
                       class="p-button-danger p-button-rounded"
-                      (click)="eliminar(
-                documento.payload.doc.id,
-                documento.payload.doc.data().pathImg,
-                documento.payload.doc.data().pathPdf)">
+                      (click)="eliminar(documento.payload.doc.id)">
               </button>
             </div>
           </div>
@@ -66,8 +60,129 @@
 
 </div>
 
-
-<!--<app-informacion-personal-form [documentInfoPersonal]="documentInfoPersonal"></app-informacion-personal-form>-->
 <app-informacion-personal-form></app-informacion-personal-form>
+
+
+
+
+<!--  **********************************  update informacion personal ********************************  -->
+<div class="modal fade" id="modalInfoPersonalUpdate" tabindex="-1" aria-labelledby="modalInfoPerLabelUpdate" aria-hidden="true"
+     data-bs-backdrop="static">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalInfoPerLabelUpdate">Información Personal</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="resetearForma()" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <div>
+          <button (click)="ocultarModalInfoPersonal()" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCargarMedios">
+            Seleccione Foto de perfil
+          </button>
+          <br><br>
+          <div *ngIf="informacionPersonal.urlImagen">
+            <img [src]="informacionPersonal.urlImagen" class="img-thumbnail" alt="foto perfil">
+          </div>
+        </div>
+
+        <form #forma="ngForm" id="forma">
+          <div class="mb-3">
+            <label for="nombreInput" class="form-label">Nombres</label>
+            <input type="text"
+                   class="form-control"
+                   [ngClass]="{'is-invalid':(nombres.errors?.required && nombres.touched) || nombres.errors?.minlength}"
+                   id="nombreInput"
+                   placeholder="Ingrese nombres y apellidos"
+                   name="nombres"
+                   [(ngModel)]="informacionPersonal.nombres"
+                   required
+                   #nombres="ngModel"
+                   minlength="10"
+                   maxlength="50">
+
+            <div class="form-text color" *ngIf="nombres.errors?.required && nombres.touched">Nombres y apellidos son
+              requeridos
+            </div>
+            <div class="form-text color" *ngIf="nombres.errors?.minlength">
+              Mínimo {{nombres.errors?.minlength.requiredLength}} caracteres
+            </div>
+
+          </div>
+          <div class="mb-3">
+            <label for="tituloInput" class="form-label">Título</label>
+            <input type="text"
+                   class="form-control"
+                   id="tituloInput"
+                   [ngClass]="{'is-invalid':(tituloInp.errors?.required && tituloInp.touched) || tituloInp.errors?.minlength}"
+                   placeholder="Ingrese su título actual"
+                   name="titulo"
+                   #tituloInp="ngModel"
+                   [(ngModel)]="informacionPersonal.titulo"
+                   minlength="10"
+                   maxlength="100"
+                   required>
+
+            <div class="form-text color" *ngIf="tituloInp.errors?.required && tituloInp.touched">Título es requerido
+            </div>
+            <div class="form-text color" *ngIf="tituloInp.errors?.minlength">
+              Mínimo {{tituloInp.errors?.minlength.requiredLength}} caracteres
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="perfilProfesionalInput" class="form-label">Perfil Profesional</label>
+            <textarea class="form-control"
+                      id="perfilProfesionalInput"
+                      rows="4"
+                      [ngClass]="{'is-invalid':(perfilProf.errors?.required && perfilProf.touched) || perfilProf.errors?.minlength}"
+                      name="perfilProfesional"
+                      [(ngModel)]="informacionPersonal.perfilProfesional"
+                      required
+                      minlength="100"
+                      maxlength="500"
+                      #perfilProf="ngModel"></textarea>
+
+            <div class="form-text color" *ngIf="perfilProf.errors?.required && perfilProf.touched">Perfil profesional es
+              requerido
+            </div>
+            <div class="form-text color" *ngIf="perfilProf.errors?.minlength">
+              Mínimo {{perfilProf.errors?.minlength.requiredLength}} caracteres
+            </div>
+
+          </div>
+
+          <div class="mb-3">
+            <label for="motivacionInput" class="form-label">Motivación</label>
+            <textarea class="form-control"
+                      id="motivacionInput"
+                      rows="4"
+                      [ngClass]="{'is-invalid':(motivacion.errors?.required && motivacion.touched) || motivacion.errors?.minlength}"
+                      name="motivacion"
+                      [(ngModel)]="informacionPersonal.motivacion"
+                      required
+                      minlength="100"
+                      maxlength="500"
+                      #motivacion="ngModel"></textarea>
+
+            <div class="form-text color" *ngIf="motivacion.errors?.required && motivacion.touched">Motivación es
+              requerido
+            </div>
+            <div class="form-text color" *ngIf="motivacion.errors?.minlength">
+              Mínimo {{motivacion.errors?.minlength.requiredLength}} caracteres
+            </div>
+          </div>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="resetearForma()">Close</button>
+          <button style="margin-left: 10px" type="button" (click)="actualizarDatosmodal()" class="btn btn-primary" data-bs-dismiss="modal"
+                  [disabled]="forma.invalid || infoPerService.espera">Actualizar
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<app-medios-modal (urlImagenSeleccionada)="conseguirUrlImg($event)" (cerrar)="cerrarModalMedios($event)"></app-medios-modal>
+
 
 
