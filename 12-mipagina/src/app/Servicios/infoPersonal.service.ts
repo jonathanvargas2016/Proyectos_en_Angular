@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {AngularFirestoreCollection, AngularFirestore} from "@angular/fire/firestore";
 import {AuthService} from "./auth.service";
-import {map, finalize} from "rxjs/operators";
+import {map} from "rxjs/operators";
 import {AngularFireStorage} from "@angular/fire/storage";
 import {Observable} from "rxjs";
 
@@ -24,7 +24,6 @@ export class InfoPersonalService {
     this.urlImage = new Observable<string>();
     this.pdfCV = new Observable<string>();
     this.id = Math.random().toString(36).substring(2)
-
   }
 
   getInfoPersonal(){
@@ -113,5 +112,15 @@ export class InfoPersonalService {
       }, 3000)
     }
     return resp
+  }
+
+  async actualizarInfoPersonal(documentId: string, infoPersonal: any){
+    try {
+      await this.itemsCollection.doc(documentId).update(infoPersonal)
+      return true
+    }catch (e) {
+      this.mensajeError = e.message
+      return false
+    }
   }
 }

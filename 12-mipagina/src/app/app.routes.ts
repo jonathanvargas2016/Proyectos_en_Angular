@@ -18,6 +18,7 @@ import {CertificacionesFormComponent} from "./Components/administracion/informac
 import {ProyectosFormsComponent} from "./Components/administracion/informacion/proyectos-forms/proyectos-forms.component";
 import {CardInfoPerComponent} from "./Components/administracion/informacion/informacion-personal/card/card-info-per.component";
 import {MediosComponent} from "./Components/administracion/medios/medios.component";
+import {UpdateInfoPersonalComponent} from "./Components/administracion/informacion/informacion-personal/update-info-personal/update-info-personal.component";
 
 const rutas: Routes = [
   { path: 'yo', component: YoComponent },
@@ -34,6 +35,8 @@ const rutas: Routes = [
   { path: 'administracion/proyectos', component: ProyectosFormsComponent, canActivate: [AuthGuard]},
   { path: 'administracion/medios', component: MediosComponent, canActivate: [AuthGuard]},
   { path: 'administracion/informacion-personal', component: CardInfoPerComponent, canActivate: [AuthGuard]},
+  { path: 'administracion/informacion-personal/:id', component: UpdateInfoPersonalComponent, canActivate: [AuthGuard]},
+
   { path: '**', pathMatch: 'full', redirectTo: 'yo' },
 ]
 

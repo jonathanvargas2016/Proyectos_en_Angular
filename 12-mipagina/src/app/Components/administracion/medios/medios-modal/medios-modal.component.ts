@@ -41,7 +41,7 @@ export class MediosModalComponent implements OnInit {
 
   resetearFormImg(){
     this.cerrar.emit(true)
-    const forma = <HTMLFormElement>document.getElementById('forma');
+    const forma = <HTMLFormElement>document.getElementById('formaModalImg');
     forma.reset()
     this.bandera = false
     this.archivos = []

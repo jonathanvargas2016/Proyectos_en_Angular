@@ -51,6 +51,7 @@ import {MessageService} from 'primeng/api';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { MediosComponent } from './Components/administracion/medios/medios.component';
 import { MediosModalComponent } from './Components/administracion/medios/medios-modal/medios-modal.component';
+import { UpdateInfoPersonalComponent } from './Components/administracion/informacion/informacion-personal/update-info-personal/update-info-personal.component';
 
 
 @NgModule({
@@ -79,6 +80,7 @@ import { MediosModalComponent } from './Components/administracion/medios/medios-
     NoimagenPipe,
     MediosComponent,
     MediosModalComponent,
+    UpdateInfoPersonalComponent,
   ],
   imports: [
     BrowserModule,
