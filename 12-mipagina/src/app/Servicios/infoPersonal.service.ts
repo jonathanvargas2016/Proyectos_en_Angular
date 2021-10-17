@@ -86,7 +86,12 @@ export class InfoPersonalService {
   // }
 
   async eliminarInfoPersonal(id: string){
-    await this.itemsCollection.doc(id).delete()
+    try {
+      await this.itemsCollection.doc(id).delete()
+      return true;
+    }catch (e) {
+      return false;
+    }
   }
 
   getdocumentInfoPersonal(id: string){
@@ -96,22 +101,23 @@ export class InfoPersonalService {
   async cargarFormInfoPerson(infoPersonal: any){
     infoPersonal.uid = this.authService.usuario.uid
     this.espera = true;
-    let resp
+    let seGraboInfo: boolean = false
     try {
-      resp = await this.itemsCollection.add(infoPersonal)
+      await this.itemsCollection.add(infoPersonal)
+      seGraboInfo = true
     }catch (e) {
-      this.mensajeError = e.message
       this.espera = false
       this.cargado = false
+      seGraboInfo = false
     }
-    if(resp){
+    if(seGraboInfo){
       this.espera = false
       this.cargado = true
       setTimeout(()=>{
         this.cargado = false
       }, 3000)
     }
-    return resp
+    return seGraboInfo
   }
 
   async actualizarInfoPersonal(documentId: string, infoPersonal: any){
@@ -119,7 +125,6 @@ export class InfoPersonalService {
       await this.itemsCollection.doc(documentId).update(infoPersonal)
       return true
     }catch (e) {
-      this.mensajeError = e.message
       return false
     }
   }

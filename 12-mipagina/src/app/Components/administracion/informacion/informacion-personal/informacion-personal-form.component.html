@@ -1,8 +1,6 @@
-<app-alertas [mensajeError]="infoPerService.mensajeError"
-             [espera]="infoPerService.espera"
+<app-alertas [espera]="infoPerService.espera"
              [cargado]="infoPerService.cargado">
 </app-alertas>
-<p-toast></p-toast>
 
 <div class="modal fade" id="modalInfoPersonal" tabindex="-1" aria-labelledby="modalInfoPersonalLabel" aria-hidden="true"
      data-bs-backdrop="static">
@@ -11,12 +9,14 @@
 
       <div class="modal-header">
         <h5 class="modal-title" id="modalInfoPersonalLabel">Información Personal</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="resetearForma()" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="resetearForma()"
+                aria-label="Close"></button>
       </div>
       <div class="modal-body">
 
         <div>
-          <button (click)="ocultarModalInfoPersonal()" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCargarMedios">
+          <button (click)="ocultarModalInfoPersonal()" type="button" class="btn btn-primary" data-bs-toggle="modal"
+                  data-bs-target="#modalCargarMedios">
             Seleccione Foto de perfil
           </button>
           <br><br>
@@ -111,7 +111,8 @@
               Mínimo {{motivacion.errors?.minlength.requiredLength}} caracteres
             </div>
           </div>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="resetearForma()">Close</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="resetearForma()">Close
+          </button>
           <button type="button" (click)="guardarDatosmodal(forma)" class="btn btn-primary margin-btn"
                   data-bs-dismiss="modal"
                   [disabled]="forma.invalid || infoPerService.espera">Guardar
@@ -121,6 +122,7 @@
     </div>
   </div>
 </div>
-<app-medios-modal (urlImagenSeleccionada)="conseguirUrlImg($event)" (cerrar)="cerrarModalMedios($event)"></app-medios-modal>
+<app-medios-modal (urlImagenSeleccionada)="conseguirUrlImg($event)"
+                  (cerrar)="cerrarModalMedios($event)"></app-medios-modal>
 
 

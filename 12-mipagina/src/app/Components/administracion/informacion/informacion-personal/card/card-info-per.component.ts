@@ -22,10 +22,19 @@ export class CardInfoPerComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.suscripcion = this.infoPerService.getInfoPersonal().subscribe(resp =>{
       this.documentos = resp
-    })
-  }
+    },error => {
 
+      Swal.fire({
+        position: 'top-end',
+        icon: 'error',
+        title: 'Hubo un problema',
+        text: 'No se pudo extraer los datos',
+      })
+    })
+
+  }
   async eliminar(id: string){
+    let respEliminar: boolean = false
     const resp = await Swal.fire({
       title: 'Desea eliminar?',
       text:'Tus datos eliminados no se podrán recuperar',
@@ -37,15 +46,7 @@ export class CardInfoPerComponent implements OnInit, OnDestroy {
     })
     if(resp.isConfirmed){
       try {
-        await this.infoPerService.eliminarInfoPersonal(id)
-        await Swal.fire({
-          position: 'top-end',
-          icon: 'success',
-          title: 'Eliminado',
-          showConfirmButton: false,
-          timer: 1500
-        })
-
+        respEliminar = await this.infoPerService.eliminarInfoPersonal(id)
       }catch (e) {
         await Swal.fire({
           position: 'top-end',
@@ -55,9 +56,25 @@ export class CardInfoPerComponent implements OnInit, OnDestroy {
         })
       }
     }
+    if(respEliminar){
+      await Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Eliminado',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    }else{
+      await Swal.fire({
+        position: 'top-end',
+        icon: 'error',
+        title: "No se pudo eliminar",
+        showConfirmButton: true,
+      })
+    }
   }
-  getIdDocument(id: string){
-    this.router.navigateByUrl(`administracion/informacion-personal/${id}`)
+  async getIdDocument(id: string){
+    await this.router.navigateByUrl(`administracion/informacion-personal/${id}`)
   }
   ngOnDestroy(): void {
     this.suscripcion.unsubscribe()

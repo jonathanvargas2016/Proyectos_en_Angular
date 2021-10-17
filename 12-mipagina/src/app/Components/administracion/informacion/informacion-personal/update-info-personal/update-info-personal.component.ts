@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import {InfoPersonalService} from "../../../../../Servicios/infoPersonal.service";
 import {ActivatedRoute, Router} from "@angular/router";
-
+import Swal from "sweetalert2";
 @Component({
   selector: 'app-update-info-personal',
   templateUrl: './update-info-personal.component.html',
@@ -12,6 +12,7 @@ export class UpdateInfoPersonalComponent implements OnInit, OnDestroy {
   suscripcionId: any
   suscripcionDocument: any
   documentId: any
+  informacionPersonalInicial = {}
   informacionPersonal: any = {
     nombres: '',
     titulo: '',
@@ -26,8 +27,24 @@ export class UpdateInfoPersonalComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.suscripcionId = this.activatedRoute.params.subscribe(params=>{
       this.infoPerService.getdocumentInfoPersonal(params.id).subscribe(document=>{
+        console.log("documento**************", document)
+        this.informacionPersonalInicial = document
         this.documentId = params.id
-        this.informacionPersonal = document
+        this.informacionPersonal = this.informacionPersonalInicial
+      }, error => {
+        Swal.fire({
+          position: 'top-end',
+          icon: 'error',
+          title: 'Hubo un problema',
+          text: 'No se pudo obtener los datos del usuario',
+        })
+      })
+    }, error => {
+      Swal.fire({
+        position: 'top-end',
+        icon: 'error',
+        title: 'Hubo un problema',
+        text: 'No se pudo extraer el id del usuario',
       })
     })
   }
@@ -43,16 +60,46 @@ export class UpdateInfoPersonalComponent implements OnInit, OnDestroy {
   }
   async actualizarDatosmodal(forma: any){
     let resp
-    try {
-      resp = await this.infoPerService.actualizarInfoPersonal(this.documentId, this.informacionPersonal)
-    }catch (e) {
-
-    }
-    if(resp){
-      await this.router.navigateByUrl('/administracion/informacion-personal')
-    }else{
-
-    }
+    console.log("informacionPersonalInicial ---------", this.informacionPersonalInicial)
+    console.log("informacionPersonal -------------", this.informacionPersonal)
+    // const respSwal = await Swal.fire({
+    //   title: 'Desea actualizar los datos?',
+    //   text: 'Tus datos actualizados podrás modificarlos después',
+    //   icon: 'warning',
+    //   showCancelButton: true,
+    //   confirmButtonColor: '#3085d6',
+    //   cancelButtonColor: '#d33',
+    //   confirmButtonText: 'Si, actualizar los datos'
+    // })
+    // if(respSwal.isConfirmed){
+    //   try {
+    //     resp = await this.infoPerService.actualizarInfoPersonal(this.documentId, this.informacionPersonal)
+    //   }catch (e) {
+    //     Swal.fire({
+    //       position: 'top-end',
+    //       icon: 'error',
+    //       title: 'Hubo un problema',
+    //       text: 'No se pudo actualizar la información',
+    //     })
+    //   }
+    //   if(resp){
+    //     await this.router.navigateByUrl('/administracion/informacion-personal')
+    //     await Swal.fire({
+    //       position: 'top-end',
+    //       icon: 'success',
+    //       title: 'Datos actualizados',
+    //       showConfirmButton: false,
+    //       timer: 1500
+    //     })
+    //   }else{
+    //     await Swal.fire({
+    //       position: 'top-end',
+    //       icon: 'error',
+    //       title: 'Hubo un problema',
+    //       text: 'No se pudo actualizar la información',
+    //     })
+    //   }
+    // }
   }
   conseguirUrlImg(url: any){
     this.informacionPersonal.urlImagen = url

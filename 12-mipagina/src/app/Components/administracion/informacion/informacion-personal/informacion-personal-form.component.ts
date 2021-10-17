@@ -1,7 +1,6 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {InfoPersonalService} from "../../../../Servicios/infoPersonal.service";
 import Swal from 'sweetalert2'
-import {MessageService} from 'primeng/api';
 
 @Component({
   selector: 'app-informacion-personal-form',
@@ -21,7 +20,6 @@ export class InformacionPersonalFormComponent implements OnInit{
 
   constructor(
     public readonly infoPerService: InfoPersonalService,
-    private messageService: MessageService
   ) {}
   ngOnInit(): void {
   }
@@ -40,16 +38,14 @@ export class InformacionPersonalFormComponent implements OnInit{
       try {
         respInfoService = await this.infoPerService.cargarFormInfoPerson(this.informacionPersonal);
       } catch (e) {
-        this.messageService.add(
-          {
-            severity: 'error',
-            summary: 'Error',
-            detail: e.message
-          }
-        );
+        await Swal.fire({
+          icon: 'error',
+          title: 'Hubo un problema',
+          text: 'No se pudo cargar los datos',
+        })
       }
       if (respInfoService) {
-        Swal.fire({
+        await Swal.fire({
           position: 'top-end',
           icon: 'success',
           title: 'Datos guardados',
@@ -58,13 +54,12 @@ export class InformacionPersonalFormComponent implements OnInit{
         })
         forma.reset()
       } else {
-        this.messageService.add(
-          {
-            severity: 'error',
-            summary: 'Error',
-            detail: 'No se pudo cargar'
-          }
-        );
+        await Swal.fire({
+          position: 'top-end',
+          icon: 'error',
+          title: 'Hubo un problema',
+          text: 'No se pudo cargar los datos',
+        })
         forma.reset()
       }
     }else{

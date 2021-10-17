@@ -6,7 +6,6 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./alertas.component.css']
 })
 export class AlertasComponent implements OnInit {
-  @Input() mensajeError: string = "";
   @Input() espera: boolean = false;
   @Input() cargado: boolean = false;
   constructor() {
