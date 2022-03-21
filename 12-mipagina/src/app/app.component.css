@@ -1,0 +1,13 @@
+.main-container{
+  margin-top: 20px;
+}
+
+img{
+  display:block;
+  margin:auto;
+}
+
+block-ui{
+ background-color: red;
+}
+

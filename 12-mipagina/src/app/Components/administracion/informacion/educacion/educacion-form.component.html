@@ -1,0 +1,82 @@
+<h4>Educación</h4><br>
+
+<app-alertas [espera]="eduService.espera"
+             [cargado]="eduService.cargado">
+</app-alertas>
+
+<form (ngSubmit)="guardarEducacion()" #formaEdu="ngForm">
+  <div class="mb-3">
+    <label for="tituloEdu" class="form-label">Título</label>
+    <input type="text"
+           class="form-control"
+           id="tituloEdu"
+           [ngClass]="{'is-invalid': (tituloEdu.errors?.required && tituloEdu.touched) || tituloEdu.errors?.minlength}"
+           placeholder="Ingrese el título obtenido"
+           name="titulo"
+           #tituloEdu="ngModel"
+           [(ngModel)]="educacion.titulo"
+           maxlength="100"
+           minlength="10"
+           required>
+
+    <div class="form-text color" *ngIf="tituloEdu.errors?.required && tituloEdu.touched">Título es requerido</div>
+    <div class="form-text color" *ngIf="tituloEdu.errors?.minlength">Mínimo {{tituloEdu.errors?.minlength.requiredLength}} caracteres</div>
+
+  </div>
+  <div class="mb-3">
+    <label for="tituloImg" class="form-label">Seleccione el Título</label>
+    <input (change)="capturarTituloImg($event)"
+           class="form-control"
+           type="file" id="tituloImg"
+           accept=".png, .jpg"
+           required>
+
+    <div class="form-text color" *ngIf="errorImgTitulo">Imagen del titulo es requerido</div>
+  </div>
+  <div class="mb-3">
+    <label for="ubicacionEducacion" class="form-label">Centro de Estudios</label>
+    <input type="text"
+           class="form-control"
+           id="ubicacionEducacion"
+           [ngClass]="{'is-invalid': (ubicacionEdu.errors?.required && ubicacionEdu.touched) || ubicacionEdu.errors?.minlength}"
+           placeholder="En donde obtuvo su título: "
+           name="ubicacionEducacion"
+           [(ngModel)]="educacion.ubicacion"
+           #ubicacionEdu="ngModel"
+           minlength="10"
+           maxlength="100"
+           required>
+
+    <div class="form-text color" *ngIf="ubicacionEdu.errors?.required && ubicacionEdu.touched">Centro de estudios es requerido</div>
+    <div class="form-text color" *ngIf="ubicacionEdu.errors?.minlength">Mínimo {{ubicacionEdu.errors?.minlength.requiredLength}} caracteres</div>
+
+  </div>
+  <div class="mb-3">
+    <label for="fechaInicioEdu" class="form-label">Seleccione la fecha de inicio</label>
+    <input type="date"
+           class="form-control"
+           id="fechaInicioEdu"
+           [ngClass]="{'is-invalid': (fechaInicio.errors?.required && fechaInicio.touched)}"
+           name="fechaInicio"
+           [(ngModel)]="educacion.fechaInicio"
+           #fechaInicio="ngModel"
+           required>
+
+    <div class="form-text color" *ngIf="fechaInicio.errors?.required && fechaInicio.touched">Fecha de inicio es requerido</div>
+    <div class="form-text color" *ngIf="errorFechaInicioMayor">Fecha de inicio mayor o igual a fecha fin</div>
+  </div>
+  <div class="mb-3">
+    <label for="fechaFinEdu" class="form-label">Seleccione la fecha de culminación</label>
+    <input type="date"
+           class="form-control"
+           id="fechaFinEdu"
+           name="fechaFin"
+           [ngClass]="{'is-invalid': (fechaFin.errors?.required && fechaFin.touched)}"
+           [(ngModel)]="educacion.fechaFin"
+           #fechaFin="ngModel"
+           required>
+    <div class="form-text color" *ngIf="fechaFin.errors?.required && fechaFin.touched">Fecha fin es requerido</div>
+
+  </div>
+  <button type="submit" class="btn btn-dark" [disabled]="formaEdu.invalid || eduService.espera">Guardar</button>
+</form>

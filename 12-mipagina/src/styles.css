@@ -1,0 +1,50 @@
+:root{
+  --nv-fallback-ff: Arial, Helvetica, sans-serif;
+}
+.contenedor{
+  min-height: calc(100vh - 100px - 70px);
+}
+
+a:link, a:visited, a:active {
+  color: black;
+  text-decoration: none;
+}
+p{
+  text-align: justify;
+}
+.relleno-fondos{
+  height: 6vw;
+}
+.posicion-centrado{
+  text-align: center;
+}
+.cabecera{
+  background-color: inherit;
+  min-height: 250px;
+}
+.fondo2{
+  min-height: 35vw;
+  background-size: 100% 100%;
+  background-color: #ededed;
+}
+
+.fondo3{
+  background-size: 100% 100%;
+  min-height: 35vw;
+  background-color: inherit;
+}
+.fondo4{
+  background-color: black;
+  background-size: 100% 100%;
+  min-height: 35vw;
+}
+
+.posicion-alerta{
+  position: fixed;
+  width: 10vw;
+  top: 0;
+  left: 50%;
+}
+body{
+  font-family: Poppins, var(--nv-fallback-ff);
+}

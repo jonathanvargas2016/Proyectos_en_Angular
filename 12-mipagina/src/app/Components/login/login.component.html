@@ -1,0 +1,54 @@
+<div class="contenedor">
+  <div class="container">
+    <div class="relleno-fondos"></div>
+
+
+
+    <form (ngSubmit)="guardar()" #forma="ngForm" class="login">
+
+      <div class="alert alert-danger" role="alert" *ngIf="_authService.mensajeErrorLogin">
+        {{_authService.mensajeErrorLogin}}
+      </div>
+
+      <div class="mb-3">
+        <label for="email" class="form-label">Correo Electronico</label>
+        <input type="email"
+               class="form-control" [ngClass]="{'is-invalid':email.errors?.required && email.touched}"
+               id="email"
+               aria-describedby="emailHelp"
+               placeholder="Ingrese su correo"
+               name="email"
+               [(ngModel)]="credenciales.correo"
+               required
+               #email="ngModel"
+               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+
+        <div id="emailHelp" class="form-text color" *ngIf="email.errors?.required && email.touched">Correo es requerido</div>
+        <div class="form-text color" *ngIf="email.errors?.pattern">Correo inválido</div>
+
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label">Contraseña</label>
+        <input type="password"
+               class="form-control" [ngClass]="{'is-invalid': password.errors?.required && password.touched}"
+               id="password"
+               aria-describedby="passwordHelp"
+               placeholder="Ingrese su password"
+               name="password"
+               [(ngModel)]="credenciales.password"
+               required
+               #password="ngModel">
+        <div id="passwordHelp" class="form-text color" *ngIf="password.errors?.required && password.touched">Contraseña es requerido</div>
+      </div>
+
+
+      <button type="submit" class="btn btn-primary" [disabled]="forma.invalid">Ingresar</button>
+
+    </form>
+
+
+  </div>
+
+
+</div>

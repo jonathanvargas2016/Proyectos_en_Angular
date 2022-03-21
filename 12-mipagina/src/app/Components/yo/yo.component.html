@@ -1,0 +1,116 @@
+<div class="contenedor">
+
+  <div class="fondo">
+    <div class="relleno-fondo-img"></div>
+    <div class="container color-texto">
+      <h1 class="centrar-texto-h1">{{arrayInfoPersonal[0]?.nombres}}</h1>
+      <p class="centrar-texto-p">{{arrayInfoPersonal[0]?.titulo}}</p>
+    </div>
+
+    <div class="container posicion-centrado">
+      <a [href]="arrayInfoPersonal[0]?.pdfCV"
+         target="_blank"
+         role="button"
+         class="btn btn-primary">VER CURRICULUM</a>
+    </div>
+
+    <div class="relleno-fondo-img"></div>
+  </div>
+
+  <div class="fondo2">
+    <div class="relleno-fondos"></div>
+
+    <div class="container">
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+
+        <div class="col posicion-der-img">
+          <img [src]="arrayInfoPersonal[0]?.urlImagen"
+               class="img-fluid "  alt="foto perfil">
+        </div>
+
+        <div class="col">
+          <div class="relleno-fondos"></div>
+          <h1 class="espacio-h1">Perfil Profesional</h1>
+          <p>{{arrayInfoPersonal[0]?.perfilProfesional}}</p>
+        </div>
+
+      </div>
+    </div>
+    <div class="relleno-fondos"></div>
+  </div>
+
+
+  <div class="fondo3">
+
+    <div class="relleno-fondos"></div>
+
+    <div class="container">
+
+      <h1>Información de Contacto</h1><br>
+
+      <div class="row row-cols-1 row-cols-md-3 g-4 posicion-centrado contactos puntero">
+
+        <div class="col">
+          <img src="./assets/svg/email.svg" alt="email" (click)="cambiarBanderaEmailP()">
+          <p class="posicion-centrado" *ngIf="banderaEmailP==true">{{arrayInfoContacto[0]?.correoPersonal}}</p>
+        </div>
+
+        <div class="col">
+          <img src="./assets/svg/email.svg" alt="email" (click)="cambiarBanderaEmailI()">
+          <p class="posicion-centrado" *ngIf="banderaEmailI==true">{{arrayInfoContacto[0]?.correoInstEmpres}}</p>
+        </div>
+
+        <div class="col">
+          <img src="./assets/svg/whatsapp.svg" alt="phone" (click)="cambiarBanderaTelf()">
+          <p class="posicion-centrado" *ngIf="banderaTelf">+593 {{arrayInfoContacto[0]?.whatssap}}</p>
+        </div>
+
+        <div class="col">
+          <img src="./assets/svg/ubicacion.svg" alt="phone" (click)="cambiarBanderaUbicacion()">
+          <br>
+          <iframe [src]="arrayInfoContacto[0]?.ubicacion | domSeguro: 'https://www.google.com/maps/embed?pb=!'"
+                  class="e2e-iframe-trusted-src"
+                  width="400"
+                  height="400" style="border:0;" allowfullscreen="" loading="lazy"
+                  *ngIf="banderaUbicacion"></iframe>
+        </div>
+
+        <div class="col">
+          <a [href]="arrayInfoContacto[0]?.github" type="button" target="_blank"><img src="./assets/svg/github.svg" alt="github"></a>
+        </div>
+
+        <div class="col">
+          <a [href]="arrayInfoContacto[0]?.linkedin" type="button" target="_blank"><img src="./assets/svg/linkedin.svg" alt="linkedin"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="relleno-fondos"></div>
+
+  </div>
+
+
+
+  <div class="fondo4">
+    <div class="relleno-fondos"></div>
+
+    <div class="container">
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col color-texto">
+          <div class="relleno-fondos"></div>
+          <h1 class="espacio-h1">Motivación</h1>
+          <p>{{arrayInfoPersonal[0]?.motivacion}}<p>
+        </div>
+
+        <div class="col">
+          <img src="./assets/img/motiv.png" alt="motivacion" class="tamano-img">
+        </div>
+      </div>
+
+    </div>
+
+    <div class="relleno-fondos"></div>
+
+  </div>
+
+</div>

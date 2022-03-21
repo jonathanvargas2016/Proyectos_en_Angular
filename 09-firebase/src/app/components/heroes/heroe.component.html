@@ -1,0 +1,58 @@
+
+<h3>Heroe <small>{{heroe.nombre}}</small></h3>
+<button type="button"
+        class="btn btn-danger"
+        [routerLink]="['heroes']"
+        name="button">Regresar</button>
+
+<button type="button"
+        (click) ="agregarNuevo(forma)"
+        class="btn btn-success"
+        name="button">Nuevo Heroe</button>
+<hr>
+
+<form (ngSubmit)="guardar()" #forma="ngForm">
+
+  <div class="mb-3">
+    <label for="nombreHeroe" class="form-label">Nombre</label>
+
+    <input type="text"
+           class="form-control"
+           id="nombreHeroe"
+           placeholder="Nombre del heroe"
+           [(ngModel)]="heroe.nombre"
+           [ngClass]="{'is-invalid':(nombre.errors?.required || nombre.errors?.minlength) && nombre.touched}"
+           #nombre="ngModel"
+           name="nombre"
+           minlength="3"
+           required>
+
+    <div class="form-text" *ngIf="nombre.errors?.minlength">
+      Por lo menos {{nombre.errors.minlength.requiredLength}} caracteres
+    </div>
+
+    <div *ngIf="nombre.errors?.required && (nombre.dirty || nombre.touched)" class="form-text">
+      Nombre es requerido
+    </div>
+
+
+  </div>
+
+  <div class="mb-3">
+    <label for="bioHeroe" class="form-label">Descripcion</label>
+    <textarea name="bio"
+              id="bioHeroe"
+              [(ngModel)]="heroe.bio"
+              class="form-control"
+              placeholder="Descripcion del Heroe">
+    </textarea>
+  </div>
+
+  <select class="form-select"
+          name="casa"
+          [(ngModel)]="heroe.casa">
+    <option *ngFor="let casa of casas" [value]="casa">{{casa}}</option>
+  </select>
+  <br>
+  <button type="submit" class="btn btn-primary" name="guardar" [disabled]="forma.invalid">Guardar Cambios</button>
+</form>

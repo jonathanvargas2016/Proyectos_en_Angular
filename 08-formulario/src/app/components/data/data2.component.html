@@ -1,0 +1,183 @@
+<h4>Formularios <small>template</small></h4>
+<hr>
+<form [formGroup]="forma" (ngSubmit)="guardarCambios()">
+
+  <div formGroupName="nombreCompleto">
+
+    <div class="form-group row">
+      <label class="col-2 col-form-label">Nombre</label>
+      <div class="col-8">
+
+        <input class="form-control" [ngClass]="{'is-invalid':forma.get('nombreCompleto.nombre').errors?.required || forma.get('nombreCompleto.nombre').errors?.minlength }"
+               type="text"
+               placeholder="Nombre"
+               formControlName="nombre">
+
+               <div class="invalid-feedback"
+               *ngIf="forma.get('nombreCompleto.nombre').errors?.required">El nombre es necesario
+               </div>
+
+               <div class="invalid-feedback"
+               *ngIf="forma.get('nombreCompleto.nombre').errors?.minlength">
+                 Por lo menos {{forma.get('nombreCompleto.nombre').errors.minlength.requiredLength}} caracteres
+               </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-2 col-form-label">Apellido</label>
+      <div class="col-8">
+
+        <input class="form-control" [ngClass]="{'is-invalid': forma.get('nombreCompleto.apellido').errors?.required }"
+               type="text"
+               placeholder="Apellido"
+               formControlName="apellido">
+
+               <div class="invalid-feedback" *ngIf="forma.get('nombreCompleto.apellido').errors?.required">
+                 El apellido es necesario
+               </div>
+      </div>
+    </div>
+
+  </div >
+
+
+  <div formGroupName="direccion">
+
+
+      <div class="form-group row">
+        <label class="col-2 col-form-label">Barrio</label>
+        <div class="col-md-8">
+
+          <input class="form-control" [ngClass]="{'is-invalid':forma.get('direccion.barrio').errors?.required } "
+                 type="text"
+                 placeholder="Barrio"
+                 formControlName="barrio">
+
+                 <div class="invalid-feedback" *ngIf="forma.get('direccion.barrio').errors?.required">
+                   El barrio es necesario
+                 </div>
+        </div>
+      </div>
+
+  </div>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Pasatiempos</label>
+    <div class="col-md-8" formArrayName="pasatiempos">
+
+      <input class="form-control"
+            *ngFor="let pasatiempo of forma.controls['pasatiempos']['controls'];let i = index"
+             type="text"
+             placeholder="Pasatiempo"
+             [formControlName]="i">
+
+    </div>
+  </div>
+
+
+
+
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col-md-2">
+
+        <button (click)="agregarPasatiempo()"
+                type="button"
+                name="button"
+                class="btn btn-primary">
+          Nuevo
+        </button>
+
+      </div>
+      <div class="col-md-2">
+
+        <button (click)="eliminarPasatiempo()"
+                [disabled]="bandera"
+                type="button"
+                name="button"
+                class="btn btn-danger">
+          Eliminar
+        </button>
+
+      </div>
+
+
+    </div>
+  </div>
+<br>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Correo</label>
+    <div class="col-md-8">
+
+      <input class="form-control" [ngClass]="{'is-invalid':forma.controls['email'].errors?.required || forma.controls['email'].errors?.pattern } "
+             type="email"
+             placeholder="Correo electrónico"
+             formControlName="email">
+
+             <div class="invalid-feedback" *ngIf="forma.controls['email'].errors?.required">
+               email es campo requerido
+             </div>
+
+             <div class="invalid-feedback" *ngIf="forma.controls['email'].errors?.pattern">
+               deber ser similar {{ejemploEmail}}
+             </div>
+
+    </div>
+  </div>
+
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Usuario</label>
+    <div class="col-md-8">
+
+      <input class="form-control"
+             type="text"
+             placeholder="Usuario"
+             formControlName="usuario">
+
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Password</label>
+    <div class="col-md-8">
+
+      <input class="form-control"
+             type="password"
+             placeholder="Password"
+             formControlName="password1">
+
+
+    </div>
+  </div>
+
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Repetir Password</label>
+    <div class="col-md-8">
+
+      <input class="form-control"
+             type="password"
+             placeholder="Password"
+             formControlName="password2">
+
+    </div>
+  </div>
+
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">&nbsp;</label>
+    <div class="input-group col-md-8">
+      <button type="submit" class="btn btn-outline-primary">
+        Guardar
+      </button>
+    </div>
+  </div>
+
+  {{forma.valid}}
+<br>
+  {{forma.status}}
+
+</form>

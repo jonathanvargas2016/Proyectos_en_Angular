@@ -1,0 +1,29 @@
+.espacio-right{
+  margin-right: 5px;
+}
+
+h1{
+  font-size: 70px;
+  font-family: Poppins, var(--nv-fallback-ff);
+  font-weight: 600;
+  text-transform: none;
+}
+@media (max-width: 800px) {
+  h1 { font-size: 35px; }
+}
+.container h1{
+  padding-top:calc(160px/2);
+}
+
+.espacio-btn{
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.margin-btn{
+  margin-bottom: 30px;
+}
+.img-thumbnail{
+  width: 200px;
+  height: auto;
+}

@@ -1,0 +1,27 @@
+h1{
+  font-size: 70px;
+  font-family: Poppins, var(--nv-fallback-ff);
+  font-weight: 600;
+  text-transform: none;
+}
+@media (max-width: 800px) {
+  h1 { font-size: 35px; }
+}
+.container h1{
+  padding-top:calc(160px/2);
+}
+img{
+  max-width: 100%;
+  height: auto;
+}
+p{
+  padding-top: 30px;
+  font-size: 1.25em;
+  color: white;
+  font-family: Poppins, var(--nv-fallback-ff);
+}
+.btn{
+  border-radius: 0;
+  color: white;
+}
+

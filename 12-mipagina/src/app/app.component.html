@@ -1,0 +1,11 @@
+<app-navbar></app-navbar>
+  <ng-template #blockTemplate>
+    <div class="block-ui-template">
+      <img src="./assets/gif/pacman.svg" alt="loading">
+    </div>
+  </ng-template>
+
+  <block-ui [template]="blockTemplate">
+    <router-outlet></router-outlet>
+  </block-ui>
+<app-footer></app-footer>

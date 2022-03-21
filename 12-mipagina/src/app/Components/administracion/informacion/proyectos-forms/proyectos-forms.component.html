@@ -1,0 +1,63 @@
+<h4>Proyectos</h4><br>
+<app-alertas [espera]="proyeService.espera"
+             [cargado]="proyeService.cargado">
+</app-alertas>
+
+<form (ngSubmit)="guardarProyecto()" #formaProy="ngForm">
+
+  <div class="mb-3">
+    <select class="form-select"
+            [(ngModel)]="proyecto.tipo"
+            [ngClass]="{'is-invalid':tipoProy.errors?.required && tipoProy.touched}"
+            name="tipoProyecto"
+            #tipoProy="ngModel"
+            required>
+
+      <option value="">Seleccione tipo de proyecto</option>
+      <option [value]="tipoProyecto" *ngFor="let tipoProyecto of tiposProyecto">{{tipoProyecto}}</option>
+    </select>
+    <div class="form-text color" *ngIf="tipoProy.errors?.required && tipoProy.touched">Seleccione el tipo de proyecto</div>
+  </div>
+
+
+  <div class="mb-3">
+    <label for="tituloProyectoInput" class="form-label">Título del proyecto</label>
+    <input type="text"
+           class="form-control"
+           id="tituloProyectoInput"
+           [ngClass]="{'is-invalid':(tituloProy.errors?.required && tituloProy.touched) || tituloProy.errors?.minlength}"
+           placeholder="Ingrese nombre del proyecto: "
+           name="tituloProyecto"
+           #tituloProy="ngModel"
+           [(ngModel)]="proyecto.nombre"
+           minlength="3"
+           maxlength="100"
+           required>
+
+    <div class="form-text color" *ngIf="tituloProy.errors?.required && tituloProy.touched">Ingrese nombre del proyecto</div>
+    <div class="form-text color" *ngIf="tituloProy.errors?.minlength">Mínimo {{tituloProy.errors?.minlength.requiredLength}} caracteres</div>
+  </div>
+
+  <div class="mb-3">
+    <label for="proyImg" class="form-label">Seleccione Imagen del Proyecto</label>
+    <input (change)="capturarProyImg($event)"
+           class="form-control"
+           type="file" id="proyImg"
+           accept=".png, .jpg"
+           required>
+    <div class="form-text color" *ngIf="errorImgProy">Imagen del proyecto es requerido</div>
+  </div>
+
+  <div class="mb-3">
+    <label for="descripcionProyInput" class="form-label">Descripción</label>
+    <textarea class="form-control"
+              id="descripcionProyInput"
+              rows="4"
+              name="descripcionProyecto"
+              [(ngModel)]="proyecto.descripcion"
+              maxlength="500">
+    </textarea>
+  </div>
+  <button type="submit" class="btn btn-dark" [disabled]="proyeService.espera || formaProy.invalid">Guardar</button>
+
+</form>

@@ -1,0 +1,22 @@
+.color{
+  color: red;
+}
+h1{
+  font-size: 70px;
+  font-weight: 600;
+  text-transform: none;
+}
+@media (max-width: 800px) {
+  h1 { font-size: 35px; }
+}
+.container h1{
+  padding-top:calc(160px/2);
+}
+
+.margin-btn{
+  margin-left: 30px;
+}
+.img-thumbnail{
+  width: 200px;
+  height: auto;
+}

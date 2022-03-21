@@ -1,0 +1,20 @@
+
+<div class="row m-5">
+
+  <div class="col">
+
+    <h5>Buscar:</h5>
+
+    <input class="form-control"
+           type="text"
+           name="termino"
+           [(ngModel)]="termino"
+           (keyup)="buscar()"
+           placeholder="Buscar Pelicula">
+  </div>
+
+</div>
+
+
+
+<app-pelicula [peliculas]="_ps.peliculas" [termino]="termino"></app-pelicula>

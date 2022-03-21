@@ -1,0 +1,125 @@
+<div class="contenedor">
+
+  <div class="cabecera">
+    <div class="container">
+      <h1>Actualizar Información Personal</h1>
+    </div>
+  </div>
+
+  <div class="fondo2">
+    <div class="relleno-fondos"></div>
+
+    <div class="container">
+
+      <form #forma="ngForm" id="forma" (ngSubmit)="actualizarDatosmodal(forma)">
+        <div class="mb-3">
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCargarMedios">
+            Seleccione Foto de perfil
+          </button>
+          <br><br>
+          <div *ngIf="informacionPersonal.urlImagen">
+            <img [src]="informacionPersonal.urlImagen" class="img-thumbnail" alt="foto perfil">
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="nombreInput" class="form-label">Nombres</label>
+          <input type="text"
+                 class="form-control"
+                 [ngClass]="{'is-invalid':(nombres.errors?.required && nombres.touched) || nombres.errors?.minlength}"
+                 id="nombreInput"
+                 placeholder="Ingrese nombres y apellidos"
+                 name="nombres"
+                 [(ngModel)]="informacionPersonal.nombres"
+                 required
+                 #nombres="ngModel"
+                 minlength="10"
+                 maxlength="50">
+
+          <div class="form-text color" *ngIf="nombres.errors?.required && nombres.touched">Nombres y apellidos son
+            requeridos
+          </div>
+          <div class="form-text color" *ngIf="nombres.errors?.minlength">
+            Mínimo {{nombres.errors?.minlength.requiredLength}} caracteres
+          </div>
+
+        </div>
+        <div class="mb-3">
+          <label for="tituloInput" class="form-label">Título</label>
+          <input type="text"
+                 class="form-control"
+                 id="tituloInput"
+                 [ngClass]="{'is-invalid':(tituloInp.errors?.required && tituloInp.touched) || tituloInp.errors?.minlength}"
+                 placeholder="Ingrese su título actual"
+                 name="titulo"
+                 #tituloInp="ngModel"
+                 [(ngModel)]="informacionPersonal.titulo"
+                 minlength="10"
+                 maxlength="100"
+                 required>
+
+          <div class="form-text color" *ngIf="tituloInp.errors?.required && tituloInp.touched">Título es requerido
+          </div>
+          <div class="form-text color" *ngIf="tituloInp.errors?.minlength">
+            Mínimo {{tituloInp.errors?.minlength.requiredLength}} caracteres
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="perfilProfesionalInput" class="form-label">Perfil Profesional</label>
+          <textarea class="form-control"
+                    id="perfilProfesionalInput"
+                    rows="4"
+                    [ngClass]="{'is-invalid':(perfilProf.errors?.required && perfilProf.touched) || perfilProf.errors?.minlength}"
+                    name="perfilProfesional"
+                    [(ngModel)]="informacionPersonal.perfilProfesional"
+                    required
+                    minlength="100"
+                    maxlength="500"
+                    #perfilProf="ngModel"></textarea>
+
+          <div class="form-text color" *ngIf="perfilProf.errors?.required && perfilProf.touched">Perfil profesional es
+            requerido
+          </div>
+          <div class="form-text color" *ngIf="perfilProf.errors?.minlength">
+            Mínimo {{perfilProf.errors?.minlength.requiredLength}} caracteres
+          </div>
+
+        </div>
+
+        <div class="mb-3">
+          <label for="motivacionInput" class="form-label">Motivación</label>
+          <textarea class="form-control"
+                    id="motivacionInput"
+                    rows="4"
+                    [ngClass]="{'is-invalid':(motivacion.errors?.required && motivacion.touched) || motivacion.errors?.minlength}"
+                    name="motivacion"
+                    [(ngModel)]="informacionPersonal.motivacion"
+                    required
+                    minlength="100"
+                    maxlength="500"
+                    #motivacion="ngModel"></textarea>
+
+          <div class="form-text color" *ngIf="motivacion.errors?.required && motivacion.touched">Motivación es
+            requerido
+          </div>
+          <div class="form-text color" *ngIf="motivacion.errors?.minlength">
+            Mínimo {{motivacion.errors?.minlength.requiredLength}} caracteres
+          </div>
+        </div>
+        <button type="button" class="btn btn-secondary" (click)="regresar()" style="margin-right: 3vw">Cancelar</button>
+        <button type="submit" class="btn btn-primary margin-btn"
+                [disabled]="forma.invalid || infoPerService.espera">Actualizar
+        </button>
+      </form>
+
+
+    </div>
+    <div class="relleno-fondos"></div>
+  </div>
+
+</div>
+
+
+<app-medios-modal (urlImagenSeleccionada)="conseguirUrlImg($event)"></app-medios-modal>
+

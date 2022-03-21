@@ -1,0 +1,31 @@
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Aplicacion de Peliculas</h1>
+    <p class="lead">Esta es una aplicacion para ver la informacion de las peliculas</p>
+  </div>
+</div>
+
+
+<div class="container">
+    <br>
+
+    <h1>En cartelera hoy</h1>
+    <hr>
+    <app-cartelera  [cartelera]="now_playing|slice:0:6"></app-cartelera>
+
+    <br>
+    <br>
+
+    <h1>Populares</h1>
+    <hr>
+    <app-cartelera  [cartelera]="populares|slice:0:6"></app-cartelera>
+
+    <br>
+    <br>
+
+    <h1>Proximamente</h1>
+    <hr>
+    <app-cartelera  [cartelera]="upcoming|slice:0:6"></app-cartelera>
+
+</div>
