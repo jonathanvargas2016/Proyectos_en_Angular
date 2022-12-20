@@ -39,3 +39,5 @@ const [p1, p2, p3] = dbz;
 
 // obtener la tercera posicion
 const [, , pAux3] = dbz;
+
+
