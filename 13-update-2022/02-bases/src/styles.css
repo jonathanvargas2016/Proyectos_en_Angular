@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+.container {
+  margin: 40px;
+}
+
+.btn {
+  padding: 10px 20px 10px 20px;
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #000;
+  border-radius: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
