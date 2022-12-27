@@ -1,0 +1,26 @@
+<h2>Reactive: <small>Dinamicos</small> </h2>
+<hr>
+
+<div class="row">
+    <div class="col">
+      <form [formGroup]="miFormulario" (ngSubmit)="guardar()">
+        <div class="mb-3 row">
+          <label class="col-sm-3 col-form-label">Nombre</label>
+  
+          <div class="col-sm-9">
+            <input
+              type="text"
+              class="form-control"
+              formControlName="nombre"
+              placeholder="Nombre del producto"/>
+  
+            <span class="form-text text-danger" *ngIf="campoEsValido('nombre')">
+              Debe de ser de 3 caracterese
+            </span>
+          </div>
+        </div>
+    
+        <button class="btn btn-primary slot-end" type="submit">Guardar</button>
+      </form>
+    </div>
+  </div>
