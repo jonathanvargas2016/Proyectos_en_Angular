@@ -10,9 +10,7 @@ export class ResultadosComponent implements OnInit {
 
   constructor(private readonly gifsService: GifsService) { }
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   get resultados(){
     return this.gifsService.resultados

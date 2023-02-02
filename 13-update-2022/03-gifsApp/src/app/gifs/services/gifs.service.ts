@@ -1,46 +1,56 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { map, Observable } from 'rxjs';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Gif, SearchGifsResponse } from '../interface/gifs.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GifsService {
-  private apiKey: string = 'jJeomsdwrOxDDkoD3YGuibtI2zlQFNZB'
-  private urlBase: string = `https://api.giphy.com/v1/gifs`
+  private apiKey    : string = 'jJeomsdwrOxDDkoD3YGuibtI2zlQFNZB'
+  private urlBase   : string = `https://api.giphy.com/v1/gifs`
   private _historial: string[] = [];
-  public resultados: any[] = [];
+  public resultados : Gif[] = [];
 
-  constructor(private readonly http: HttpClient) { }
+  constructor(private readonly http: HttpClient) {
+
+    this._historial = JSON.parse(localStorage.getItem('historial')!) || [];
+    this.resultados = JSON.parse(localStorage.getItem('resultados')!) || [];
+  }
 
 
   get historial(): string[] {
     return [...this._historial];
   }
 
-
-  buscarGifs(query: string = ''){   
+  buscarGifs(query: string = '') {
 
     query = query.trim().toLocaleLowerCase();
 
-    if(!this._historial.includes(query)){
+    if (!this._historial.includes(query)) {
       this._historial.unshift(query);
     }
 
     this._historial = this._historial.splice(0, 10);
-    // this.getGifsByQuery(query);
+    this.saveToLocalStorage('historial', this._historial);
+    this.getGifsByQuery(query);
+  }
 
-    this.http.get(`${this.urlBase}/search?api_key=${this.apiKey}&q=${query}&limit=10`).subscribe((res: any) => {
+  getGifsByQuery(query: string) {
+
+    const params = new HttpParams()
+      .set('api_key', this.apiKey)
+      .set('q', query)
+      .set('limit', '10');
+
+    this.http.get<SearchGifsResponse>(`${this.urlBase}/search`, {params}).subscribe((res: SearchGifsResponse) => {
       console.log(res);
       this.resultados = res.data;
+      this.saveToLocalStorage('resultados', this.resultados);
     })
   }
 
-  getGifsByQuery(query: string): Observable<any>{
-    return this.http.get(`${this.urlBase}/search?api_key=${this.apiKey}&q=${query}&limit=10`).pipe(map((res: any) => {
-      console.log(res)
-      return this.resultados = res.data;  
-    }));
+  saveToLocalStorage(name: string, data: string[] | Gif[]) {
+    localStorage.setItem(name, JSON.stringify(data));
   }
 
 
