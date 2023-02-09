@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { Country } from '../../interfaces/pais.interface';
 import { PaisService } from '../../services/pais.service';
 
 @Component({
@@ -9,19 +9,28 @@ import { PaisService } from '../../services/pais.service';
 })
 export class PorPaisComponent implements OnInit {
 
-  termino = new FormControl('')
+  hayError: boolean = false;
+  paises: Country[] = [];
+  termino: string = '';
   constructor(private paisService: PaisService) { }
 
   ngOnInit(): void {
   }
 
-  buscar(){
-    console.log(this.termino.value);
-    if(this.termino.value?.trim().length === 0) return;
-    this.termino.reset()
-    this.paisService.buscarPais(this.termino.value!).subscribe(data => {
-      console.log(data)
+  buscar(termino: string){
+    this.hayError = false;
+    this.termino = termino;
+    this.paisService.buscarPais(this.termino).subscribe(paises => {
+      console.log("data",paises)
+      this.paises = [...paises];
+    }, error => {
+      this.hayError = true;
+      this.paises = [];
     });
+  }
+
+  get valTermino(): string {
+    return this.termino;
   }
 
 }
