@@ -33,4 +33,8 @@ export class PorPaisComponent implements OnInit {
     return this.termino;
   }
 
+  sugerencias(termino: string): void {
+    this.hayError = false;
+  }
+
 }
