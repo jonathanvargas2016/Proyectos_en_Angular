@@ -11,14 +11,18 @@ export class PaisService {
 
   constructor(private http: HttpClient) {}
 
+  get httpParams(): HttpParams {
+    return new HttpParams().set('fields', 'name,flags,population,cca2');
+  }
+
   buscarPais(termino: string): Observable<Country[]> {
     const url = `${this.urlBase}/name/${termino}`;
-    return this.http.get<Country[]>(url);
+    return this.http.get<Country[]>(url, { params: this.httpParams });
   }
 
   buscarPorCapital(termino: string): Observable<Country[]> {
     const url = `${this.urlBase}/capital/${termino}`;
-    return this.http.get<Country[]>(url);
+    return this.http.get<Country[]>(url, { params: this.httpParams });
   }
 
   getPaisPorCodigo(id: string): Observable<Country> {
@@ -26,4 +30,8 @@ export class PaisService {
     return this.http.get<Country>(url).pipe(map((res: any) => res[0]));
   }
 
+  buscarRegion(region: string): Observable<Country[]> {
+    const url = `${this.urlBase}/region/${region}`;
+    return this.http.get<Country[]>(url, { params: this.httpParams });
+  }
 }

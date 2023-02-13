@@ -19,10 +19,10 @@ export class PaisInputComponent implements OnInit {
 
   ngOnInit(): void {
     this.debouncer
-    .pipe(debounceTime(300)) // cuantas ms debo esperar para emitir el sig valor...
-    .subscribe((valor) => {
-      this.onDebounce.emit(valor);
-    });
+      .pipe(debounceTime(300)) // cuantas ms debo esperar para emitir el sig valor...
+      .subscribe((valor) => {
+        this.onDebounce.emit(valor);
+      });
   }
 
   buscar(): void {
@@ -32,7 +32,7 @@ export class PaisInputComponent implements OnInit {
   }
 
   teclaPresionada() {
-    if (this.termino.value?.trim().length === 0) return;
+    // if (this.termino.value?.trim().length === 0) return;
     this.debouncer.next(this.termino.value!); // emitir el sig valor...
   }
 }

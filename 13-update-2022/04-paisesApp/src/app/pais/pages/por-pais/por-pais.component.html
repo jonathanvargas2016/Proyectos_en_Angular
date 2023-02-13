@@ -11,7 +11,24 @@
       </app-pais-input>
     </div>
   </div>
-  <hr />
+
+  <ul class="list-group" *ngIf="mostrarSugerencias">
+    <li
+      class="list-group-item list-group-item-action"
+      *ngFor="let paisSugerido of paisesSugeridos"
+    >
+      <a class="nav-link" [routerLink]="['/pais', paisSugerido.cca2]">
+        {{ paisSugerido.name.common }}
+      </a>
+    </li>
+
+    <li
+      class="list-group-item list-group-item-action"
+      (click)="buscarSugerido(termino)"
+    >
+      <a> Buscar "{{ termino }}" </a>
+    </li>
+  </ul>
 
   <div class="alert alert-danger" *ngIf="hayError">
     No se encontro nada con el término {{ valTermino }}
