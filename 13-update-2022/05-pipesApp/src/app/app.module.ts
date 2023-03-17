@@ -7,15 +7,20 @@ import { AppRouterModule } from './app-router.module';
 
 // Cambiar el locale de la app.
 import localEs from '@angular/common/locales/es-HN';
+import localFr from '@angular/common/locales/fr';
 import { registerLocaleData } from '@angular/common';
 
 // Mandar a llamar la funcion
 registerLocaleData(localEs);
+registerLocaleData(localFr);
 
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, SharedModule, VentasModule, AppRouterModule],
-  providers: [{ provide: LOCALE_ID, useValue: 'es-HN' }],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'es-HN' },
+    { provide: LOCALE_ID, useValue: 'fr' },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
