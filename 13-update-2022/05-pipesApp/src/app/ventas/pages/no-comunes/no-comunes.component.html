@@ -1,1 +1,23 @@
-<p>no-comunes works!</p>
+<div class="text-layout">
+  <h1>Pipes no tan comunes</h1>
+  <p>Pipes incluidos en Angular - Usualmente en el Common Module</p>
+</div>
+
+<div class="grid">
+  <div class="col col-md-6">
+    <!-- 
+        si no agrego las [] estoy enviado un valor string. 
+    [toggleable]="true" se utiliza para enviar valores booleanos o numeros 
+-->
+
+    <p-fieldset legend="i18nSelect Pipe" [toggleable]="true">
+      <p class="m-0">Lorem ipsum dolor sit amet</p>
+    </p-fieldset>
+  </div>
+
+  <div class="col col-md-6">
+    <p-fieldset legend="i18nPlural Pipe" [toggleable]="true">
+      <p class="m-0">Lorem ipsum dolor sit amet</p>
+    </p-fieldset>
+  </div>
+</div>
