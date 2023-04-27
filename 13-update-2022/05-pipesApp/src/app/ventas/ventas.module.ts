@@ -8,6 +8,7 @@ import { PrimeNgModule } from '../prime-ng/prime-ng.module';
 import { FieldsetModule } from 'primeng/fieldset';
 import { MayusculasPipe } from './pipes/mayusculas.pipe';
 import { VuelaPipe } from './pipes/vuela.pipe';
+import { OrdenarPipe } from './pipes/ordenar.pipe';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { VuelaPipe } from './pipes/vuela.pipe';
     OrdenarComponent,
     MayusculasPipe,
     VuelaPipe,
+    OrdenarPipe,
   ],
   imports: [CommonModule, PrimeNgModule],
   exports: [

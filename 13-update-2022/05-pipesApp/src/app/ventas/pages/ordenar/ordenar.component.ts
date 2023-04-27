@@ -35,11 +35,16 @@ export class OrdenarComponent implements OnInit {
       color: Color.verde,
     },
   ];
+  ordenarPor: string = '';
   constructor() {}
 
   ngOnInit(): void {}
 
   cambiarBandera() {
     this.bandera = !this.bandera;
+  }
+
+  cambiarOrden(valor: string) {
+    this.ordenarPor = valor;
   }
 }
