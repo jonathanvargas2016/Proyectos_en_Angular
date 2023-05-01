@@ -6,6 +6,7 @@ import { VerHeroeComponent } from './pages/ver-heroe/ver-heroe.component';
 import { HomeHeroeComponent } from './pages/home-heroe/home-heroe.component';
 import { ListadoHeroesComponent } from './pages/listado-heroes/listado-heroes.component';
 import { RouterModule, Routes } from '@angular/router';
+import { MaterialModule } from '@modules/material/material.module';
 
 const routes: Routes = [
   {
@@ -48,6 +49,6 @@ const routes: Routes = [
     HomeHeroeComponent,
     ListadoHeroesComponent,
   ],
-  imports: [CommonModule, RouterModule.forChild(routes)],
+  imports: [CommonModule, RouterModule.forChild(routes), MaterialModule],
 })
 export class HeroesModule {}
