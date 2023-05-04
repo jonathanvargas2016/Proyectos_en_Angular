@@ -1,0 +1,10 @@
+.grid {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.grid__card{
+    flex-basis: 20%;
+    margin-bottom: 20px;
+}

@@ -1,7 +1,9 @@
-.container{
-    margin: 10px;
+.container {
+  margin: 10px;
 }
-/* 
-.end-btn{
-    flex: 1 1 auto;
-} */
+
+.end-btn {
+  position: absolute;
+  right: 0;
+  margin-right: 30px;
+}
