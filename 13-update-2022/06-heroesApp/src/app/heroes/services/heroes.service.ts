@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, Injector } from '@angular/core';
-import { from, Observable } from 'rxjs';
-import { HeroeInterface } from '../models/heroe.interface';
+import { Observable } from 'rxjs';
+import { Heroe } from '../models/heroe.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +12,7 @@ export class HeroesService {
     this.http = injector.get(HttpClient);
   }
 
-  getHeroes(): Observable<HeroeInterface[]> {
-    return this.http.get<HeroeInterface[]>('http://localhost:3000/heroes');
+  getHeroes(): Observable<Heroe[]> {
+    return this.http.get<Heroe[]>('http://localhost:3000/heroes');
   }
 }

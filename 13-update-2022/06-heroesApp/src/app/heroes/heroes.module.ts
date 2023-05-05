@@ -7,6 +7,8 @@ import { HomeHeroeComponent } from './pages/home-heroe/home-heroe.component';
 import { ListadoHeroesComponent } from './pages/listado-heroes/listado-heroes.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MaterialModule } from '@modules/material/material.module';
+import { HeroeTarjetaComponent } from './pages/components/heroe-tarjeta/heroe-tarjeta.component';
+import { ImagenPipe } from './pages/pipes/imagen.pipe';
 
 const routes: Routes = [
   {
@@ -48,6 +50,8 @@ const routes: Routes = [
     VerHeroeComponent,
     HomeHeroeComponent,
     ListadoHeroesComponent,
+    HeroeTarjetaComponent,
+    ImagenPipe,
   ],
   imports: [CommonModule, RouterModule.forChild(routes), MaterialModule],
 })
