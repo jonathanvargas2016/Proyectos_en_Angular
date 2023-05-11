@@ -9,6 +9,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MaterialModule } from '@modules/material/material.module';
 import { HeroeTarjetaComponent } from './pages/components/heroe-tarjeta/heroe-tarjeta.component';
 import { ImagenPipe } from './pages/pipes/imagen.pipe';
+import { HeroeResolver } from './pages/resolvers/heroe.resolver';
 
 const routes: Routes = [
   {
@@ -30,10 +31,18 @@ const routes: Routes = [
       {
         path: ':id',
         component: VerHeroeComponent,
+        resolve: {
+          heroe: HeroeResolver,
+        },
+        data: { breadcrumb: 'Ver' },
       },
       {
         path: 'editar/:id',
         component: AgregarHeroeComponent,
+        resolve: {
+          heroe: HeroeResolver,
+        },
+        data: { breadcrumb: 'Editar' },
       },
       {
         path: '**',
@@ -54,5 +63,6 @@ const routes: Routes = [
     ImagenPipe,
   ],
   imports: [CommonModule, RouterModule.forChild(routes), MaterialModule],
+  providers: [HeroeResolver],
 })
 export class HeroesModule {}

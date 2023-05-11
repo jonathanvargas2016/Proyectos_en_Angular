@@ -1,0 +1,32 @@
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 80vh;
+}
+
+.heroe {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.heroe__img {
+  flex-basis: 45%;
+}
+
+.heroe__img img {
+  width: 50%;
+  border-radius: 10px;
+  margin: auto;
+  display: flex;
+}
+
+.heroe__detail {
+  flex-basis: 50%;
+}
+.heroe__detail--width{
+    width: 50%;
+}

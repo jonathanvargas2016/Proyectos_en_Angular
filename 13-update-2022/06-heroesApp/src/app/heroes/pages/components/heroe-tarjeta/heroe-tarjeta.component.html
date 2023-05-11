@@ -14,7 +14,7 @@
     </p>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-button color="warn">Leer más...</button>
-    <button mat-button color="info">Editar</button>
+    <button mat-button color="warn" (click)="redirectTo(heroe.id!, true)">Leer más...</button>
+    <button mat-button color="info" (click)="redirectTo(heroe.id!, false)">Editar</button>
   </mat-card-actions>
 </mat-card>
