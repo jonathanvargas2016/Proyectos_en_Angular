@@ -10,6 +10,7 @@ import { MaterialModule } from '@modules/material/material.module';
 import { HeroeTarjetaComponent } from './pages/components/heroe-tarjeta/heroe-tarjeta.component';
 import { ImagenPipe } from './pages/pipes/imagen.pipe';
 import { HeroeResolver } from './pages/resolvers/heroe.resolver';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -62,7 +63,13 @@ const routes: Routes = [
     HeroeTarjetaComponent,
     ImagenPipe,
   ],
-  imports: [CommonModule, RouterModule.forChild(routes), MaterialModule],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
   providers: [HeroeResolver],
 })
 export class HeroesModule {}

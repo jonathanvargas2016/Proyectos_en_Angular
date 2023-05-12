@@ -1,1 +1,34 @@
 <p>buscar-heroe works!</p>
+<div class="grid">
+  <div class="grid__buscador">
+    <h1>Buscador de Héroes</h1>
+    <mat-divider></mat-divider>
+  </div>
+  <div class="grid__resultados">
+    <form class="example-form">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Heroe</mat-label>
+        <input
+          type="text"
+          placeholder="Pick one"
+          matInput
+          [formControl]="termino"
+          [matAutocomplete]="auto"
+        />
+        <mat-autocomplete
+          autoActiveFirstOption
+          #auto="matAutocomplete"
+          (optionSelected)="onOptionSelected($event)"
+        >
+          <mat-option *ngFor="let heroe of heroes | async" [value]="heroe">
+            {{ heroe.superhero }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </form>
+  </div>
+</div>
+
+<div *ngIf="heroeSelected | async as heroe">
+  {{ heroe | json }}
+</div>
