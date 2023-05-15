@@ -13,7 +13,7 @@ import { debounceTime, Observable, switchMap } from 'rxjs';
 export class BuscarHeroeComponent implements OnInit {
   termino: FormControl = new FormControl('');
   heroes!: Observable<Heroe[]>;
-  heroeSelected!: Observable<Heroe>;
+  heroeSelected!: Observable<Heroe> | undefined;
   constructor(private heroeService: HeroesService) {
     this.registerEvent();
   }
@@ -33,6 +33,10 @@ export class BuscarHeroeComponent implements OnInit {
 
   onOptionSelected(event: MatAutocompleteSelectedEvent) {
     const heroe: Heroe = event.option.value;
+    if (!heroe) {
+      this.heroeSelected = undefined;
+      return;
+    }
     this.termino.setValue(heroe.superhero);
     this.heroeSelected = this.heroeService.getHeroeById(heroe.id!);
   }

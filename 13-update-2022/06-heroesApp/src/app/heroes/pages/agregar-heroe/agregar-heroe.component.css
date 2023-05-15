@@ -1,0 +1,38 @@
+.row {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 20px;
+}
+
+.col {
+  flex-basis: 50%;
+  width: 100%;
+}
+
+@media screen and (max-width: 580px) {
+  .picture {
+    order: 1;
+  }
+
+  .inputs {
+    order: 2;
+  }
+
+  .inputs__names mat-form-field {
+    width: 90% !important;
+  }
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  background-color: red;
+}
+
+.inputs__data mat-form-field {
+  width: 90%;
+}
+
+.inputs__names mat-form-field {
+  width: 44%;
+}

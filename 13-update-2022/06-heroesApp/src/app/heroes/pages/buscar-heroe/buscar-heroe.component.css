@@ -1,4 +1,12 @@
-.grid{
-    display: flex;
-    flex-direction: column;
+.grid {
+  display: flex;
+  flex-direction: column;
+}
+.full-width {
+  width: 100%;
+}
+
+.card{
+    width: 40%;
+    margin: auto;
 }
