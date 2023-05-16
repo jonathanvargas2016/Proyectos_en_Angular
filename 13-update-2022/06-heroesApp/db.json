@@ -166,6 +166,15 @@
       "alterEgo": "Norrin Radd",
       "firstAppearance": "The Fantastic Four #48",
       "characters": "Norrin Radd"
+    },
+    {
+      "superhero": "Batman",
+      "publisher": "DC Comics",
+      "alterEgo": "Ruben",
+      "firstAppearance": "1989",
+      "characters": "Ruben",
+      "altImg": "AAA",
+      "id": "99cvS8g"
     }
   ]
 }

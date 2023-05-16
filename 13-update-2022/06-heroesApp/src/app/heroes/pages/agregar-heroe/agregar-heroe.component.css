@@ -26,7 +26,6 @@
 .inputs {
   display: flex;
   flex-direction: column;
-  background-color: red;
 }
 
 .inputs__data mat-form-field {
@@ -35,4 +34,9 @@
 
 .inputs__names mat-form-field {
   width: 44%;
+}
+
+.picture img {
+  width: 90%;
+  height: 100%;
 }

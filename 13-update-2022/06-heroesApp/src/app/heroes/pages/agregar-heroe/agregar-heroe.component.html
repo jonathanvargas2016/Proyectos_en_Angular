@@ -1,52 +1,99 @@
 <h1>Nuevo Héroe <small>asd</small></h1>
 
-<div class="row">
-  <div class="col inputs">
-    <div class="inputs__names">
-      <mat-form-field style="margin-right: 10px">
-        <mat-label> Super Héroe </mat-label>
-        <input matInput type="text" name="" id="superHeroe" />
-      </mat-form-field>
+<form action="" [formGroup]="heroeForm" (ngSubmit)="saveHeroe()">
+  <div class="row">
+    <div class="col inputs">
+      <div class="inputs__names">
+        <mat-form-field style="margin-right: 10px">
+          <mat-label> Super Héroe </mat-label>
+          <input
+            matInput
+            type="text"
+            id="superHeroe"
+            formControlName="superhero"
+          />
+        </mat-form-field>
 
-      <mat-form-field>
-        <mat-label> Alter Ego </mat-label>
-        <input matInput type="text" name="" id="alterEgo" />
-      </mat-form-field>
+        <mat-form-field>
+          <mat-label> Alter Ego </mat-label>
+          <input
+            matInput
+            type="text"
+            id="alterEgo"
+            formControlName="alterEgo"
+          />
+        </mat-form-field>
+      </div>
+
+      <div class="inputs__data">
+        <mat-form-field>
+          <mat-label> Primera Aparición </mat-label>
+          <input
+            matInput
+            type="text"
+            id="primeraAparicion"
+            formControlName="firstAppearance"
+          />
+        </mat-form-field>
+      </div>
+
+      <div class="inputs__data">
+        <mat-form-field>
+          <mat-label> Personajes </mat-label>
+          <input
+            matInput
+            type="text"
+            id="personajes"
+            formControlName="characters"
+          />
+        </mat-form-field>
+      </div>
+
+      <div class="inputs__data">
+        <mat-form-field appearance="fill">
+          <mat-label>Creador</mat-label>
+          <mat-select formControlName="publisher">
+            <mat-option
+              *ngFor="let publisher of publishers"
+              [value]="publisher.id"
+            >
+              {{ publisher.desc }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="inputs__data">
+        <mat-form-field>
+          <mat-label> Foto Url </mat-label>
+          <input
+            matInput
+            type="url"
+            name=""
+            id="fotoUrl"
+            formControlName="altImg"
+          />
+        </mat-form-field>
+      </div>
+
+      <button
+        type="submit"
+        mat-raised-button
+        color="warn"
+        style="width: 90%"
+        [disabled]="loading"
+      >
+        <ng-container *ngIf="!loading; else wait">
+          <mat-icon>edit</mat-icon>
+          Guardar
+        </ng-container>
+
+        <ng-template #wait> Espere... </ng-template>
+      </button>
     </div>
 
-    <div class="inputs__data">
-      <mat-form-field>
-        <mat-label> Primera Aparición </mat-label>
-        <input matInput type="text" name="" id="primeraAparicion" />
-      </mat-form-field>
-    </div>
-
-    <div class="inputs__data">
-      <mat-form-field>
-        <mat-label> Personajes </mat-label>
-        <input matInput type="text" name="" id="personajes" />
-      </mat-form-field>
-    </div>
-
-    <div class="inputs__data">
-      <mat-form-field appearance="fill">
-        <mat-label>Creador</mat-label>
-        <mat-select>
-          <mat-option></mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-
-    <div class="inputs__data">
-      <mat-form-field>
-        <mat-label> Foto Url </mat-label>
-        <input matInput type="url" name="" id="fotoUrl" />
-      </mat-form-field>
+    <div class="col picture">
+      <img [src]="heroe | imagen" alt="" />
     </div>
   </div>
-
-  <div class="col picture">
-    imgaen
-    <img src="aaaaa" alt="" />
-  </div>
-</div>
+</form>
