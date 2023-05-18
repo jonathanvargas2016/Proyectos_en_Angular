@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, Injector, OnInit } from '@angular/core';
 import {
   FormBuilder,
@@ -5,6 +6,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Heroe, Publisher } from '@modules/heroes/models/heroe.interface';
 import { HeroesService } from '@modules/heroes/services/heroes.service';
 
@@ -14,14 +16,7 @@ import { HeroesService } from '@modules/heroes/services/heroes.service';
   styleUrls: ['./agregar-heroe.component.css'],
 })
 export class AgregarHeroeComponent implements OnInit {
-  heroe: Heroe = {
-    id: '',
-    superhero: '',
-    publisher: Publisher.DCComics,
-    alterEgo: '',
-    firstAppearance: '',
-    characters: '',
-  };
+  heroe!: Heroe;
 
   publishers = [
     {
@@ -36,11 +31,31 @@ export class AgregarHeroeComponent implements OnInit {
 
   heroeForm!: FormGroup;
   loading: boolean = false;
+  isEdit: boolean = false;
   private formBuilder!: FormBuilder;
-
+  private route!: ActivatedRoute;
+  private location!: Location;
   constructor(private injector: Injector, private heroeService: HeroesService) {
     this.formBuilder = injector.get(FormBuilder);
+    this.route = injector.get(ActivatedRoute);
+    this.location = injector.get(Location);
     this.buildForm();
+    this.editData();
+  }
+
+  editData() {
+    this.heroe = this.route.snapshot.data['heroe'];
+
+    if (!this.heroe) return;
+    this.isEdit = true;
+    this.heroeForm.patchValue({
+      superhero: this.heroe.superhero,
+      publisher: this.heroe.publisher,
+      alterEgo: this.heroe.alterEgo,
+      firstAppearance: this.heroe.firstAppearance,
+      characters: this.heroe.characters,
+      altImg: this.heroe.altImg,
+    });
   }
 
   buildForm() {
@@ -56,24 +71,28 @@ export class AgregarHeroeComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  saveHeroe() {
+  onSubmitHeroe() {
     this.heroeForm.markAllAsTouched();
-    console.log('heroe');
 
     if (this.heroeForm.invalid) return;
 
     this.loading = true;
-    this.heroeService.createHeroe(this.heroeForm.getRawValue()).subscribe(
-      (heroe) => {
-        console.log('heroe creado', heroe);
-        this.resetForm();
+
+    const data = this.isEdit
+      ? { id: this.heroe.id, ...this.heroeForm.getRawValue() }
+      : { ...this.heroeForm.getRawValue() };
+
+    const respObservable = this.isEdit
+      ? this.heroeService.updateHeroe(data)
+      : this.heroeService.createHeroe(data);
+
+    respObservable.subscribe({
+      next: () => {
         this.loading = false;
+        this.location.back();
       },
-      (err) => {
-        console.log('error', err);
-        this.loading = false;
-      }
-    );
+      error: () => (this.loading = false),
+    });
   }
 
   resetForm() {
@@ -85,5 +104,19 @@ export class AgregarHeroeComponent implements OnInit {
       characters: '',
       altImg: '',
     });
+  }
+
+  deleteHeroe() {
+    this.heroeService.deleteHeroe(this.heroe.id!).subscribe({
+      next: () => {
+        this.loading = false;
+        this.location.back();
+      },
+      error: () => (this.loading = false),
+    });
+  }
+
+  get superhero() {
+    return this.heroeForm.get('superhero') as FormControl;
   }
 }
