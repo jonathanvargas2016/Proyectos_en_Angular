@@ -6,9 +6,14 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ConfirmarModalComponent } from '@modules/heroes/components/confirmar-modal/confirmar-modal.component';
 import { Heroe, Publisher } from '@modules/heroes/models/heroe.interface';
 import { HeroesService } from '@modules/heroes/services/heroes.service';
+import { filter, tap } from 'rxjs';
+import { switchMap, catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-agregar-heroe',
@@ -32,15 +37,28 @@ export class AgregarHeroeComponent implements OnInit {
   heroeForm!: FormGroup;
   loading: boolean = false;
   isEdit: boolean = false;
+  durationInSeconds: number = 5;
   private formBuilder!: FormBuilder;
   private route!: ActivatedRoute;
   private location!: Location;
-  constructor(private injector: Injector, private heroeService: HeroesService) {
+
+  constructor(
+    private injector: Injector,
+    private heroeService: HeroesService,
+    private snackBar: MatSnackBar,
+    public dialog: MatDialog
+  ) {
     this.formBuilder = injector.get(FormBuilder);
     this.route = injector.get(ActivatedRoute);
     this.location = injector.get(Location);
     this.buildForm();
     this.editData();
+  }
+
+  showSnackBar(mensaje: string) {
+    this.snackBar.open(mensaje, 'Ok!', {
+      duration: this.durationInSeconds,
+    });
   }
 
   editData() {
@@ -89,9 +107,13 @@ export class AgregarHeroeComponent implements OnInit {
     respObservable.subscribe({
       next: () => {
         this.loading = false;
+        this.showSnackBar('Registro guardado');
         this.location.back();
       },
-      error: () => (this.loading = false),
+      error: () => {
+        this.loading = false;
+        this.showSnackBar('Error al guardar el registro');
+      },
     });
   }
 
@@ -107,13 +129,29 @@ export class AgregarHeroeComponent implements OnInit {
   }
 
   deleteHeroe() {
-    this.heroeService.deleteHeroe(this.heroe.id!).subscribe({
-      next: () => {
-        this.loading = false;
-        this.location.back();
-      },
-      error: () => (this.loading = false),
+    const resp = this.dialog.open(ConfirmarModalComponent, {
+      width: ' 450px',
+      data: { ...this.heroe },
     });
+
+    resp
+      .afterClosed()
+      .pipe(
+        filter((res) => res),
+        tap(() => (this.loading = true)),
+        switchMap(() => this.heroeService.deleteHeroe(this.heroe.id!)),
+        tap(
+          () => {
+            this.loading = false;
+            this.location.back();
+          },
+          catchError(() => {
+            this.loading = false;
+            return [];
+          })
+        )
+      )
+      .subscribe();
   }
 
   get superhero() {

@@ -1,5 +1,5 @@
 <h1>
-  {{ isEdit ? "Héroe " : "Nuevo héroe " }} <small>{{ superhero.value }} </small>
+  {{ isEdit ? "Editar héroe " : "Nuevo héroe " }} <small>{{ superhero.value }} </small>
 </h1>
 
 <form action="" [formGroup]="heroeForm" (ngSubmit)="onSubmitHeroe()">

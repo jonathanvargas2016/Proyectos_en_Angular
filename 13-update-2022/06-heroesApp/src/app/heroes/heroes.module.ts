@@ -11,6 +11,7 @@ import { HeroeTarjetaComponent } from './pages/components/heroe-tarjeta/heroe-ta
 import { ImagenPipe } from './pages/pipes/imagen.pipe';
 import { HeroeResolver } from './pages/resolvers/heroe.resolver';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ConfirmarModalComponent } from './components/confirmar-modal/confirmar-modal.component';
 
 const routes: Routes = [
   {
@@ -62,6 +63,7 @@ const routes: Routes = [
     ListadoHeroesComponent,
     HeroeTarjetaComponent,
     ImagenPipe,
+    ConfirmarModalComponent,
   ],
   imports: [
     CommonModule,

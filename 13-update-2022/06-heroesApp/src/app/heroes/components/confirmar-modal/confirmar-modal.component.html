@@ -1,0 +1,18 @@
+<h1>Eliminar</h1>
+<hr />
+
+<p>
+  ¿Está seguro que desea eliminar <strong>{{ heroe.superhero }} </strong> ?
+</p>
+
+<div class="options">
+  <button type="submit" mat-raised-button color="primary" (click)="acept()">
+    <mat-icon>done</mat-icon>
+    Aceptar
+  </button>
+
+  <button type="button" mat-raised-button color="warn" (click)="cancel()">
+    <mat-icon>close</mat-icon>
+    Cancelar
+  </button>
+</div>
