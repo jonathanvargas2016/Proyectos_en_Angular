@@ -47,5 +47,5 @@ export class AuthGuard implements CanLoad, CanActivate {
     );
   }
 
-  //* canLoad: sirve para prevenir que el usuario cargue el modulo.
+  //* canLoad: sirve para prevenir que el usuario cargue el modulo. Si usamos lazyload es necesario usar canLoad
 }
