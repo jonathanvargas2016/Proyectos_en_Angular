@@ -6,6 +6,10 @@ const routes: Routes = [
     path: 'reactive',
     loadChildren: () => import('./reactive/reactive.module').then( r => r.ReactiveModule),
   },
+  {
+    path: 'template',
+    loadChildren: () => import('./template/template.module').then( r => r.TemplateModule),
+  },
   { path: '**', redirectTo: 'reactive' },
 
 ];

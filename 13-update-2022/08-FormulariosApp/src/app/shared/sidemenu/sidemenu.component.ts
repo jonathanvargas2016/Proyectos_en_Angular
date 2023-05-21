@@ -4,28 +4,40 @@ import { IMenuItem } from 'src/app/interfaces/imenu-item';
 @Component({
   selector: 'app-sidemenu',
   templateUrl: './sidemenu.component.html',
-  styleUrls: ['./sidemenu.component.css']
+  styleUrls: ['./sidemenu.component.css'],
 })
 export class SidemenuComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  templateMenu: IMenuItem[] = [
+    {
+      texto: 'Basicos',
+      ruta: './template/basicos',
+    },
+    {
+      texto: 'Dinamicos',
+      ruta: './template/dinamicos',
+    },
+    {
+      texto: 'Switches',
+      ruta: './template/switches',
+    },
+  ];
 
   reactiveMenu: IMenuItem[] = [
     {
       texto: 'Basicos',
-      ruta: './reactive/basicos'
+      ruta: './reactive/basicos',
     },
     {
       texto: 'Dinamicos',
-      ruta: './reactive/dinamicos'
+      ruta: './reactive/dinamicos',
     },
     {
       texto: 'Switches',
-      ruta: './reactive/switches'
-    }
-  ]
+      ruta: './reactive/switches',
+    },
+  ];
 
+  constructor() {}
+
+  ngOnInit(): void {}
 }
