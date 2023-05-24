@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { BasicosComponent } from './basicos/basicos.component';
 import { DinamicosComponent } from './dinamicos/dinamicos.component';
 import { SwitchesComponent } from './switches/switches.component';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -28,6 +29,6 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [BasicosComponent, DinamicosComponent, SwitchesComponent],
-  imports: [CommonModule, RouterModule.forChild(routes)],
+  imports: [CommonModule, RouterModule.forChild(routes), FormsModule],
 })
 export class TemplateModule {}
