@@ -9,6 +9,12 @@ import { NgForm } from '@angular/forms';
 export class BasicosComponent implements OnInit {
   @ViewChild('miForm') miForm!: NgForm;
 
+  initForm = {
+    producto: 'RTX 4080ti',
+    precio: 1500,
+    existencias: 10,
+  };
+
   constructor() {}
 
   ngOnInit(): void {}
@@ -28,5 +34,10 @@ export class BasicosComponent implements OnInit {
   }
   onSubmit() {
     console.log('submit hecho', this.miForm);
+
+    this.miForm.resetForm({
+      precio: 0,
+      existencias: 0,
+    });
   }
 }

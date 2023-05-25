@@ -11,7 +11,7 @@
             class="form-control"
             id="productoId"
             placeholder="Nombre del producto"
-            ngModel
+            [ngModel]="initForm.producto"
             name="producto"
             required
             minlength="3"
@@ -28,7 +28,7 @@
             type="number"
             class="form-control"
             id="precioId"
-            ngModel
+            [ngModel]="initForm.precio"
             name="precio"
             placeholder="Nombre del producto"
             required
@@ -49,9 +49,12 @@
             type="number"
             class="form-control"
             id="existenciasId"
-            ngModel
+            [ngModel]="initForm.existencias"
             name="existencias"
             placeholder="Existencia del producto"
+            customMin
+            [minimo]="0"
+            required
           />
           <!-- <span class="form-text text-danger">Debe de ser de 3 letras</span> -->
         </div>
@@ -59,7 +62,11 @@
 
       <div class="row">
         <div class="col">
-          <button class="btn btn-primary float-end" type="submit" [disabled]="miForm.invalid">
+          <button
+            class="btn btn-primary float-end"
+            type="submit"
+            [disabled]="miForm.invalid"
+          >
             Guardar
           </button>
         </div>
@@ -79,6 +86,11 @@
     <span> Value </span>
     <pre>
       {{ miForm.value | json }}
+    </pre>
+
+    <span> Custom Directive </span>
+    <pre>
+      {{ miForm.controls['existencias']?.errors | json }}
     </pre>
   </div>
 </div>

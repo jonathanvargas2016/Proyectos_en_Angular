@@ -1,1 +1,99 @@
-<p>dinamicos works!</p>
+<h2>Template <small>Dinámicos</small></h2>
+<hr />
+
+<form #miForm="ngForm" autocomplete="off">
+  <div class="row mb-3">
+    <label class="col-sm-3 col-form-label" for="">Nombre</label>
+
+    <div class="col-sm-9">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Nombre de la persona"
+        name=""
+        id=""
+        [ngModel]="persona.nombre"
+        name="nombre"
+        required
+      />
+
+      <span
+        class="form-text text-danger"
+        *ngIf="
+          miForm.controls['nombre']?.invalid &&
+          miForm.controls['nombre'].touched
+        "
+        >Este campo es obligatorio</span
+      >
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label class="col-sm-3 col-form-label" for="">Agregar</label>
+
+    <div class="col-sm-9">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Agregar favorito"
+          [(ngModel)]="nuevoJuego"
+          (keyup.enter)="addFavorite()"
+          name="newGame"
+        />
+
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          id="button-add"
+          (click)="addFavorite()"
+        >
+          Agregar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label class="col-sm-3 col-form-label" for="">Favoritos</label>
+
+    <div class="col-sm-9">
+      <div
+        class="input-group mb-3"
+        *ngFor="let juego of persona.favoritos; index as i"
+      >
+        <input
+          type="text"
+          [(ngModel)]="juego.nombre"
+          [name]="'favorito_' + i"
+          class="form-control mb-1"
+          required
+        />
+        <button
+          class="btn btn-outline-danger"
+          type="button"
+          id="btn-eliminar"
+          (click)="deleteItem(i)"
+        >
+          Eliminar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col-sm-12">
+      <button
+        type="button"
+        class="btn btn-primary float-end"
+        (click)="submit()"
+        [disabled]="miForm.invalid"
+      >
+        Guardar
+      </button>
+    </div>
+  </div>
+</form>
+
+<span>Persona</span>
+<pre>{{ persona | json }} </pre>

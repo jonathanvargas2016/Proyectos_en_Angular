@@ -5,6 +5,7 @@ import { BasicosComponent } from './basicos/basicos.component';
 import { DinamicosComponent } from './dinamicos/dinamicos.component';
 import { SwitchesComponent } from './switches/switches.component';
 import { FormsModule } from '@angular/forms';
+import { CustomMinDirective } from './directives/custom-min.directive';
 
 const routes: Routes = [
   {
@@ -28,7 +29,12 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [BasicosComponent, DinamicosComponent, SwitchesComponent],
+  declarations: [
+    BasicosComponent,
+    DinamicosComponent,
+    SwitchesComponent,
+    CustomMinDirective,
+  ],
   imports: [CommonModule, RouterModule.forChild(routes), FormsModule],
 })
 export class TemplateModule {}
