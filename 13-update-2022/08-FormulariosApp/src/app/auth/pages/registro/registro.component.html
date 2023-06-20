@@ -29,8 +29,9 @@
             placeholder="example@gmail.com"
           />
           <span class="form-text text-danger" *ngIf="campoNoValido('email')">
-            El correo es obligatorio
+            {{errorMsg}}
           </span>
+
         </div>
       </div>
 
@@ -74,7 +75,10 @@
             placeholder="Confirmar la contraseña"
             formControlName="password2"
           />
-          <span class="form-text text-danger" *ngIf="campoNoValido('password2')">
+          <span
+            class="form-text text-danger"
+            *ngIf="campoNoValido('password2')"
+          >
             Las contraseñas deben de ser iguales
           </span>
         </div>
@@ -98,4 +102,39 @@
 <span>valid</span>
 <pre>
     {{ meForm.valid | json }}
+</pre>
+
+<h2>
+  Status: {{meForm.status}}
+</h2>
+
+<h2>Form errors</h2>
+<pre>
+  {{ meForm.errors | json }}
+</pre>
+<h5>Nombre</h5>
+<pre>
+  {{ meForm.controls["nombre"].errors | json }}
+</pre>
+
+<h5>Email</h5>
+<pre>
+  {{ meForm.controls["email"].errors | json }}
+</pre>
+
+<h5>Username</h5>
+<pre>
+  {{ meForm.controls["username"].errors | json }}
+</pre>
+
+
+<h5>Password</h5>
+<pre>
+  {{ meForm.controls['password'].errors | json }}
+</pre>
+
+
+<h5>Confirmar</h5>
+<pre>
+  {{ meForm.controls['password2'].errors | json }}
 </pre>
