@@ -24,6 +24,7 @@ const routes: Routes = [
         component: SwitchesComponent,
       },
       { path: '**', redirectTo: 'basicos' },
+      { path: '', redirectTo: 'basicos', pathMatch: 'full' },
     ],
   },
 ];

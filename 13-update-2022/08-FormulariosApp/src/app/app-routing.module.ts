@@ -16,7 +16,15 @@ const routes: Routes = [
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then((r) => r.AuthModule),
   },
-  { path: '**', redirectTo: 'reactive' },
+
+  {
+    path: 'selectors',
+    loadChildren: () =>
+      import('./paises/paises.module').then((r) => r.PaisesModule),
+  },
+
+  { path: '**', redirectTo: 'template' },
+  { path: '', redirectTo: 'template', pathMatch: 'full' },
 ];
 
 @NgModule({

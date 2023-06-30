@@ -1,0 +1,56 @@
+<h1>Selectores Anidados</h1>
+<hr />
+
+<form [formGroup]="meForm" (ngSubmit)="onSubmit()">
+  <div class="row">
+    <div class="col">
+      <label for="" class="form-label">Continente</label>
+      <select formControlName="region" class="form-control" name="" id="">
+        <option value="">-- Seleccione Continente --</option>
+        <option [value]="region | lowercase" *ngFor="let region of regiones">
+          {{ region }}
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <label for="" class="form-label">Pais</label>
+      <select formControlName="country" class="form-control" name="" id="">
+        <option value="">-- Seleccione Pais --</option>
+        <option
+          [value]="country.cca3 | lowercase"
+          *ngFor="let country of (countryList$ | async)"
+        >
+          {{ country.name.common }}
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <label for="" class="form-label">Borders</label>
+      <select formControlName="borders" class="form-control" name="" id="">
+        <option value="">-- Seleccione Pais --</option>
+        <option
+          [value]="country.cca3 | lowercase"
+          *ngFor="let country of (countryList$ | async)"
+        >
+          {{ country.name.common }}
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <div class="row mb-5 mt-3">
+    <div class="col">
+      <button class="btn btn-primary">Seleccionar</button>
+    </div>
+  </div>
+</form>
+
+<h3>Formulario</h3>
+<pre>Valid: {{ meForm.valid }} </pre>
+<pre> {{ meForm.value | json }} </pre>
