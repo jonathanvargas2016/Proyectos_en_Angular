@@ -18,7 +18,9 @@ export class SelectorPageComponent implements OnInit {
   meForm!: FormGroup;
 
   regiones: string[] = [];
-  countryList$!: Observable<CountrySmall[]>;
+  countryList: CountrySmall[] = [];
+  borderList: string[] = [];
+  loading: boolean = false;
   private fornmBuilder!: FormBuilder;
   constructor(
     private injector: Injector,
@@ -33,7 +35,7 @@ export class SelectorPageComponent implements OnInit {
     this.meForm = this.fornmBuilder.group({
       region: ['', [Validators.required]],
       country: ['', [Validators.required]],
-      borders: [[], [Validators.required]],
+      borders: ['', [Validators.required]],
     });
   }
 
@@ -42,13 +44,15 @@ export class SelectorPageComponent implements OnInit {
       .pipe(
         tap(() => {
           this.country.reset('');
-          this.countryList$ = of([]);
+          this.countryList = [];
+          this.loading = true;
         }),
         filter((value) => value && value.length > 0),
         switchMap((value) => this.paisesService.getCountries(value))
       )
       .subscribe((countries) => {
-        this.countryList$ = of([...countries]);
+        this.countryList = [...countries];
+        this.loading = false;
       });
 
     this.getBordersByCountry();
@@ -57,11 +61,23 @@ export class SelectorPageComponent implements OnInit {
   getBordersByCountry() {
     this.country.valueChanges
       .pipe(
+        tap(() => {
+          this.border.reset('');
+          this.borderList = [];
+        }),
         filter((value) => value && value.length > 0),
-        tap((value) => console.log('value', value)),
         switchMap((value) => this.paisesService.getBordersByCountry(value))
       )
-      .subscribe((value) => console.log('value', value));
+      .subscribe({
+        next: (resCountry) => {
+          console.log('res', resCountry[0].borders);
+          this.borderList =
+            resCountry[0].borders?.length > 0 ? resCountry[0].borders : [];
+        },
+        error: (error) => {
+          console.log(error);
+        },
+      });
   }
 
   ngOnInit(): void {
@@ -69,6 +85,7 @@ export class SelectorPageComponent implements OnInit {
   }
 
   onSubmit() {
+    if (this.meForm.invalid) return;
     console.log('obsubmit', this.meForm.getRawValue());
   }
 
@@ -78,5 +95,9 @@ export class SelectorPageComponent implements OnInit {
 
   get country() {
     return this.meForm.get('country') as FormControl;
+  }
+
+  get border() {
+    return this.meForm.get('borders') as FormControl;
   }
 }

@@ -28,7 +28,7 @@ export class PaisesService {
     );
   }
 
-  getBordersByCountry(code: string): Observable<Country> {
-    return this.http.get<Country>(`${this.url}alpha/${code}`);
+  getBordersByCountry(code: string): Observable<Country[]> {
+    return this.http.get<Country[]>(`${this.url}alpha/${code}`);
   }
 }
