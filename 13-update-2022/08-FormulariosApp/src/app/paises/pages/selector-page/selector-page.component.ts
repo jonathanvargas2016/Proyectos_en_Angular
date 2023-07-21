@@ -71,8 +71,7 @@ export class SelectorPageComponent implements OnInit {
       .subscribe({
         next: (resCountry) => {
           console.log('res', resCountry[0].borders);
-          this.borderList =
-            resCountry[0].borders?.length > 0 ? resCountry[0].borders : [];
+          this.borderList = resCountry[0].borders || [];
         },
         error: (error) => {
           console.log(error);
