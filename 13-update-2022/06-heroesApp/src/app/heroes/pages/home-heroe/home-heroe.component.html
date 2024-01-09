@@ -30,7 +30,9 @@
       <mat-icon>menu</mat-icon>
     </button>
 
-    <button mat-icon-button class="end-btn">Logout</button>
+    <span class="user">{{ auth.usuario }} </span>
+
+    <button mat-icon-button class="end-btn" (click)="logout()">Logout</button>
   </mat-toolbar>
 
   <div class="container">

@@ -1,1 +1,39 @@
-<p>ver-heroe works!</p>
+<div class="spinner" *ngIf="!heroe; else divHeroe">
+  <mat-spinner></mat-spinner>
+</div>
+
+<ng-template #divHeroe>
+  <div class="heroe">
+    <div class="heroe__img">
+      <h1>
+        {{ heroe.superhero }} <small>- {{ heroe.alterEgo }} </small>
+      </h1>
+      <mat-divider></mat-divider><br />
+      <img [src]="heroe | imagen" alt="heroe.superhero" />
+    </div>
+
+    <div class="heroe__detail">
+      <h1>{{ heroe.publisher }}</h1>
+      <mat-divider></mat-divider>
+
+      <mat-list>
+        <mat-list-item>
+          {{ heroe.firstAppearance }}
+        </mat-list-item>
+        <mat-list-item>
+          {{ heroe.characters }}
+        </mat-list-item>
+        <mat-list-item>
+          {{ heroe.publisher }}
+        </mat-list-item>
+        <mat-list-item>
+          {{ heroe.alterEgo }}
+        </mat-list-item>
+      </mat-list>
+
+      <button class="heroe__detail--width" mat-raised-button color="warn" (click)="returnListado()">
+        Regresar
+      </button>
+    </div>
+  </div>
+</ng-template>

@@ -1,1 +1,113 @@
-<p>agregar-heroe works!</p>
+<h1>
+  {{ isEdit ? "Editar héroe " : "Nuevo héroe " }} <small>{{ superhero.value }} </small>
+</h1>
+
+<form action="" [formGroup]="heroeForm" (ngSubmit)="onSubmitHeroe()">
+  <div class="row">
+    <div class="col inputs">
+      <div class="inputs__names">
+        <mat-form-field style="margin-right: 10px">
+          <mat-label> Super Héroe </mat-label>
+          <input
+            matInput
+            type="text"
+            id="superHeroe"
+            formControlName="superhero"
+          />
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label> Alter Ego </mat-label>
+          <input
+            matInput
+            type="text"
+            id="alterEgo"
+            formControlName="alterEgo"
+          />
+        </mat-form-field>
+      </div>
+
+      <div class="inputs__data">
+        <mat-form-field>
+          <mat-label> Primera Aparición </mat-label>
+          <input
+            matInput
+            type="text"
+            id="primeraAparicion"
+            formControlName="firstAppearance"
+          />
+        </mat-form-field>
+      </div>
+
+      <div class="inputs__data">
+        <mat-form-field>
+          <mat-label> Personajes </mat-label>
+          <input
+            matInput
+            type="text"
+            id="personajes"
+            formControlName="characters"
+          />
+        </mat-form-field>
+      </div>
+
+      <div class="inputs__data">
+        <mat-form-field appearance="fill">
+          <mat-label>Creador</mat-label>
+          <mat-select formControlName="publisher">
+            <mat-option
+              *ngFor="let publisher of publishers"
+              [value]="publisher.id"
+            >
+              {{ publisher.desc }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="inputs__data">
+        <mat-form-field>
+          <mat-label> Foto Url </mat-label>
+          <input
+            matInput
+            type="url"
+            name=""
+            id="fotoUrl"
+            formControlName="altImg"
+          />
+        </mat-form-field>
+      </div>
+
+      <div class="options">
+        <button
+          type="submit"
+          mat-raised-button
+          color="primary"
+          [disabled]="loading"
+        >
+          <ng-container *ngIf="!loading; else wait">
+            <mat-icon>edit</mat-icon>
+            Guardar
+          </ng-container>
+        </button>
+
+        <button
+          *ngIf="isEdit"
+          type="button"
+          mat-raised-button
+          color="warn"
+          (click)="deleteHeroe()"
+        >
+          <mat-icon>remove</mat-icon>
+          Eliminar
+        </button>
+      </div>
+    </div>
+
+    <div class="col picture">
+      <img [src]="heroe | imagen" alt="" />
+    </div>
+  </div>
+</form>
+
+<ng-template #wait> Espere... </ng-template>

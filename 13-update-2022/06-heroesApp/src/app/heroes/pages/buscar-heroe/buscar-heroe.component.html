@@ -1,1 +1,40 @@
-<p>buscar-heroe works!</p>
+<div class="grid">
+  <div class="grid__buscador">
+    <h1>Buscador de Héroes</h1>
+    <mat-divider></mat-divider>
+  </div>
+  <div class="grid__resultados">
+    <form class="example-form">
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Heroe</mat-label>
+        <input
+          type="text"
+          placeholder="Selecciona..."
+          matInput
+          [formControl]="termino"
+          [matAutocomplete]="auto"
+        />
+        <mat-autocomplete
+          autoActiveFirstOption
+          #auto="matAutocomplete"
+          (optionSelected)="onOptionSelected($event)"
+        >
+          <mat-option *ngFor="let heroe of heroes | async" [value]="heroe">
+            {{ heroe.superhero }}
+          </mat-option>
+
+          <ng-container *ngIf="heroes | async as data">
+            <mat-option *ngIf="data.length === 0" value="">
+              No se encontró nada con el término <strong>{{ termino.value }}</strong>
+            </mat-option>
+          </ng-container>
+        </mat-autocomplete>
+      </mat-form-field>
+    </form>
+  </div>
+
+  <div class="card" *ngIf="heroeSelected | async as data">
+    <app-heroe-tarjeta [heroe]="data"></app-heroe-tarjeta>
+  </div>
+</div>
+

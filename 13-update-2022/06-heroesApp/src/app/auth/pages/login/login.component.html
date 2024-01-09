@@ -1,2 +1,11 @@
-<p>login works!</p>
-
+<div class="grid">
+  <button
+    [disabled]="loading"
+    type="button"
+    mat-raised-button
+    color="primary"
+    (click)="login()"
+  >
+    {{ loading ? "Espere..." : "Ingresar" }}
+  </button>
+</div>

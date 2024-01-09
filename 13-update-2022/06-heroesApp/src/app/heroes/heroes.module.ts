@@ -7,6 +7,11 @@ import { HomeHeroeComponent } from './pages/home-heroe/home-heroe.component';
 import { ListadoHeroesComponent } from './pages/listado-heroes/listado-heroes.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MaterialModule } from '@modules/material/material.module';
+import { HeroeTarjetaComponent } from './pages/components/heroe-tarjeta/heroe-tarjeta.component';
+import { ImagenPipe } from './pages/pipes/imagen.pipe';
+import { HeroeResolver } from './pages/resolvers/heroe.resolver';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ConfirmarModalComponent } from './components/confirmar-modal/confirmar-modal.component';
 
 const routes: Routes = [
   {
@@ -28,10 +33,18 @@ const routes: Routes = [
       {
         path: ':id',
         component: VerHeroeComponent,
+        resolve: {
+          heroe: HeroeResolver,
+        },
+        data: { breadcrumb: 'Ver' },
       },
       {
         path: 'editar/:id',
         component: AgregarHeroeComponent,
+        resolve: {
+          heroe: HeroeResolver,
+        },
+        data: { breadcrumb: 'Editar' },
       },
       {
         path: '**',
@@ -48,7 +61,17 @@ const routes: Routes = [
     VerHeroeComponent,
     HomeHeroeComponent,
     ListadoHeroesComponent,
+    HeroeTarjetaComponent,
+    ImagenPipe,
+    ConfirmarModalComponent,
   ],
-  imports: [CommonModule, RouterModule.forChild(routes), MaterialModule],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
+  providers: [HeroeResolver],
 })
 export class HeroesModule {}

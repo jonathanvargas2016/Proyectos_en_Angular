@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injector, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -21,19 +21,21 @@ export class BasicosComponent implements OnInit {
 
   // TRABAJANDO CON EL FORMBUILDER: es un serrvicio
 
-  miFormulario: FormGroup = this.fb.group({
-    nombre: [, [Validators.required, Validators.minLength(3)]],
-    precio: [, [Validators.required, Validators.min(1)]],
-    existencias: [, [Validators.required, Validators.min(1)]],
-  });
-  constructor(private fb: FormBuilder) {}
+  miFormulario!: FormGroup;
+  private formBuilder!: FormBuilder;
+  constructor(private injector: Injector) {
+    this.formBuilder = injector.get(FormBuilder);
+    this.setBuild();
+  }
 
-  ngOnInit(): void {
-    this.miFormulario.setValue({
-      nombre: "RJ45",
-      precio: 450,
-      existencias: 200
-    })
+  ngOnInit(): void {}
+
+  setBuild() {
+    this.miFormulario = this.formBuilder.group({
+      nombre: ['RJ45', [Validators.required, Validators.minLength(3)]],
+      precio: [450, [Validators.required, Validators.min(1)]],
+      existencias: [200, [Validators.required, Validators.min(1)]],
+    });
   }
 
   campoEsValido(campo: string) {
@@ -43,14 +45,13 @@ export class BasicosComponent implements OnInit {
     );
   }
 
-  guardar(){
-    if(this.miFormulario.invalid){
-      this.miFormulario.markAllAsTouched();
-      console.log("error en el formulario")
-      return 
+  guardar() {
+    this.miFormulario.markAllAsTouched();
+    if (this.miFormulario.invalid) {
+      console.log('error en el formulario');
+      return;
     }
-    console.log("mi formulario", this.miFormulario);
-    this.miFormulario.reset()
-
+    console.log('mi formulario', this.miFormulario);
+    this.miFormulario.reset();
   }
 }
