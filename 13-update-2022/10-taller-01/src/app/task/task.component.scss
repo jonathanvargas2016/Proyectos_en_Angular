@@ -1,0 +1,25 @@
+.task {
+    display: flex;
+    padding: 10px;
+
+    .label {
+        display: flex;
+        padding: 8px 15px;
+
+        input {
+            margin-right: 10px;
+        }
+
+        .text {
+            font-family: Arial;
+        }
+
+    }
+
+    .delete{
+        margin-left: 10px;
+        display: flex;
+        align-items: center;
+        padding: 8px 10px ;
+    }
+}
