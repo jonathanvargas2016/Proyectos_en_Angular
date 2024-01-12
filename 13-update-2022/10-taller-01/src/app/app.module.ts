@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { InputComponent } from './input/input.component';
 import { ListComponent } from './list/list.component';
 import { TaskComponent } from './task/task.component';
+import { StrikeDirective } from './directives/strike.directive';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { TaskComponent } from './task/task.component';
     HeaderComponent,
     InputComponent,
     ListComponent,
-    TaskComponent
+    TaskComponent,
+    StrikeDirective
   ],
   imports: [
     BrowserModule,

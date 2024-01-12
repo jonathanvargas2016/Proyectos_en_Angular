@@ -1,5 +1,5 @@
 <div class="wrapper">
   <app-header title="Pendientes"></app-header>
   <app-input></app-input>
-  <app-list [list]="list"></app-list>
+  <app-list [list]="list" (emitter)="applyValue($event)"></app-list>
 </div>

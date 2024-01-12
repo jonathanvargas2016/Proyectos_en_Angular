@@ -1,7 +1,7 @@
-<div class="task">
+<div class="task" [ngClass]="{'done': task.done}">
     <div class="label">
-        <input type="checkbox">
-        <div class="text"> {{task.text}} </div>
+        <input type="checkbox" (change)="onChange($event)" [checked]="task.done">
+        <div class="text" [appStrike]="task.done"> {{task.text}} </div>
     </div>
     <div class="delete">X</div>
 </div>

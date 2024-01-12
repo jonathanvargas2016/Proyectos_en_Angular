@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-list',
@@ -7,4 +7,14 @@ import { Component, Input } from '@angular/core';
 })
 export class ListComponent {
   @Input() list: any = [];
+  @Output() emitter: EventEmitter<any> = new EventEmitter<any>();
+  constructor(){}
+
+  emitValue(event: boolean, index: number){
+    console.log(event, index);
+    this.emitter.emit({
+      checked: event,
+      position: index
+    })
+  }
 }

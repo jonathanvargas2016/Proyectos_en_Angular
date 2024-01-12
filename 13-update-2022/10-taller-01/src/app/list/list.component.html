@@ -1,4 +1,4 @@
 <div class="list">
 
-    <app-task *ngFor="let item of list" [task]="item"></app-task>
+    <app-task *ngFor="let item of list; index as i" [task]="item" (emitter)="emitValue($event, i)" ></app-task>
 </div>

@@ -11,7 +11,7 @@ export class AppComponent {
   list: any = [
     {
       text: "Pasear al perro",
-      done: false
+      done: true
     },
     {
       text: "Pasear al perro",
@@ -23,8 +23,16 @@ export class AppComponent {
     },
     {
       text: "Pasear al perro",
-      done: false
+      done: true
     },
-    
-]
+
+  ]
+
+  constructor(){}
+
+  applyValue(event: any): void {
+    console.log(event)
+    this.list[event.position].done = event.checked
+  }
+
 }

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-task',
@@ -7,4 +7,9 @@ import { Component, Input } from '@angular/core';
 })
 export class TaskComponent {
   @Input() task: any;
+  @Output() emitter: EventEmitter<any> = new EventEmitter<any>();
+
+  onChange(event: any): void {
+    this.emitter.emit( event.target.checked)
+  }
 }
