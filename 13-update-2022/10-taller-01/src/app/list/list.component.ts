@@ -8,13 +8,18 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class ListComponent {
   @Input() list: any = [];
   @Output() emitter: EventEmitter<any> = new EventEmitter<any>();
+  @Output() removeEmitter: EventEmitter<any> = new EventEmitter<any>();
   constructor(){}
 
   emitValue(event: boolean, index: number){
-    console.log(event, index);
     this.emitter.emit({
       checked: event,
       position: index
     })
   }
+
+  emitRemove(position: number){
+    this.removeEmitter.emit(position)
+  }
+  
 }

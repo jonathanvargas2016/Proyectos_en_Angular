@@ -3,5 +3,5 @@
         <input type="checkbox" (change)="onChange($event)" [checked]="task.done">
         <div class="text" [appStrike]="task.done"> {{task.text}} </div>
     </div>
-    <div class="delete">X</div>
+    <div class="delete pointer" (click)="onRemove()">X</div>
 </div>

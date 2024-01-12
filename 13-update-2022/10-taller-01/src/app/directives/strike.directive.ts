@@ -6,17 +6,16 @@ import { Directive, ElementRef, HostListener, Input, OnInit, Renderer2 } from '@
 export class StrikeDirective implements OnInit{
 
   @Input() appStrike: boolean = false;
-
+  observer = new MutationObserver(() => this.styleCustom('none'))
   constructor(private element: ElementRef, private renderer: Renderer2) {
 
   }
 
   ngOnInit(): void {
-   
-    if(this.appStrike){
-      this.styleCustom("line-through")
-    }
-
+   this.styleCustom("none")
+   this.observer.observe(this.element.nativeElement, {
+    attributeFilter: ["ng-reflect-app-strike"]
+   })
   }
 
   @HostListener("mouseenter")
@@ -30,6 +29,11 @@ export class StrikeDirective implements OnInit{
   }
 
   styleCustom(value: string){
+
+    if(this.appStrike){
+      return
+    }
+
     this.renderer.setStyle(this.element.nativeElement, 'textDecoration', value);
 
   }
