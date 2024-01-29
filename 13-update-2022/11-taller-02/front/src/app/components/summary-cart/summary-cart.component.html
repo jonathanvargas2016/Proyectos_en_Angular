@@ -1,0 +1,64 @@
+<div class="container">
+    <h1>Order Summary</h1>
+
+    <div class="summary">
+
+
+        <div class="summary__prices">
+            <h4>Subtotal</h4>
+            <h4 class="amount"> {{ subtotal | currency: 'USD'}} </h4>
+        </div>
+
+        <div class="summary__prices">
+            <h4>Shipping</h4>
+            <h4 class="amount"> {{ shipping | currency: 'USD'}} </h4>
+        </div>
+
+        <div class="summary__prices">
+            <h4>Code OFF5</h4>
+            <h4 class="amount"> - {{ codeOff | currency: 'USD'}} </h4>
+        </div>
+
+        <div class="pd-8">
+            <div class="divider">
+
+            </div>
+        </div>
+
+        <div class="summary__prices">
+            <h2>Order total</h2>
+            <h2 class="amount"> {{ total | currency: 'USD'}} </h2>
+        </div>
+
+        <div class="summary__promo mt-16">
+            <h4> Promo code </h4>
+
+            <img class="pointer" src="../../../assets/svgs/circle-add.svg" (click)="addNewPromo()" alt="add icon">
+        </div>
+
+        <form [formGroup]="promosForm">
+
+            <section formArrayName="codes">
+                <div *ngFor="let promo of promosArray?.controls; let i = index" [formGroupName]="i" class="mt-16">
+
+                    <div class="summary__form">
+                        <input style="text-transform:uppercase" minlength="6" maxlength="6"
+                            placeholder="Enter your code" formControlName="code" type="text">
+                        <button  class="pointer" *ngIf="promo.get('applied')!.value" type="button" (click)="removeCode(i)">REMOVE</button>
+                        <button class="pointer" *ngIf="!promo.get('applied')!.value" type="button" (click)="applyCode(i)">APPLY</button>
+                    </div>
+
+                    <div *ngIf="promo.get('code')?.touched && ( promo.get('code')?.errors?.['required']  ||  promo.get('code')?.errors?.['minlength'] )"
+                        class="summary__error">
+                        Invalid code
+                    </div>
+                </div>
+
+            </section>
+        </form>
+
+        <button class="summary__btn-checkout mt-16" type="button">CHECKOUT</button>
+
+
+    </div>
+</div>

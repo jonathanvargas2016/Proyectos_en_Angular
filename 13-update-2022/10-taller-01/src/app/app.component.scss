@@ -1,4 +1,33 @@
-.wrapper {
-    width: 960px;
-    margin: 0 auto;
-}
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+  
+  .item {
+    flex: 1 0 48%;
+    margin: 1%;
+    min-height: 100px;
+    box-sizing: border-box;
+  }
+  
+  .item1 {
+    order: 1;
+    background-color: #f0c;
+  }
+  
+  .item2 {
+    order: 4; /* Cambia el orden para que item2 aparezca después en la columna */
+    background-color: #c0f;
+  }
+  
+  .item3 {
+    order: 2; /* Cambia el orden para que item3 aparezca después en la columna */
+    background-color: #0fc;
+  }
+  
+  .item4 {
+    order: 3; /* Cambia el orden para que item4 aparezca después en la columna */
+    background-color: #fc0;
+  }
+  

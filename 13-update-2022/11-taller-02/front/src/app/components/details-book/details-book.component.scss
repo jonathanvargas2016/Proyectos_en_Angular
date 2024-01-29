@@ -1,0 +1,66 @@
+.container {
+    width: 296px;
+    height: 453px;
+    margin-top: 150px;
+
+    & .card {
+        height: 367px;
+        background-color: #fff;
+        padding: 25px;
+        position: relative;
+
+        &__header {
+            color: #000;
+            font-family: Lexend;
+            font-size: 26px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+
+            & img {
+                width: 140px;
+                height: 173px;
+                border-radius: 10px;
+                position: absolute;
+                top: -80px;
+            }
+
+            &__price {
+                position: absolute;
+                right: 25px;
+            }
+
+        }
+
+        &__content {
+            position: relative;
+            top: 25%;
+
+            &__title {
+                color: #111;
+                font-size: 19px;
+            }
+
+            &__description {
+                color: #333;
+
+            }
+
+            &__author {
+                color: #666;
+            }
+
+            &__action{
+                width: 100%;
+                height: 40px;
+                background-color: #000;
+                color: #fff;
+                border-radius: 4px;
+                font-size: 17px;
+                cursor: pointer;
+            }
+        }
+
+
+    }
+}

@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="card" *ngIf="book">
+
+        <div class="card__header">
+
+            <img [src]="book.thumbnail" [alt]="book.title">
+
+            <label class="card__header__price">
+                {{book.price | currency:'USD'}}
+            </label>
+
+        </div>
+
+        <div class="card__content">
+
+            <h1 class="card__content__title">
+                {{book.title}}
+            </h1>
+
+            <p class="card__content__description">
+                {{book.description | slice:0:150}}...
+            </p>
+
+            <p class="card__content__author">
+                By {{book.author}}
+            </p>
+
+            <button type="button" class="card__content__action" (click)="addItem(book)">+ ADD TO CART</button>
+
+        </div>
+
+
+    </div>
+
+
+</div>
+<p-toast></p-toast>

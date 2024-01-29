@@ -1,5 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
+import { from, of } from 'rxjs';
 
 @Component({
   selector: 'app-ui-block-item',
@@ -11,6 +12,10 @@ export class UiBlockItemComponent implements OnInit {
   listData: any = []
 
   constructor() {
+
+
+    of([1,2,3,4], "jpa")
+    from(1,2,3,4)
 
 
   }

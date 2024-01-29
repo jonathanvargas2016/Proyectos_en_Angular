@@ -1,0 +1,14 @@
+<div class="container">
+
+    <div class="container__menu">
+        <a [routerLink]="link.url" class="container__menu__link" *ngFor="let link of links">
+            {{link.title}}
+        </a>
+    </div>
+
+    <a class="container__icon" routerLink="/checkout-cart">
+        <img src="../../../assets/svgs/cart.svg">
+        <div class="container__icon__counter" *ngIf="countStoreItems$ | async as count">{{ count }} </div>
+    </a>
+
+</div>

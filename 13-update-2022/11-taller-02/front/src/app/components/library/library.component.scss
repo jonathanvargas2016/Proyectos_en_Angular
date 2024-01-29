@@ -1,0 +1,23 @@
+.container {
+    margin: 40px;
+
+    &__title {
+        color: #000;
+        font-family: Lexend;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+
+    &__books {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+
+        &__item{
+            flex: 0 0 calc(25% - 10px); 
+        }
+    }
+
+}
