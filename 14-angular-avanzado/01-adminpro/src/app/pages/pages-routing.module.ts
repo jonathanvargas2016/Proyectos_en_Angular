@@ -11,7 +11,7 @@ const routes: Routes = [
      * En el redirect, el path no debe coincidir con los path ya establecidos. 
     Cuando en los children agrego un redirect si el path es vacio no funciona porque el path vacio ya esta 
     establecido y redirige al componente. Este redirect se lo debe establecer en app-routing
-     
+     -Angular primero intenta coincidir con las rutas definidas antes de aplicar redireccionamientos generales.
      */
     {
         path: "dashboard", component: MainComponent,
