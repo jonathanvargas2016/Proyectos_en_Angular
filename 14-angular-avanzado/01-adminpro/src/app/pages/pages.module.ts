@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from '../app-routing.module';
+import { ComponentsModule } from '../components/components.module';
 import { SharedModule } from '../shared/shared.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { GraficaOneComponent } from './grafica-one/grafica-one.component';
@@ -19,7 +20,8 @@ import { ProgressComponent } from './progress/progress.component';
   imports: [
     CommonModule,
     SharedModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ComponentsModule
   ],
   exports: [
     DashboardComponent,
