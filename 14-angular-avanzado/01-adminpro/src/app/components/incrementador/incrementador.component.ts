@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 import { tap } from 'rxjs';
 
 @Component({
@@ -10,6 +10,7 @@ import { tap } from 'rxjs';
 export class IncrementadorComponent implements OnInit {
 
   @Input() progress: number = 5;
+  @Input() btnClass: string = 'btn-primary';
   @Output() valorSalida: EventEmitter<number> = new EventEmitter<number>();
   progresoControl!: FormControl
 
@@ -17,13 +18,8 @@ export class IncrementadorComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.progresoControl = new FormControl(this.progress)
-    this.progresoControl.valueChanges.pipe(
-      tap((value) => {
-        this.progress = value
-        this.valorSalida.emit(this.progress)
-      })
-    ).subscribe()
+    this.btnClass = `btn ${this.btnClass}`;
+    this.progresoControl = new FormControl(this.progress, [Validators.min(0), Validators.max(100)])
   }
 
   cambiarValor(valor: number) {
@@ -40,6 +36,18 @@ export class IncrementadorComponent implements OnInit {
     }
     this.valorSalida.emit(this.progress)
     this.progresoControl.setValue(this.progress)
+  }
+
+  onChange(newValor: number) {
+
+    if (newValor >= 100) {
+      this.progress = 100
+    } else if (newValor <= 0) {
+      this.progress = 0
+    }else {
+      this.progress = newValor
+    }
+    this.valorSalida.emit(this.progress)
   }
 
 }

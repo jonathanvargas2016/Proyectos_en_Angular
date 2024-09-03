@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { AppRoutingModule } from '../app-routing.module';
 import { ComponentsModule } from '../components/components.module';
 import { SharedModule } from '../shared/shared.module';
@@ -7,7 +7,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { GraficaOneComponent } from './grafica-one/grafica-one.component';
 import { MainComponent } from './main.component';
 import { ProgressComponent } from './progress/progress.component';
-
 
 
 @NgModule({
@@ -21,13 +20,15 @@ import { ProgressComponent } from './progress/progress.component';
     CommonModule,
     SharedModule,
     AppRoutingModule,
-    ComponentsModule
+    ComponentsModule,
   ],
   exports: [
     DashboardComponent,
     GraficaOneComponent,
     ProgressComponent,
     MainComponent
-  ]
+  ],
+
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class PagesModule { }
