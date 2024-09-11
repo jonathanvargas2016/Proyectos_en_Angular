@@ -7,6 +7,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { GraficaOneComponent } from './grafica-one/grafica-one.component';
 import { MainComponent } from './main.component';
 import { ProgressComponent } from './progress/progress.component';
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { ProgressComponent } from './progress/progress.component';
     DashboardComponent,
     GraficaOneComponent,
     ProgressComponent,
-    MainComponent
+    MainComponent,
+    AccountSettingsComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +28,8 @@ import { ProgressComponent } from './progress/progress.component';
     DashboardComponent,
     GraficaOneComponent,
     ProgressComponent,
-    MainComponent
+    MainComponent,
+    AccountSettingsComponent
   ],
 
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
