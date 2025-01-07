@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap, tap } from 'rxjs';
-import { Country, Translation } from '../../interfaces/pais.interface';
+import { Country } from '../../interfaces/pais.interface';
 import { PaisService } from '../../services/pais.service';
 
 @Component({
@@ -14,8 +14,9 @@ export class VerPaisComponent implements OnInit {
 
   constructor(
     private readonly activatedRoute: ActivatedRoute,
-    private readonly paisService: PaisService
-  ) {}
+    private readonly paisService: PaisService,
+    private readonly router: Router
+  ) { }
 
   ngOnInit(): void {
     // this.activatedRoute.params.subscribe(({id}) => {
@@ -29,7 +30,14 @@ export class VerPaisComponent implements OnInit {
         switchMap((param) => this.paisService.getPaisPorCodigo(param['id'])), // operador de transformacion. Permite recibir un observable y devolver otro observavle...
         tap((pais: Country) => console.log(pais)) // operador que dispara un efecto secundario...
       )
-      .subscribe((pais: Country) => (this.pais = { ...pais }));
+      .subscribe(
+
+        {
+          next: (pais: Country) => this.pais = { ...pais }, error: (error) => {
+            this.router.navigate(['countries', 'home']);
+          }
+        }
+      );
   }
 
 }
