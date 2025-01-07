@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { PaisTablaComponent } from './components/pais-tabla/pais-tabla.component';
 import { PaisInputComponent } from './components/pais-input/pais-input.component';
+import { PaisRoutingModule } from './pais-routing.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { PaisInputComponent } from './components/pais-input/pais-input.component
     PaisTablaComponent,
     PaisInputComponent,
   ],
-  imports: [CommonModule, ReactiveFormsModule, RouterModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule, PaisRoutingModule],
   exports: [
     PorCapitalComponent,
     PorPaisComponent,
