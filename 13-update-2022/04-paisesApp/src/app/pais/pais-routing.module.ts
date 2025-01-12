@@ -7,7 +7,7 @@ import { VerPaisComponent } from "./pages/ver-pais/ver-pais.component";
 
 const routes: Routes = [
     {
-        path: 'home', component: PorPaisComponent
+        path: '', component: PorPaisComponent
     },
     {
         path: 'region', component: PorRegionComponent
@@ -17,6 +17,11 @@ const routes: Routes = [
     },
     {
         path: 'pais/:id', component: VerPaisComponent
+    },
+    {
+        path: '',
+        redirectTo: 'capital',
+        pathMatch: 'full'
     }
 ]
 

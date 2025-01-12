@@ -9,12 +9,12 @@ const routes: Routes = [
     },
     {
         path: '',
-        redirectTo: 'countries/home',
+        redirectTo: 'countries',
         pathMatch: 'full',
     },
     {
         path: '**',
-        redirectTo: 'countries/home',
+        redirectTo: 'countries',
     },
 
 ]
