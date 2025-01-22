@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { filter, switchMap, tap } from 'rxjs';
-import { Region } from '../../interfaces/country.interface';
+import { Region, SmallCountry } from '../../interfaces/country.interface';
 import { CountriesService } from '../../services/countries.service';
 
 @Component({
@@ -12,16 +12,18 @@ import { CountriesService } from '../../services/countries.service';
   styleUrl: './selector-page.component.scss'
 })
 export class SelectorPageComponent implements OnInit {
+  public countriesByRegion: SmallCountry[] = [];
+  public borders: SmallCountry[] = [];
   public myForm!: FormGroup;
   private _formBuilder = inject(FormBuilder)
   private _countriesService = inject(CountriesService)
-  countries: string[] = []  
+  countries: string[] = []
 
   constructor() {
     this.myForm = this._formBuilder.group({
       region: ['', Validators.required],
       country: ['', Validators.required],
-      borders: ['', Validators.required]
+      border: ['', Validators.required]
     })
   }
 
@@ -39,13 +41,30 @@ export class SelectorPageComponent implements OnInit {
 
   private onRegionChanged(): void {
     this.getControl('region').valueChanges.pipe(
+      tap(() => {
+        this.countriesByRegion = []
+        this.myForm.get("country")?.reset('')
+      }),
       filter((region) => region),
-      tap((region) => console.log("---->", region)),
       switchMap((region) => this._countriesService.getContries(region)),
-      tap((data) => console.log("---->", data)),
-      
-
+      tap((data) => this.countriesByRegion = [...data]),
     ).subscribe()
+
+
+    this.getControl('country').valueChanges.pipe(
+      tap(() => {
+        this.myForm.get("border")?.reset('')
+        this.borders = []
+      }
+      ),
+      filter((country) => country),
+      switchMap((alphaCode) => this._countriesService.getCountryByAlphaCode(alphaCode)),
+      switchMap((country) => this._countriesService.getCountryBordersByCodes(country.borders)),
+      tap((countries) => this.borders = [...countries])
+    ).subscribe()
+
+
+
   }
 
 
