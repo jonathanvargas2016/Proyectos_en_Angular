@@ -1,0 +1,15 @@
+.menu {
+  background-color: #000;
+  height: 200px;
+  width: 100px;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 10px;
+}
+
+.menu ul li {
+  background-color: #fff;
+  text-align: center;
+}
