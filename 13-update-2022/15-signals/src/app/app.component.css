@@ -1,0 +1,13 @@
+.container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+}
+
+.container-item1 {
+    flex-basis: 20%;
+}
+
+.container-item2 {
+    flex-basis: 80%;
+}
