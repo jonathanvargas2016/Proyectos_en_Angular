@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
     avatar: 'https://reqres.in/img/faces/2-image.jpg',
   });
 
+
   public fullName = computed(
     () => `${this.user().first_name} ${this.user().last_name}`
   );
@@ -25,7 +26,9 @@ export class LoginComponent implements OnInit {
     console.log(`${this.user().first_name} - ${this.counter()}`);
   });
 
-  constructor() {}
+
+  constructor() {
+  }
 
   ngOnInit(): void {
     // setInterval(() => {

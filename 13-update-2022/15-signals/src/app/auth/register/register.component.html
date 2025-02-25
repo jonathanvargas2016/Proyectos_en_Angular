@@ -1,1 +1,35 @@
-<p>register works!</p>
+<form action="">
+    <div class="row">
+        <div class="col-6 d-flex flex-column gap-4">
+            <h1>Agregar: {{name()}} </h1>
+            <input #txtName (change)="name.set(txtName.value)" (input)="name.set(txtName.value)" [value]="name()"
+                type="text" placeholder="Nombre" class="form-control">
+            <input #txtPower (change)="power.set(+txtPower.value)" [value]="power()" type="number" placeholder="Poder"
+                class="form-control">
+            <button type="button" (click)="addCharacter()" class="btn btn-primary mt-2">Agregar</button>
+
+        </div>
+        <div class="col-6">
+            <h1>Listado</h1>
+            <ul>
+
+                <!-- track es porque elemento quiero darle seguimiento -->
+
+                @for (item of characters(); track item.id; let idx = $index) {
+
+                @if (item.power > 500) {
+                <li>
+                    <span>{{idx + 1}} - {{item.name}} </span>
+                    <strong [ngClass]="{'text-danger' : item.power > 9000, 'text-primary': item.power < 9000}">
+                        ({{item.power}} )</strong>
+                </li>
+                }@else {
+                <li><strong>Aqui no hay nadie </strong> </li>
+                }
+                }
+
+            </ul>
+        </div>
+    </div>
+
+</form>
