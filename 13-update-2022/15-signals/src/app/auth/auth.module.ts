@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { CharacterListComponent } from '../components/dragon-ball-page/character-list/character-list.component';
+import { CharacterAddComponent } from '../components/dragon-ball-page/character-add/character-add.component';
 
 const routes: Routes = [
   {
@@ -21,7 +23,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent],
+  declarations: [LoginComponent, RegisterComponent, CharacterListComponent, CharacterAddComponent],
   imports: [CommonModule, RouterModule.forChild(routes)],
 })
-export class AuthModule {}
+export class AuthModule { }

@@ -1,5 +1,6 @@
-import { Component, computed, effect, inject, signal } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, computed, inject, signal } from '@angular/core';
+import { Character } from 'src/app/interfaces/character.interface';
+import { DragonBallService } from 'src/app/services/dragon-ball.service';
 
 @Component({
   selector: 'app-register',
@@ -8,28 +9,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class RegisterComponent {
 
-  characters = signal<Character[]>([
-    {
-      id: 1,
-      name: "Goku",
-      power: 9001
-    },
-    {
-      id: 2,
-      name: "Vegeta",
-      power: 8000
-    },
-    {
-      id: 3,
-      name: "Piccolo",
-      power: 3000
-    },
-    {
-      id: 4,
-      name: "Yamcha",
-      power: 500
-    }
-  ])
+
+  characters = signal<Character[]>([])
 
   powerClasses = computed(() => {
     return {
@@ -37,39 +18,23 @@ export class RegisterComponent {
     }
   })
 
-  name = signal<string>('Gohan')
-  power = signal(100)
-
-  public nameEffect = effect(() => {
-    console.log('name dbz', this.name())
-  })
+  private dragonBallService = inject(DragonBallService)
 
   constructor() {
+    this.getData()
   }
 
-  addCharacter() {
+  addCharacter(character: Character) {
+    this.dragonBallService.addCharacter(character)
+    this.getData()
 
-    if (!this.name() || !this.power() || this.power() <= 0) return;
-
-    const newCharacter: Character = {
-      id: this.characters().length + 1,
-      name: this.name(),
-      power: this.power()
-    }
-
-    this.characters.update((items) => [...items, newCharacter])
-    this.resetFields()
   }
 
-  resetFields(): void {
-    this.name.set('')
-    this.power.set(0)
+  getData() {
+    this.characters.update(() => [...this.dragonBallService.characters])
   }
+
+
 
 }
 
-interface Character {
-  id: number,
-  name: string;
-  power: number;
-}
