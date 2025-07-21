@@ -1,21 +1,21 @@
-import { Component, inject } from '@angular/core';
-import { GifListComponent } from '../../components/grid-list/gif-list.component';
+import { Component, computed, inject } from '@angular/core';
 import { GifService } from '@services/gif.service';
+import { GifListComponent } from '../../components/grid-list/gif-list.component';
 
-const IMAGE_URLS: string[] = [
-    "https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg",
-    "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg",
-    "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg",
-    "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg",
-    "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg",
-    "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg",
-    "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-6.jpg",
-    "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-7.jpg",
-    "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-8.jpg",
-    "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg",
-    "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-10.jpg",
-    "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-11.jpg"
-]
+// const IMAGE_URLS: string[] = [
+//     "https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg",
+//     "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg",
+//     "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg",
+//     "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg",
+//     "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg",
+//     "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg",
+//     "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-6.jpg",
+//     "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-7.jpg",
+//     "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-8.jpg",
+//     "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg",
+//     "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-10.jpg",
+//     "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-11.jpg"
+// ]
 
 @Component({
   selector: 'app-trending-page',
@@ -25,19 +25,14 @@ const IMAGE_URLS: string[] = [
 })
 
 
- 
+
 export default class TrendingPageComponent {
 
- imageUrls: string[] = IMAGE_URLS 
- private readonly _gifService = inject(GifService)
+  private readonly _gifService = inject(GifService)
+  imageUrls = computed(() => this._gifService.trendingGifs())
 
- constructor( ){
-  this._gifService.loadTrendingGifs().subscribe({
-    next: (res) => {
 
-      console.log("res ----> ", res)
-    }
-  })
- }
+  constructor() {
+  }
 
 }

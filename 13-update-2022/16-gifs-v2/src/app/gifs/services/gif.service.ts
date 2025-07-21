@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import { environment } from '@environments/environment';
 import { map, Observable } from 'rxjs';
 import { GiphyResponse } from '../interfaces/giphy.interfaces';
@@ -10,16 +10,33 @@ import { Gif } from '@interfaces/gif.interface';
   providedIn: 'root'
 })
 export class GifService {
+
+  trendingGifs = signal<Gif[]>([]);
+  trendingGifsLoading = signal<boolean>(true);
+
   private readonly _envs = environment
   private readonly _http = inject(HttpClient)
 
-  loadTrendingGifs(): Observable<Gif[]> {
-    return this._http.get<GiphyResponse>(`${this._envs.urlGif}/trending`, {
+  constructor() {
+    this.loadTrendingGifs();
+    console.log('init service');
+  }
+
+  loadTrendingGifs() {
+    this._http.get<GiphyResponse>(`${this._envs.urlGif}/trending`, {
       params: {
         api_key: this._envs.apiKey,
         limit: 20
       }
-    }).pipe(map((res) => GifMapper.mapGiphyItemsToGifArray(res.data)))
+    }).subscribe({
+      next: (res) => {
+        const gifs = GifMapper.mapGiphyItemsToGifArray(res.data);
+        this.trendingGifs.set(gifs);
+        this.trendingGifsLoading.set(false);
+
+      },
+
+    })
   }
 
 
