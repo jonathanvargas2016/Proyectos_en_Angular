@@ -19,7 +19,10 @@
     "target": "ES2022",
     "module": "ES2022",
     "paths": {
-      "@environments/*": ["src/environments/*"]
+      "@environments/*": ["src/environments/*"],
+      "@services/*": ["src/app/gifs/services/*"],
+      "@mappers/*": ["src/app/gifs/mappers/*"],
+      "@interfaces/*": ["src/app/gifs/interfaces/*"]
     }
   },
   "angularCompilerOptions": {

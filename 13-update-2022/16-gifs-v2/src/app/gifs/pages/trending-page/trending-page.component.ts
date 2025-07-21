@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { GifListComponent } from '../../components/grid-list/gif-list.component';
+import { GifService } from '@services/gif.service';
 
 const IMAGE_URLS: string[] = [
     "https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg",
@@ -28,5 +29,15 @@ const IMAGE_URLS: string[] = [
 export default class TrendingPageComponent {
 
  imageUrls: string[] = IMAGE_URLS 
+ private readonly _gifService = inject(GifService)
+
+ constructor( ){
+  this._gifService.loadTrendingGifs().subscribe({
+    next: (res) => {
+
+      console.log("res ----> ", res)
+    }
+  })
+ }
 
 }
