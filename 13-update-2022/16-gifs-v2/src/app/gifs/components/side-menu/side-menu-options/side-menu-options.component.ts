@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { GifService } from '@services/gif.service';
 
 @Component({
   selector: 'gifs-side-menu-options',
@@ -24,6 +25,10 @@ export class SideMenuOptionsComponent {
       route: "search"
     }
   ]
+
+  
+  private readonly _gifService = inject(GifService);
+  historykeys  = computed(() => this._gifService.searchHistoryKeys());
 
 
 }
