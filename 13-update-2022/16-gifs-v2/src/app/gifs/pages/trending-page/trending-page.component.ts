@@ -1,21 +1,6 @@
-import { Component, computed, inject } from '@angular/core';
+import { Component, computed, ElementRef, inject, viewChild } from '@angular/core';
 import { GifService } from '@services/gif.service';
 import { GifListComponent } from '../../components/grid-list/gif-list.component';
-
-// const IMAGE_URLS: string[] = [
-//     "https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg",
-//     "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg",
-//     "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg",
-//     "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg",
-//     "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg",
-//     "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg",
-//     "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-6.jpg",
-//     "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-7.jpg",
-//     "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-8.jpg",
-//     "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg",
-//     "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-10.jpg",
-//     "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-11.jpg"
-// ]
 
 @Component({
   selector: 'app-trending-page',
@@ -30,9 +15,29 @@ export default class TrendingPageComponent {
 
   private readonly _gifService = inject(GifService)
   imageUrls = computed(() => this._gifService.trendingGifs())
+  trendingGifGroup = computed(() => this._gifService.trendingGifGroup())
+  scrollDivRef = viewChild<ElementRef<HTMLDivElement>>('groupDiv')
 
+  onScroll(_$event: Event) {
+    const scrollDiv = this.scrollDivRef()?.nativeElement;
 
-  constructor() {
+    if (!scrollDiv) return;
+
+    const scrollTop = scrollDiv.scrollTop; //posicion que tenemos de scroll actualmente. Scroll hecho desde arriba
+    const clientHeight = scrollDiv.clientHeight; //altura del viewport, lo que el usuario ve
+    const scrollHeight = scrollDiv.scrollHeight; //altura total del contenido, lo que tengo de scroll hecho
+
+    // 300px de gracias para hacer la peticion antes de llegar al final
+
+    const isAtBottom = scrollTop + clientHeight + 300 >= scrollHeight
+    if (isAtBottom) {
+      this._gifService.loadTrendingGifs();
+    }
+
+    // piezas necesarias para el scroll infinito
+    // viewpoint lo que el user 600px
+    // scrollHeight indica el espacio que hice scroll hasta el momento
+
   }
 
 }
