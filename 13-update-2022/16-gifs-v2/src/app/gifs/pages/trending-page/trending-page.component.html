@@ -10,7 +10,7 @@
     <div class="grid gap-4">
         @for (gif of group; track gif.id) {
         <div>
-            <img class="h-full w-full rounded-lg object-cover" [src]="gif.url" [alt]="gif.title">
+            <img loading="lazy" class="h-full w-full rounded-lg object-cover" [src]="gif.url" [alt]="gif.title">
         </div>
         }
     </div>
